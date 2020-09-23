@@ -1,3 +1,8 @@
 body{
     
 }
+#body{
+    min-height: 94vh;
+    background: url("../imgs/background.png");
+    background-repeat: no-repeat;
+}
