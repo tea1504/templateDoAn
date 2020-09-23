@@ -1,8 +1,6 @@
-body{
-    
-}
 #body{
-    min-height: 50vh;
+    min-height: 88vh;
     background: url("../imgs/background.png"), rgb(241, 211, 211);
     background-repeat: no-repeat;
+    background-position: -10px;
 }
