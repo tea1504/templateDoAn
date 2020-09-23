@@ -3,6 +3,6 @@ body{
 }
 #body{
     min-height: 94vh;
-    background: url("../imgs/background.png");
+    background: url("../imgs/background.png"), rgb(241, 211, 211);
     background-repeat: no-repeat;
 }
