@@ -5,20 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/templateDoAn/vendor/bootstrap/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <title>Template index</title>
-    <style>
-        #body {
-            min-height: 88vh;
-            background: url("../imgs/background.png"), url("../imgs/bottom.png"), black;
-            background-position: top, bottom;
-            background-repeat: no-repeat;
-        }
-
-        #content{
-            backdrop-filter: brightness(.5);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <title>Template dashbroad</title>
 </head>
 
 <body>

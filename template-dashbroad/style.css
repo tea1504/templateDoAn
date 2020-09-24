@@ -1,0 +1,16 @@
+#body {
+    min-height: 88vh;
+    background: url("../imgs/background.png"), url("../imgs/bottom.png"), #ddd;
+    background-position: top, bottom;
+    background-repeat: repeat-x;
+}
+
+#content {
+    min-height: 88vh;
+    backdrop-filter: brightness(.5);
+}
+
+#sreach_header{
+    background: transparent;
+    color: white;
+}

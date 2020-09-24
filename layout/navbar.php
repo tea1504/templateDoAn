@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/templatedoan/template-dashbroad">
         <img src="../imgs/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
         Tên WEB
     </a>

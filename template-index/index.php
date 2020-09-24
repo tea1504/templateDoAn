@@ -4,19 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="/templateDoAn/vendor/bootstrap/css/bootstrap.min.css">
     <title>Template index</title>
-    <style>
-        #body {
-            min-height: 88vh;
-            background: url("../imgs/background.png"), url("../imgs/bottom.png"), red;
-            background-position: top, bottom;
-            background-repeat: no-repeat;
-        }
-        #sidebarMenu{
-            min-height: 88vh;
-        }
-    </style>
 </head>
 
 <body>

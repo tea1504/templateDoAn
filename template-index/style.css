@@ -1,6 +1,6 @@
 #body{
     min-height: 88vh;
-    background: url("../imgs/background.png"), rgb(241, 211, 211);
+    background: url("../imgs/background.png"), url("../imgs/bottom.png"), rgb(241, 211, 211);
     background-repeat: no-repeat;
-    background-position: -10px;
+    background-position: top, bottom;
 }

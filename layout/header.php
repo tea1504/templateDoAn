@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/templatedoan/template-index">
         <img src="../imgs/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
         Tên WEB
     </a>
@@ -16,13 +16,11 @@
         <form class="col-md-11">
             <div class="row">
                 <div class="col-10">
-                    <input class="form-control" type="search" placeholder="Tìm kiếm" aria-label="Search">
+                    <input id="sreach_header" class="form-control" type="search" placeholder="Tìm kiếm" aria-label="Search">
                 </div>
                 <div class="col-2">
                     <button class="btn btn-outline-success w-100" type="submit">Tìm kiếm</button>
                 </div>
-
-
             </div>
         </form>
     </div>
