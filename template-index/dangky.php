@@ -31,16 +31,16 @@
                         <legend class="myfont mb-0">Phần thông tin cơ bản</legend>
                         <hr class="mt-0">
                         <div class="form-group">
-                            <label for="ten">Họ và tên: </label>
+                            <label for="ten">Họ và tên: <span class="text-danger font-weight-bold">*</span></label>
                             <input type="text" name="ten" id="ten" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="ngaysinh">Ngày sinh: </label>
+                            <label for="ngaysinh">Ngày sinh: <span class="text-danger font-weight-bold">*</span></label>
                             <input type="date" id="ngaysinh" name="ngaysinh" class="form-control">
                         </div>
                         <fieldset class="form-group">
                             <div class="row">
-                                <legend class="col-form-label col-sm-2 pt-0">Giới tính: </legend>
+                                <legend class="col-form-label col-sm-2 pt-0">Giới tính: <span class="text-danger font-weight-bold">*</span></legend>
                                 <div class="col-ms-10">
                                     <div class="form-check">
                                         <input type="radio" name="gioitinh" id="gioitinh_nam" class="form-check-input" value="1" checked>
@@ -62,11 +62,11 @@
                             <input type="mail" id="email" name="email" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="dienthoai">Số điện thoại: </label>
+                            <label for="dienthoai">Số điện thoại: <span class="text-danger font-weight-bold">*</span></label>
                             <input type="tel" name="dienthoai" id="dienthoai" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="diachi">Địa chỉ: </label>
+                            <label for="diachi">Địa chỉ: <span class="text-danger font-weight-bold">*</span></label>
                             <input type="text" name="diachi" id="diachi" class="form-control">
                         </div>
                     </fieldset>
@@ -74,18 +74,21 @@
                         <legend class="myfont mb-0">Phần tài khoản</legend>
                         <hr class="mt-0">
                         <div class="form-group">
-                            <label for="tendangnhap">Tên đăng nhập: </label>
+                            <label for="tendangnhap">Tên đăng nhập: <span class="text-danger font-weight-bold">*</span></label>
                             <input type="text" name="tendangnhap" id="tendangnhap" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="matkhau">Mật khẩu: </label>
+                            <label for="matkhau">Mật khẩu: <span class="text-danger font-weight-bold">*</span></label>
                             <input type="password" name="matkhau" id="matkhau" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="nhaplaimatkhau">Nhập lại mật khẩu: </label>
+                            <label for="nhaplaimatkhau">Nhập lại mật khẩu: <span class="text-danger font-weight-bold">*</span></label>
                             <input type="password" name="nhaplaimatkhau" id="nhaplaimatkhau" class="form-control">
                         </div>
                     </fieldset>
+                    <div class="form-group text-center">
+                        <button class="btn btn-outline-danger">Đăng ký</button>
+                    </div>
                 </form>
                 <h1 class="py-5 m-0"></h1>
             </div>
