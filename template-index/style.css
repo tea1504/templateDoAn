@@ -39,6 +39,11 @@ div#show-password{
 .hide{
     display: none !important;
 }
+
+fieldset{
+    border: 1px solid red;
+}
+
 /* reposive */
 @media only screen and (max-width: 650px) {
     #img-dangnhap{
