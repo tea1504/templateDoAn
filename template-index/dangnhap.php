@@ -7,6 +7,7 @@
     <title>Front-end | Đăng nhập</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="/templateDoAn/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/templateDoAn/vendor/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -20,26 +21,36 @@
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <h1 class="card-title text-center">
+                        <h1 class="card-title text-center myfont">
                             Đăng nhập
                         </h1>
                         <div class="form-group">
                             <label for="ten_dang_nhap">Tên đăng nhập : </label>
                             <input type="text" name="ten_dang_nhap" id="ten_dang_nhap" class="form-control" />
+                            <div class="valid-feedback">
+                                Đã nhập.
+                            </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="position: relative;">
                             <label for="mat_khau">Mật khẩu : </label>
                             <input type="password" name="mat_khau" id="mat_khau" class="form-control" />
+                            <div class="valid-feedback">
+                                Đã nhập.
+                            </div>
+                            <div id="show-password">
+                                <i class="fa fa-eye-slash hide" aria-hidden="true"></i>
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </div>
                         </div>
                         <div class="form-group text-center">
                             <button name="btn_dang_nhap" id="btn_dang_nhap" class="btn btn-success">Đăng nhập</button>
                         </div>
-                        <h5 class="text-center">Hoặc</h5>
+                        <h5 class="text-center myfont">hoặc</h5>
                         <div class="form-group text-center">
-                            <button name="btn_dang_nhap" id="btn_dang_nhap" class="btn btn-outline-primary mb-2 w-100 my-btn-cir">
-                                <h5>Đăng nhập</h5>
+                            <button name="btn_facebook" id="btn_facebook" class="btn btn-outline-primary mb-2 w-100 my-btn-cir">
+                                <h5>Facebook</h5>
                             </button>
-                            <button name="btn_dang_nhap" id="btn_dang_nhap" class="btn btn-outline-danger mb-2 w-100 my-btn-cir">
+                            <button name="btn_google" id="btn_google" class="btn btn-outline-danger mb-2 w-100 my-btn-cir">
                                 <h5>Google</h5>
                             </button>
                         </div>
@@ -49,14 +60,72 @@
         </form>
         <?php
         if (isset($_POST['btn_dang_nhap'])) {
-            
+            $ten_dang_nhap = $_POST['ten_dang_nhap'];
+            $mat_khau = $_POST['mat_khau'];
+            $erorrs = [];
+            if (empty($ten_dang_nhap)) {
+                $erorrs['ten_dang_nhap'][] = [
+                    'rule' => 'required',
+                    'rule_value' => true,
+                    'value' => $ten_dang_nhap,
+                    'mes' => 'Tên đăng nhập không được bỏ trống',
+                ];
+            } else {
+                if (strlen($ten_dang_nhap) < 3) {
+                    $erorrs['ten_dang_nhap'][] = [
+                        'rule' => 'minlength',
+                        'rule_value' => 3,
+                        'value' => $ten_dang_nhap,
+                        'mes' => 'Tên đăng quá ngắn, phải có ít nhất 3 ký tự',
+                    ];
+                }
+                if (strlen($ten_dang_nhap) > 50) {
+                    $erorrs['ten_dang_nhap'][] = [
+                        'rule' => 'maxlength',
+                        'rule_value' => 3,
+                        'value' => $ten_dang_nhap,
+                        'mes' => 'Tên đăng nhập quá dài, chỉ được tối đa 50 ký tự',
+                    ];
+                }
+            }
+            if (empty($mat_khau)) {
+                $erorrs['mat_khau'][] = [
+                    'rule' => 'required',
+                    'rule_value' => true,
+                    'value' => $mat_khau,
+                    'mes' => 'Mật khẩu không được bỏ trống',
+                ];
+            }
         }
         ?>
-        <div id="aler" class="alert alert-warning alert-dismissible fade show my-alert" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
+        <?php if (isset($_POST['btn_dang_nhap']) && isset($erorrs) && count($erorrs) > 0) : ?>
+            <div id="aler" class="alert alert-warning alert-dismissible fade show my-alert" role="alert">
+                <?php foreach ($erorrs as $fields) : ?>
+                    <?php foreach ($fields as $mes) : ?>
+                        <strong>Lỗi</strong>: <?= $mes['mes'] ?><br>
+                    <?php endforeach; ?>
+                <?php endforeach; ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <?php endif; ?>
+        <?php
+        if (isset($_POST['btn_dang_nhap']) && (!isset($erorrs) || count($erorrs) == 0)) {
+            if ($ten_dang_nhap == 'admin' && $mat_khau == '123') {
+                header('Location: index.php');
+            } else {
+        ?>
+                <div id="aler" class="alert alert-danger alert-dismissible fade show my-alert" role="alert">
+                    <strong>Đăng nhập thất bại</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+        <?php
+            }
+        }
+        ?>
     </div>
     <script src="/templateDoAn/vendor/jquery/jquery.js"></script>
     <script src="/templateDoAn/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -100,6 +169,19 @@
                 },
                 unhighlight: function(element, errorClass, validClass) {
                     $(element).addClass("is-valid").removeClass("is-invalid");
+                }
+            });
+            $('#show-password').click(function() {
+                var pass = document.getElementById('mat_khau').type;
+                if (pass == 'password') {
+                    $('#show-password .fa-eye-slash').removeClass('hide');
+                    $('#show-password .fa-eye').addClass('hide');
+                    document.getElementById('mat_khau').setAttribute('type', 'text');
+                }
+                else{
+                    $('#show-password .fa-eye').removeClass('hide');
+                    $('#show-password .fa-eye-slash').addClass('hide');
+                    document.getElementById('mat_khau').setAttribute('type', 'password');
                 }
             });
         });

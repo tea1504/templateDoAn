@@ -1,8 +1,14 @@
+/*Font nghệ thuật*/
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 /*Hiệu chỉnh CSS*/
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+/* class dùng để thêm font nghệ thuật vào */
+.myfont{
+    font-family: 'Lobster', cursive;
 }
 /* Phần back-ground màu xám cho trang đăng nhập */
 .my-background{
@@ -12,15 +18,28 @@
     justify-content: center;
     align-items: center;
 }
-
+/* Bo tròn button  */
 .my-btn-cir{
     border-radius: 50px !important;
 }
+/* Chỉnh lại vị trí của thông báo */
 .my-alert{
     position: fixed !important;
     top:10px;
 }
+/* Chức nãng ẩn hiện password */
+div#show-password{
+    position: absolute;
+    top: 39px;
+    right: 10px;
+    cursor: pointer;
+    background-color: white;
+}
 
+.hide{
+    display: none !important;
+}
+/* reposive */
 @media only screen and (max-width: 650px) {
     #img-dangnhap{
         display: none;
