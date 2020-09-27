@@ -1,6 +1,28 @@
-#body{
-    min-height: 88vh;
-    background: url("../imgs/background.png"), url("../imgs/bottom.png"), rgb(241, 211, 211);
-    background-repeat: no-repeat;
-    background-position: top, bottom;
+/*Hiệu chỉnh CSS*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Phần back-ground màu xám cho trang đăng nhập */
+.my-background{
+    height: 100vh;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-btn-cir{
+    border-radius: 50px !important;
+}
+.my-alert{
+    position: fixed !important;
+    top:10px;
+}
+
+@media only screen and (max-width: 650px) {
+    #img-dangnhap{
+        display: none;
+    }
 }
