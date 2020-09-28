@@ -94,11 +94,103 @@
                         </div>
                     </fieldset>
                     <div class="form-group text-center">
-                        <button class="btn btn-outline-danger">Đăng ký</button>
+                        <button class="btn btn-outline-success">Đăng ký</button>
+                        <input type="reset" value="Nhập lại" class="btn btn-outline-danger">
                     </div>
                 </form>
+                <?php
+                if (isset($_POST['btn_dangky'])) {
+                    $errors = [];
+                    $ten = $_POST['ten'];
+                    $ngaysinh = $_POST['ngaysinh'];
+                    $gioitinh = $_POST['gioitinh'];
+                    $email = empty($_POST['email']) ? 'NULL' : $_POST['email'];
+                    $dienthoai = $_POST['dienthoai'];
+                    $diachi = $_POST['diachi'];
+                    $tendangnhap = $_POST['tendangnhap'];
+                    $matkhau = $_POST['matkhau'];
+                    $nhaplaimatkhau = $_POST['nhaplaimatkhau'];
+                    if (empty($ten)) {
+                        $errors['ten'][] = array(
+                            'rule' => 'required',
+                            'rule_value' => true,
+                            'value' => $ten,
+                            'mes' => 'Họ và tên không được bỏ trống',
+                        );
+                    }
+                    if (empty($ngaysinh)) {
+                        $errors['ngaysinh'][] = array(
+                            'rule' => 'required',
+                            'rule_value' => true,
+                            'value' => $ngaysinh,
+                            'mes' => 'Ngày sinh không được bỏ trống',
+                        );
+                    }
+                    if (empty($dienthoai)) {
+                        $errors['dienthoai'][] = array(
+                            'rule' => 'required',
+                            'rule_value' => true,
+                            'value' => $dienthoai,
+                            'mes' => 'Số điện thoại không được bỏ trống',
+                        );
+                    }
+                    if (empty($diachi)) {
+                        $errors['diachi'][] = array(
+                            'rule' => 'required',
+                            'rule_value' => true,
+                            'value' => $diachi,
+                            'mes' => 'Địa chỉ không được bỏ trống',
+                        );
+                    }
+                    if (empty($tendangnhap)) {
+                        $errors['tendangnhap'][] = array(
+                            'rule' => 'required',
+                            'rule_value' => true,
+                            'value' => $tendangnhap,
+                            'mes' => 'Tên đăng nhập không được bỏ trống',
+                        );
+                    }
+                    if (empty($matkhau)) {
+                        $errors['matkhau'][] = array(
+                            'rule' => 'required',
+                            'rule_value' => true,
+                            'value' => $matkhau,
+                            'mes' => 'Mật khẩu không được bỏ trống',
+                        );
+                    }
+                    if (empty($nhaplaimatkhau)) {
+                        $errors['nhaplaimatkhau'][] = array(
+                            'rule' => 'required',
+                            'rule_value' => true,
+                            'value' => $nhaplaimatkhau,
+                            'mes' => 'Nhập lại mật khẩu không được bỏ trống',
+                        );
+                    } else {
+                        if ($nhaplaimatkhau != $matkhau) {
+                            $errors['nhaplaimatkhau'][] = array(
+                                'rule' => 'equalTo',
+                                'rule_value' => $matkhau,
+                                'value' => $nhaplaimatkhau,
+                                'mes' => 'Mật khẩu không khớp',
+                            );
+                        }
+                    }
+                }
+                ?>
                 <h1 class="py-5 m-0" style="border-radius: 0 0 5px 5px;"></h1>
             </div>
+            <?php if (isset($_POST['btn_dangky']) && isset($errors) && count($errors) > 0) : ?>
+                <div id="aler" class="alert alert-warning alert-dismissible fade show my-alert" role="alert">
+                    <?php foreach ($errors as $fields) : ?>
+                        <?php foreach ($fields as $mes) : ?>
+                            <strong>Lỗi</strong>: <?= $mes['mes'] ?><br>
+                        <?php endforeach; ?>
+                    <?php endforeach; ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
     <div class="container-fluid">
@@ -136,6 +228,11 @@
                     nhaplaimatkhau: {
                         required: true,
                         equalTo: "#matkhau"
+                    },
+                },
+                messages: {
+                    nhaplaimatkhau: {
+                        equalTo: 'Mật khẩu không khớp'
                     },
                 },
                 errorElement: "em",
