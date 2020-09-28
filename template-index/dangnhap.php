@@ -37,7 +37,7 @@
                             <div class="valid-feedback">
                                 Đã nhập.
                             </div>
-                            <div id="show-password">
+                            <div class="show-password" id="show-password">
                                 <i class="fa fa-eye-slash hide" aria-hidden="true"></i>
                                 <i class="fa fa-eye" aria-hidden="true"></i>
                             </div>

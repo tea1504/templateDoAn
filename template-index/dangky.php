@@ -86,11 +86,19 @@
                             <label for="matkhau">Mật khẩu: <span class="text-danger font-weight-bold">*</span></label>
                             <input type="password" name="matkhau" id="matkhau" class="form-control">
                             <div class="valid-feedback"> Đã nhập.</div>
+                            <div class="show-password">
+                                <i class="fa fa-eye-slash hide" aria-hidden="true"></i>
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="nhaplaimatkhau">Nhập lại mật khẩu: <span class="text-danger font-weight-bold">*</span></label>
                             <input type="password" name="nhaplaimatkhau" id="nhaplaimatkhau" class="form-control">
                             <div class="valid-feedback"> Đã nhập.</div>
+                            <div class="show-password">
+                                <i class="fa fa-eye-slash hide" aria-hidden="true"></i>
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </div>
                         </div>
                     </fieldset>
                     <div class="form-group text-center">

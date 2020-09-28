@@ -28,7 +28,7 @@
     top:10px;
 }
 /* Chức nãng ẩn hiện password */
-div#show-password{
+div.show-password{
     position: absolute;
     top: 39px;
     right: 10px;
