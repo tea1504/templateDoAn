@@ -82,20 +82,20 @@
                             <input type="text" name="tendangnhap" id="tendangnhap" class="form-control">
                             <div class="valid-feedback"> Đã nhập.</div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="position: relative;">
                             <label for="matkhau">Mật khẩu: <span class="text-danger font-weight-bold">*</span></label>
                             <input type="password" name="matkhau" id="matkhau" class="form-control">
                             <div class="valid-feedback"> Đã nhập.</div>
-                            <div class="show-password">
+                            <div class="show-password" id="show-password-matkhau">
                                 <i class="fa fa-eye-slash hide" aria-hidden="true"></i>
                                 <i class="fa fa-eye" aria-hidden="true"></i>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="position: relative;">
                             <label for="nhaplaimatkhau">Nhập lại mật khẩu: <span class="text-danger font-weight-bold">*</span></label>
                             <input type="password" name="nhaplaimatkhau" id="nhaplaimatkhau" class="form-control">
                             <div class="valid-feedback"> Đã nhập.</div>
-                            <div class="show-password">
+                            <div class="show-password" id="show-password-nhaplaimatkhau">
                                 <i class="fa fa-eye-slash hide" aria-hidden="true"></i>
                                 <i class="fa fa-eye" aria-hidden="true"></i>
                             </div>
@@ -258,6 +258,32 @@
                 },
                 unhighlight: function(element, errorClass, validClass) {
                     $(element).addClass("is-valid").removeClass("is-invalid");
+                }
+            });
+            $('#show-password-matkhau').click(function() {
+                var pass = document.getElementById('matkhau').type;
+                if (pass == 'password') {
+                    $('#show-password-matkhau .fa-eye-slash').removeClass('hide');
+                    $('#show-password-matkhau .fa-eye').addClass('hide');
+                    document.getElementById('matkhau').setAttribute('type', 'text');
+                }
+                else{
+                    $('#show-password-matkhau .fa-eye').removeClass('hide');
+                    $('#show-password-matkhau .fa-eye-slash').addClass('hide');
+                    document.getElementById('matkhau').setAttribute('type', 'password');
+                }
+            });
+            $('#show-password-nhaplaimatkhau').click(function() {
+                var pass = document.getElementById('nhaplaimatkhau').type;
+                if (pass == 'password') {
+                    $('#show-password-nhaplaimatkhau .fa-eye-slash').removeClass('hide');
+                    $('#show-password-nhaplaimatkhau .fa-eye').addClass('hide');
+                    document.getElementById('nhaplaimatkhau').setAttribute('type', 'text');
+                }
+                else{
+                    $('#show-password-nhaplaimatkhau .fa-eye').removeClass('hide');
+                    $('#show-password-nhaplaimatkhau .fa-eye-slash').addClass('hide');
+                    document.getElementById('nhaplaimatkhau').setAttribute('type', 'password');
                 }
             });
         });
