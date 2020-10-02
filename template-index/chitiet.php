@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vn">
 
 <head>
     <meta charset="UTF-8">
@@ -12,6 +12,7 @@
         img {
             background: #f0f0f0;
         }
+
         #btn-add {
             border-radius: 0 !important;
             border-bottom: 1px solid red;
@@ -19,10 +20,10 @@
             font-size: large;
             padding: 0;
         }
+
         #btn-add:hover {
             border-bottom: none;
         }
-
     </style>
 </head>
 
@@ -76,6 +77,35 @@
                         <b>Viết đánh giá</b>
                     </div>
                 </form>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <a class="nav-link active" id="mo_ta-tab" data-toggle="pill" href="#mo_ta" role="tab" aria-controls="mo_ta" aria-selected="true">Mô tả sản phẩm</a>
+                            <a class="nav-link" id="chi_tiet-tab" data-toggle="pill" href="#chi_tiet" role="tab" aria-controls="chi_tiet" aria-selected="false">Chi tiết</a>
+                            <a class="nav-link" id="nhan_xet-tab" data-toggle="pill" href="#nhan_xet" role="tab" aria-controls="nhan_xet" aria-selected="false">Nhập xét</a>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="tab-content" id="v-pills-tabContent">
+                            <div class="tab-pane fade show active" id="mo_ta" role="tabpanel" aria-labelledby="mo_ta-tab">
+                                Flowers have two unique peculiarities because they have very unbelievable appearance and unique smell. This combination makes them perfect. And this magical process of fertilization, it is a real wonder. Just imagine how simple and incredible it is when the bees pollinate flowers. Yeah, our nature is unbelievable. If you want to express your feelings without saying a word just present flowers and everything will be understood. Besides that they have other interesting features because their blossom is the main ingredient of all perfumes. They can cast a spell with their charming smell. <br>
+                                We are proud to present our wonderful goods. Here you can find many wonderful examples because our collection is one of the biggest among flower stores. We know how to satisfy our clients because we have one similar passion – flowers.
+                            </div>
+                            <div class="tab-pane fade" id="chi_tiet" role="tabpanel" aria-labelledby="chi_tiet-tab"> 1234567890 </div>
+                            <div class="tab-pane fade" id="nhan_xet" role="tabpanel" aria-labelledby="nhan_xet-tab"> Chưa có đánh giá </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="text-danger myfont">Sản phẩm liên quan</h3>
             </div>
         </div>
     </div>
