@@ -1,34 +1,40 @@
 /*Font nghệ thuật*/
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 /*Hiệu chỉnh CSS*/
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 /* class dùng để thêm font nghệ thuật vào */
-.myfont{
+.myfont {
     font-family: 'Lobster', cursive;
 }
+
 /* Phần back-ground màu xám cho trang đăng nhập */
-.my-background{
+.my-background {
     height: 100vh;
     background-color: #ddd;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 /* Bo tròn button  */
-.my-btn-cir{
+.my-btn-cir {
     border-radius: 50px !important;
 }
+
 /* Chỉnh lại vị trí của thông báo */
-.my-alert{
+.my-alert {
     position: fixed !important;
-    top:10px;
+    top: 10px;
 }
+
 /* Chức nãng ẩn hiện password */
-div.show-password{
+div.show-password {
     position: absolute;
     top: 39px;
     right: 10px;
@@ -36,11 +42,11 @@ div.show-password{
     background-color: white;
 }
 
-.hide{
+.hide {
     display: none !important;
 }
 
-fieldset{
+fieldset {
     border: 1px solid red;
 }
 
@@ -51,7 +57,7 @@ fieldset{
 /* button mua hang  */
 #btn-add {
     border-radius: 0 !important;
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid #dc3545;
     transition: 1s border-bottom;
     font-size: large;
     padding: 0;
@@ -61,9 +67,22 @@ fieldset{
     border-bottom: none;
 }
 
+/* Hiệu chỉnh lại nav  */
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: #d12c4f;
+    background-color: white;
+}
+
+a.tab {
+    background: #f0f0f0;
+    color: black;
+    font-weight: bold;
+}
+
 /* reposive */
 @media only screen and (max-width: 650px) {
-    #img-dangnhap{
+    #img-dangnhap {
         display: none;
     }
 }

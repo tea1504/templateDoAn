@@ -10,6 +10,18 @@
     <link rel="stylesheet" href="/templateDoAn/vendor/font-awesome/css/font-awesome.min.css">
     <!-- Test  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+    <style>
+        .nav-pills .nav-link.active,
+        .nav-pills .show>.nav-link {
+            color: #d12c4f;
+            background-color: white;
+        }
+        a.tab{
+            background: #f0f0f0;
+            color: black;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
@@ -72,9 +84,9 @@
                 <div class="row">
                     <div class="col-3">
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <a class="nav-link active" id="mo_ta-tab" data-toggle="pill" href="#mo_ta" role="tab" aria-controls="mo_ta" aria-selected="true">Mô tả sản phẩm</a>
-                            <a class="nav-link" id="chi_tiet-tab" data-toggle="pill" href="#chi_tiet" role="tab" aria-controls="chi_tiet" aria-selected="false">Chi tiết</a>
-                            <a class="nav-link" id="nhan_xet-tab" data-toggle="pill" href="#nhan_xet" role="tab" aria-controls="nhan_xet" aria-selected="false">Nhập xét</a>
+                            <a class="nav-link active tab" id="mo_ta-tab" data-toggle="pill" href="#mo_ta" role="tab" aria-controls="mo_ta" aria-selected="true">Mô tả sản phẩm</a>
+                            <a class="nav-link tab" id="chi_tiet-tab" data-toggle="pill" href="#chi_tiet" role="tab" aria-controls="chi_tiet" aria-selected="false">Chi tiết</a>
+                            <a class="nav-link tab" id="nhan_xet-tab" data-toggle="pill" href="#nhan_xet" role="tab" aria-controls="nhan_xet" aria-selected="false">Nhập xét</a>
                         </div>
                     </div>
                     <div class="col-9">
@@ -90,7 +102,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-5">
             <div class="col-md-12">
                 <h3 class="text-danger myfont">Sản phẩm liên quan</h3>
             </div>
