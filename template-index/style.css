@@ -44,6 +44,23 @@ fieldset{
     border: 1px solid red;
 }
 
+.img-background {
+    background: #f0f0f0;
+}
+
+/* button mua hang  */
+#btn-add {
+    border-radius: 0 !important;
+    border-bottom: 1px solid red;
+    transition: 1s border-bottom;
+    font-size: large;
+    padding: 0;
+}
+
+#btn-add:hover {
+    border-bottom: none;
+}
+
 /* reposive */
 @media only screen and (max-width: 650px) {
     #img-dangnhap{

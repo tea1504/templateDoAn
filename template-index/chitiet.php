@@ -8,43 +8,30 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="/templateDoAn/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/templateDoAn/vendor/font-awesome/css/font-awesome.min.css">
-    <style>
-        img {
-            background: #f0f0f0;
-        }
-
-        #btn-add {
-            border-radius: 0 !important;
-            border-bottom: 1px solid red;
-            transition: 1s border-bottom;
-            font-size: large;
-            padding: 0;
-        }
-
-        #btn-add:hover {
-            border-bottom: none;
-        }
-    </style>
+    <!-- Test  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
 </head>
 
 <body>
     <div class="container my-5">
         <div class="row">
             <div class="col-md-2">
-                <div class="row row-cols-1">
-                    <div class="col my-1">
-                        <img src="/templatedoan/imgs/Solar-Sunflower1-144x154.png" alt="1" class="img-fluid">
-                    </div>
-                    <div class="col my-1">
-                        <img src="/templatedoan/imgs/Solar-Sunflower2-144x154.png" alt="1" class="img-fluid">
-                    </div>
-                    <div class="col my-1">
-                        <img src="/templatedoan/imgs/Solar-Sunflower3-144x154.png" alt="1" class="img-fluid">
-                    </div>
+                <div class="row row-cols-1" id="anh_nho">
+                    <a data-fancybox="gallery" href="/templatedoan/imgs/Solar-Sunflower1-800x857.png" data-caption="Caption for single image" class="col">
+                        <img src="/templatedoan/imgs/Solar-Sunflower1-144x154.png" alt="" class="img-fluid img-background my-1">
+                    </a>
+                    <a data-fancybox="gallery" href="/templatedoan/imgs/Solar-Sunflower1-800x857.png" data-caption="Caption for single image" class="col">
+                        <img src="/templatedoan/imgs/Solar-Sunflower2-144x154.png" alt="" class="img-fluid img-background my-1">
+                    </a>
+                    <a data-fancybox="gallery" href="/templatedoan/imgs/Solar-Sunflower1-800x857.png" data-caption="Caption for single image" class="col">
+                        <img src="/templatedoan/imgs/Solar-Sunflower3-144x154.png" alt="" class="img-fluid img-background my-1">
+                    </a>
                 </div>
             </div>
-            <div class="col-md-5">
-                <img src="/templatedoan/imgs/Solar-Sunflower1-800x857.png" alt="" class="img-fluid">
+            <div class="col-md-5" id="anh_dai_dien">
+                <a data-fancybox="gallery" href="/templatedoan/imgs/Solar-Sunflower1-800x857.png" data-caption="Hoa hướng dương">
+                    <img src="/templatedoan/imgs/Solar-Sunflower1-800x857.png" alt="" class="img-fluid img-background my-1">
+                </a>
             </div>
             <div class="col-md-5">
                 <h3 class="myfont">Hoa hướng dương</h3>
@@ -113,7 +100,14 @@
     <script src="/templateDoAn/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="/templateDoAn/vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="/templateDoAn/vendor/jquery-validation/localization/messages_vi.min.js"></script>
-
+    <!-- test  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#anh_nho a').fancybox();
+            $('#anh_dai_dien a').fancybox();
+        });
+    </script>
 </body>
 
 </html>
