@@ -10,43 +10,36 @@
     <link rel="stylesheet" href="/templateDoAn/vendor/font-awesome/css/font-awesome.min.css">
     <!-- Test  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
-    <style>
-        .nav-pills .nav-link.active,
-        .nav-pills .show>.nav-link {
-            color: #d12c4f;
-            background-color: white;
-        }
-        a.tab{
-            background: #f0f0f0;
-            color: black;
-            font-weight: bold;
-        }
-    </style>
 </head>
 
 <body>
     <div class="container my-5">
         <div class="row">
-            <div class="col-md-2">
-                <div class="row row-cols-1" id="anh_nho">
-                    <a data-fancybox="gallery" href="/templatedoan/imgs/Solar-Sunflower1-800x857.png" data-caption="Caption for single image" class="col">
-                        <img src="/templatedoan/imgs/Solar-Sunflower1-144x154.png" alt="" class="img-fluid img-background my-1">
-                    </a>
-                    <a data-fancybox="gallery" href="/templatedoan/imgs/Solar-Sunflower1-800x857.png" data-caption="Caption for single image" class="col">
-                        <img src="/templatedoan/imgs/Solar-Sunflower2-144x154.png" alt="" class="img-fluid img-background my-1">
-                    </a>
-                    <a data-fancybox="gallery" href="/templatedoan/imgs/Solar-Sunflower1-800x857.png" data-caption="Caption for single image" class="col">
-                        <img src="/templatedoan/imgs/Solar-Sunflower3-144x154.png" alt="" class="img-fluid img-background my-1">
-                    </a>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-9 text-center" id="anh_dai_dien">
+                        <a data-fancybox="gallery" href="/templatedoan/imgs/BoHoaCrystalPearl_d764aec2-22bb-4758-a90f-a5ade95d798c_1024x1024@2x.jpg" data-caption="Hoa hướng dương">
+                            <img src="/templatedoan/imgs/BoHoaCrystalPearl_d764aec2-22bb-4758-a90f-a5ade95d798c_1024x1024@2x.jpg" alt="" class="img-fluid my-1">
+                        </a>
+                    </div>
+                    <div class="col-md-3 order-md-first" id="anh_nho">
+                        <div class="row row-cols-md-1 row-cols-sm-3">
+                            <div class="col anh" data-anhnho="/templatedoan/imgs/BoHoaCrystalPearl_d764aec2-22bb-4758-a90f-a5ade95d798c_1024x1024@2x.jpg" data-anhlon="/templatedoan/imgs/BoHoaCrystalPearl_d764aec2-22bb-4758-a90f-a5ade95d798c_1024x1024@2x.jpg">
+                                <img src="/templatedoan/imgs/BoHoaCrystalPearl_d764aec2-22bb-4758-a90f-a5ade95d798c_compact.jpg" alt="" class="img-fluid my-1">
+                            </div>
+                            <div class="col anh" data-anhnho="/templatedoan/imgs/BoHoaCrystalPearlonweb_360x.jpg" data-anhlon="/templatedoan/imgs/BoHoaCrystalPearlonweb_1024x1024@2x.jpg">
+                                <img src="/templatedoan/imgs/BoHoaCrystalPearlonweb_compact.jpg" alt="" class="img-fluid my-1">
+                            </div>
+                            <div class="col anh" data-anhnho="/templatedoan/imgs/BoHoaCrystalPearl_1024x1024@2x.jpg" data-anhlon="/templatedoan/imgs/BoHoaCrystalPearl_1024x1024@2x.jpg">
+                                <img src="/templatedoan/imgs/BoHoaCrystalPearl_compact.jpg" alt="" class="img-fluid my-1">
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            <div class="col-md-5" id="anh_dai_dien">
-                <a data-fancybox="gallery" href="/templatedoan/imgs/Solar-Sunflower1-800x857.png" data-caption="Hoa hướng dương">
-                    <img src="/templatedoan/imgs/Solar-Sunflower1-800x857.png" alt="" class="img-fluid img-background my-1">
-                </a>
-            </div>
-            <div class="col-md-5">
-                <h3 class="myfont">Hoa hướng dương</h3>
+            <div class="col-md-6">
+                <h3 class="myfont">Bó hoa Crystal Pearl</h3>
                 <p>
                     <small class="text-secondary">Nhãn hiệu : chưa biết</small> <br>
                     <small class="text-secondary">Mã sản phẩm : SP005</small> <br>
@@ -58,8 +51,8 @@
                 <form action="" method="post" name="frm_muahang" id="frm_muahang">
                     <input type="hidden" name="ma" id="ma" value="ma">
                     <div class="form-group row">
-                        <label for="num" class="col-form-label col-md-4">Số lượng : </label>
-                        <input type="number" name="num" id="num" min=0 class="col-md-8 form-control">
+                        <label for="num" class="col-form-label col-lg-4 col-md-5">Số lượng : </label>
+                        <input type="number" name="num" id="num" min=0 class="col-lg-8 col-md-7 form-control">
                     </div>
                     <div class="form-group">
                         <button class="btn myfont text-danger" id="btn-add">Thêm vào giỏ hàng</button>
@@ -72,8 +65,7 @@
                         <i class="fa fa-star-o" aria-hidden="true"></i>
                     </h5>
                     <div class="form-group">
-                        <b>0 đánh giá</b> <br>
-                        <b>Viết đánh giá</b>
+                        <b>0 đánh giá</b>
                     </div>
                 </form>
             </div>
@@ -86,7 +78,7 @@
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <a class="nav-link active tab" id="mo_ta-tab" data-toggle="pill" href="#mo_ta" role="tab" aria-controls="mo_ta" aria-selected="true">Mô tả sản phẩm</a>
                             <a class="nav-link tab" id="chi_tiet-tab" data-toggle="pill" href="#chi_tiet" role="tab" aria-controls="chi_tiet" aria-selected="false">Chi tiết</a>
-                            <a class="nav-link tab" id="nhan_xet-tab" data-toggle="pill" href="#nhan_xet" role="tab" aria-controls="nhan_xet" aria-selected="false">Nhập xét</a>
+                            <a class="nav-link tab" id="nhan_xet-tab" data-toggle="pill" href="#nhan_xet" role="tab" aria-controls="nhan_xet" aria-selected="false">Đánh giá <span class="badge badge-pill badge-danger">0</span></a>
                         </div>
                     </div>
                     <div class="col-9">
@@ -118,6 +110,12 @@
         $(document).ready(function() {
             $('#anh_nho a').fancybox();
             $('#anh_dai_dien a').fancybox();
+            $('.anh').click(function(){
+                var t = document.getElementById('anh_dai_dien');
+                var a1 = $(this).data('anhnho');
+                var a2 = $(this).data('anhlon');
+                t.innerHTML = '<a data-fancybox="gallery" href="'+ a2 +'" data-caption="Hoa hướng dương"><img src="'+ a1 +'" alt="" class="img-fluid img-background my-1"></a>'
+            });
         });
     </script>
 </body>
