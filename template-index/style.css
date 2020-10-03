@@ -36,12 +36,24 @@
 /* Chức nãng ẩn hiện password */
 div.show-password {
     position: absolute;
-    top: 39px;
-    right: 10px;
+    top: 12px;
+    right: 8px;
     cursor: pointer;
     background-color: white;
 }
 
+/* Ảnh cho trang đăng nhập */
+#img-login img{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+/* Hiệu chỉnh form-control */
+.hoa-form-control{
+    border-radius: 50px !important;
+    padding: 1.5rem!important;
+    font-size: 0.8rem!important;
+}
 
 
 
