@@ -80,6 +80,17 @@ a.tab:hover {
     color: #d12c4f;
 }
 
+/* CSS phần đánh giá */
+
+#danh_gia {
+    transition: .3s;
+    cursor: pointer;
+}
+
+#danh_gia:hover{
+    color: #d12c4f;
+}
+
 /* reposive */
 @media only screen and (max-width: 650px) {
     #img-dangnhap {

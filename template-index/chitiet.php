@@ -65,8 +65,7 @@
                         <i class="fa fa-star-o" aria-hidden="true"></i>
                     </h5>
                     <div class="form-group">
-                        <b>0 đánh giá</b> <br>
-                        <b>Viết đánh giá</b>
+                        <b>0 đánh giá</b>
                     </div>
                 </form>
             </div>
@@ -79,7 +78,7 @@
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <a class="nav-link active tab" id="mo_ta-tab" data-toggle="pill" href="#mo_ta" role="tab" aria-controls="mo_ta" aria-selected="true">Mô tả sản phẩm</a>
                             <a class="nav-link tab" id="chi_tiet-tab" data-toggle="pill" href="#chi_tiet" role="tab" aria-controls="chi_tiet" aria-selected="false">Chi tiết</a>
-                            <a class="nav-link tab" id="nhan_xet-tab" data-toggle="pill" href="#nhan_xet" role="tab" aria-controls="nhan_xet" aria-selected="false">Nhập xét</a>
+                            <a class="nav-link tab" id="nhan_xet-tab" data-toggle="pill" href="#nhan_xet" role="tab" aria-controls="nhan_xet" aria-selected="false">Đánh giá <span class="badge badge-pill badge-danger">0</span></a>
                         </div>
                     </div>
                     <div class="col-9">
