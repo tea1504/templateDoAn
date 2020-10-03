@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vn">
 
 <head>
     <meta charset="UTF-8">
@@ -19,91 +19,95 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <!-- Phần header  -->
-    </div>
+    <?php include_once(__DIR__ . '/../layout/header.php'); ?>
     <div class="container">
         <div class="row">
-            <div class="col-md-12 shadow-lg my-md-5 my-sm-0 px-0" style="border-radius: 5px;">
+            <div class="col-md-12 shadow-lg my-md-5 my-sm-1 px-0" style="border-radius: 5px;">
                 <h1 class="myfont text-center py-5" style="border-radius: 5px 5px 0 0;">Đăng ký tài khoản</h1>
-                <form action="" method="post" id="frm_dang_ky" name="frm_dang_ky" class="px-md-5 px-sm-0">
+                <form action="" method="post" id="frm_dang_ky" name="frm_dang_ky" class="px-5">
                     <fieldset class="mt-md-5 mt-sm-0">
                         <legend class="myfont mb-0">Phần thông tin cơ bản</legend>
                         <hr class="mt-0">
                         <div class="form-group">
-                            <label for="ten">Họ và tên: <span class="text-danger font-weight-bold">*</span></label>
-                            <input type="text" name="ten" id="ten" class="form-control">
+                            <input type="text" name="ten" id="ten" class="form-control hoa-form-control" placeholder="Họ và tên ...">
                             <div class="valid-feedback"> Đã nhập.</div>
                         </div>
-                        <div class="form-group">
-                            <label for="ngaysinh">Ngày sinh: <span class="text-danger font-weight-bold">*</span></label>
-                            <input type="date" id="ngaysinh" name="ngaysinh" class="form-control">
-                            <div class="valid-feedback"> Đã nhập.</div>
-                        </div>
-                        <fieldset class="form-group">
-                            <div class="row">
-                                <legend class="col-form-label col-sm-2 pt-0">Giới tính: <span class="text-danger font-weight-bold">*</span></legend>
-                                <div class="col-ms-10">
-                                    <div class="form-check">
-                                        <input type="radio" name="gioitinh" id="gioitinh_nam" class="form-check-input" value="1" checked>
-                                        <label for="gioitinh_nam" class="form-check-label">Nam</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="radio" name="gioitinh" id="gioitinh_nu" class="form-check-input" value="0">
-                                        <label for="gioitinh_nu" class="form-check-label">Nữ</label>
-                                    </div>
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-row">
+                                    <label for="ngaysinh" class="col-lg-3 col-sm-4 col-form-label pt-lg-3 pt-md-2">Ngày sinh: <span class="text-danger font-weight-bold">*</span></label>
+                                    <input type="date" id="ngaysinh" name="ngaysinh" class="form-control hoa-form-control col-lg-8 col-sm-7">
+                                    <div class="valid-feedback"> Đã nhập.</div>
                                 </div>
                             </div>
-                        </fieldset>
+                            <div class="col-md-6">
+                                <fieldset class="form-group">
+                                    <div class="row">
+                                        <legend class="col-form-label col-lg-3 col-md-4 pt-lg-3 pt-md-2">Giới tính: <span class="text-danger font-weight-bold">*</span></legend>
+                                        <div class="col-lg-9 col-md-8 pt-lg-3 pt-md-2">
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" name="gioitinh" id="gioitinh_nam" class="form-check-input" value="1" checked>
+                                                <label for="gioitinh_nam" class="form-check-label">Nam</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" name="gioitinh" id="gioitinh_nu" class="form-check-input" value="0">
+                                                <label for="gioitinh_nu" class="form-check-label">Nữ</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
                     </fieldset>
                     <fieldset class="mt-md-5 mt-sm-0">
                         <legend class="myfont mb-0">Phần thông tin liên hệ</legend>
                         <hr class="mt-0">
-                        <div class="form-group">
-                            <label for="email" class="col-form-label">Email: </label>
-                            <input type="mail" id="email" name="email" class="form-control">
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <input type="mail" id="email" name="email" class="form-control hoa-form-control" placeholder="Địa chỉ email ...">
+                                <div class="valid-feedback"> Đã nhập.</div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="tel" name="dienthoai" id="dienthoai" class="form-control hoa-form-control" placeholder="Số điện thoại ...">
+                                <div class="valid-feedback"> Đã nhập.</div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="dienthoai">Số điện thoại: <span class="text-danger font-weight-bold">*</span></label>
-                            <input type="tel" name="dienthoai" id="dienthoai" class="form-control">
-                            <div class="valid-feedback"> Đã nhập.</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="diachi">Địa chỉ: <span class="text-danger font-weight-bold">*</span></label>
-                            <input type="text" name="diachi" id="diachi" class="form-control">
-                            <div class="valid-feedback"> Đã nhập.</div>
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <input type="text" name="diachi" id="diachi" class="form-control hoa-form-control" placeholder="Địa chỉ ...">
+                                <div class="valid-feedback"> Đã nhập.</div>
+                            </div>
                         </div>
                     </fieldset>
                     <fieldset class="mt-md-5 mt-sm-0">
                         <legend class="myfont mb-0">Phần tài khoản</legend>
                         <hr class="mt-0">
                         <div class="form-group">
-                            <label for="tendangnhap">Tên đăng nhập: <span class="text-danger font-weight-bold">*</span></label>
-                            <input type="text" name="tendangnhap" id="tendangnhap" class="form-control">
+                            <input type="text" name="tendangnhap" id="tendangnhap" class="form-control hoa-form-control" placeholder="Tên đăng nhập ...">
                             <div class="valid-feedback"> Đã nhập.</div>
                         </div>
-                        <div class="form-group" style="position: relative;">
-                            <label for="matkhau">Mật khẩu: <span class="text-danger font-weight-bold">*</span></label>
-                            <input type="password" name="matkhau" id="matkhau" class="form-control">
-                            <div class="valid-feedback"> Đã nhập.</div>
-                            <div class="show-password" id="show-password-matkhau">
-                                <i class="fa fa-eye-slash hide" aria-hidden="true"></i>
-                                <i class="fa fa-eye" aria-hidden="true"></i>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3" style="position: relative;">
+                                <input type="password" name="matkhau" id="matkhau" class="form-control hoa-form-control" placeholder="Mật khẩu ...">
+                                <div class="valid-feedback"> Đã nhập.</div>
+                                <div class="show-password" id="show-password-matkhau" style="right: 13px;">
+                                    <i class="fa fa-eye-slash hide" aria-hidden="true"></i>
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group" style="position: relative;">
-                            <label for="nhaplaimatkhau">Nhập lại mật khẩu: <span class="text-danger font-weight-bold">*</span></label>
-                            <input type="password" name="nhaplaimatkhau" id="nhaplaimatkhau" class="form-control">
-                            <div class="valid-feedback"> Đã nhập.</div>
-                            <div class="show-password" id="show-password-nhaplaimatkhau">
-                                <i class="fa fa-eye-slash hide" aria-hidden="true"></i>
-                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            <div class="col-md-6 mb-3" style="position: relative;">
+                                <input type="password" name="nhaplaimatkhau" id="nhaplaimatkhau" class="form-control hoa-form-control" placeholder="Nhập lại mật khẩu ...">
+                                <div class="valid-feedback"> Đã nhập.</div>
+                                <div class="show-password" id="show-password-nhaplaimatkhau" style="right: 13px;">
+                                    <i class="fa fa-eye-slash hide" aria-hidden="true"></i>
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                </div>
                             </div>
                         </div>
                     </fieldset>
                     <div class="form-group text-center">
-                        <button class="btn btn-outline-success">Đăng ký</button>
-                        <input type="reset" value="Nhập lại" class="btn btn-outline-danger">
+                        <button class="btn btn-outline-success my-btn-cir font-weight-bold">Đăng ký</button>
+                        <input type="reset" value="Nhập lại" class="btn btn-outline-danger my-btn-cir font-weight-bold">
                     </div>
                 </form>
                 <?php
@@ -201,9 +205,7 @@
             <?php endif; ?>
         </div>
     </div>
-    <div class="container-fluid">
-        <!-- Phần footer  -->
-    </div>
+    <?php include_once(__DIR__ . '/../layout/footer.php'); ?>
     <script src="/templateDoAn/vendor/jquery/jquery.js"></script>
     <script src="/templateDoAn/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="/templateDoAn/vendor/jquery-validation/jquery.validate.min.js"></script>
@@ -266,8 +268,7 @@
                     $('#show-password-matkhau .fa-eye-slash').removeClass('hide');
                     $('#show-password-matkhau .fa-eye').addClass('hide');
                     document.getElementById('matkhau').setAttribute('type', 'text');
-                }
-                else{
+                } else {
                     $('#show-password-matkhau .fa-eye').removeClass('hide');
                     $('#show-password-matkhau .fa-eye-slash').addClass('hide');
                     document.getElementById('matkhau').setAttribute('type', 'password');
@@ -279,8 +280,7 @@
                     $('#show-password-nhaplaimatkhau .fa-eye-slash').removeClass('hide');
                     $('#show-password-nhaplaimatkhau .fa-eye').addClass('hide');
                     document.getElementById('nhaplaimatkhau').setAttribute('type', 'text');
-                }
-                else{
+                } else {
                     $('#show-password-nhaplaimatkhau .fa-eye').removeClass('hide');
                     $('#show-password-nhaplaimatkhau .fa-eye-slash').addClass('hide');
                     document.getElementById('nhaplaimatkhau').setAttribute('type', 'password');

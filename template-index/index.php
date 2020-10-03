@@ -13,7 +13,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12 p-0">
-                <?php include_once(__DIR__ . '/../layout/navbar.php'); ?>
+                <?php include_once(__DIR__ . '/../layout/header.php'); ?>
             </div>
         </div>
     </div>

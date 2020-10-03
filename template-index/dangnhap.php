@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vn">
 
 <head>
     <meta charset="UTF-8">
@@ -57,7 +57,7 @@
                             <a href="#" class="small">Quên mật khẩu?</a>
                         </div>
                         <div class="text-center">
-                            <a href="/templatedoan/template-index/dangky.php" class="small">Tạo tài khoản mới</a>
+                            <a href="/templatedoan/template-index/dangky.php" class="small">Đăng ký tài khoản</a>
                         </div>
                     </div>
                 </div>
