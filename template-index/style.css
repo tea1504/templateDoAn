@@ -36,14 +36,33 @@
 /* Chức nãng ẩn hiện password */
 div.show-password {
     position: absolute;
-    top: 39px;
-    right: 10px;
+    top: 12px;
+    right: 8px;
     cursor: pointer;
     background-color: white;
 }
 
+/* Ảnh cho trang đăng nhập */
+#img-dangnhap img {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+/* Hiệu chỉnh form-control */
+.hoa-form-control{
+    border-radius: 50px !important;
+    padding: 1.5rem!important;
+    font-size: 0.8rem!important;
+}
 
 
+
+/* reposive */
+@media only screen and (max-width: 650px) {
+    #img-dangnhap {
+        display: none;
+    }
+}
 
 /*--------------------------------------------------------------------*/
 /*Thể hiện đường kẻ */
@@ -506,12 +525,7 @@ a.tab:hover {
     color: #d12c4f;
 }
 
-/* reposive */
-@media only screen and (max-width: 650px) {
-    #img-dangnhap {
-        display: none;
-    }
-}
+
 
 
 /*------------------------------------------------------------
@@ -558,15 +572,12 @@ a.tab:hover {
 html, body { height: 100%; }
 body { margin: 0; font: 16px/1.3 sans-serif; }
 
-/*
-PURE RESPONSIVE CSS3 SLIDESHOW GALLERY by Roko C. buljan
-http://stackoverflow.com/a/34696029/383904
-*/
+
 
 .CSSgal {
 	position: relative;
 	overflow: hidden;
-	height: 100%; /* Or set a fixed height */
+	height: 100%; 
 }
 
 /* SLIDER */
@@ -708,6 +719,7 @@ http://stackoverflow.com/a/34696029/383904
 }
 .img_silder{
     background-image: url("imgs/bk2.png");
+    color: none;
 }
 /*----------Drop silder img - css-------------*/
 

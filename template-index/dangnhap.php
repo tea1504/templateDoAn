@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vn">
 
 <head>
     <meta charset="UTF-8">
@@ -16,7 +16,7 @@
             <div class="card-group">
                 <div class="card" id="img-dangnhap">
                     <div class="card-img">
-                        <img src="../imgs/dangnhapcut.jpg" height="100px" class="img-fluid" alt="">
+                        <img src="../imgs/dangnhapcut.jpg" height="100%" width="100%" alt="">
                     </div>
                 </div>
                 <div class="card">
@@ -25,15 +25,13 @@
                             Đăng nhập
                         </h1>
                         <div class="form-group">
-                            <label for="ten_dang_nhap">Tên đăng nhập : </label>
-                            <input type="text" name="ten_dang_nhap" id="ten_dang_nhap" class="form-control" />
+                            <input type="text" name="ten_dang_nhap" id="ten_dang_nhap" class="form-control hoa-form-control" placeholder="Tên đăng nhập..." />
                             <div class="valid-feedback">
                                 Đã nhập.
                             </div>
                         </div>
                         <div class="form-group" style="position: relative;">
-                            <label for="mat_khau">Mật khẩu : </label>
-                            <input type="password" name="mat_khau" id="mat_khau" class="form-control" />
+                            <input type="password" name="mat_khau" id="mat_khau" class="form-control hoa-form-control" placeholder="Mật khẩu..." />
                             <div class="valid-feedback">
                                 Đã nhập.
                             </div>
@@ -43,16 +41,23 @@
                             </div>
                         </div>
                         <div class="form-group text-center">
-                            <button name="btn_dang_nhap" id="btn_dang_nhap" class="btn btn-success">Đăng nhập</button>
+                            <button name="btn_dang_nhap" id="btn_dang_nhap" class="btn btn-success w-100 my-btn-cir">Đăng nhập</button>
                         </div>
                         <h5 class="text-center myfont">hoặc</h5>
                         <div class="form-group text-center">
-                            <button name="btn_facebook" id="btn_facebook" class="btn btn-outline-primary mb-2 w-100 my-btn-cir">
-                                <h5>Facebook</h5>
+                            <button name="btn_facebook" id="btn_facebook" class="btn btn-outline-primary mb-2 w-100 my-btn-cir font-weight-bold">
+                                Facebook
                             </button>
-                            <button name="btn_google" id="btn_google" class="btn btn-outline-danger mb-2 w-100 my-btn-cir">
-                                <h5>Google</h5>
+                            <button name="btn_google" id="btn_google" class="btn btn-outline-danger mb-2 w-100 my-btn-cir font-weight-bold">
+                                Google
                             </button>
+                        </div>
+                        <hr>
+                        <div class="text-center">
+                            <a href="#" class="small">Quên mật khẩu?</a>
+                        </div>
+                        <div class="text-center">
+                            <a href="/templatedoan/template-index/dangky.php" class="small">Đăng ký tài khoản</a>
                         </div>
                     </div>
                 </div>
@@ -177,8 +182,7 @@
                     $('#show-password .fa-eye-slash').removeClass('hide');
                     $('#show-password .fa-eye').addClass('hide');
                     document.getElementById('mat_khau').setAttribute('type', 'text');
-                }
-                else{
+                } else {
                     $('#show-password .fa-eye').removeClass('hide');
                     $('#show-password .fa-eye-slash').addClass('hide');
                     document.getElementById('mat_khau').setAttribute('type', 'password');

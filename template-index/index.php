@@ -36,8 +36,6 @@ if (session_id() === '') {
                     <s id="s1"></s> 
                     <s id="s2"></s>
                     <s id="s3"></s>
-                    <s id="s4"></s>
-
                     <div class="slider">
                     <div>
                         <img src="https://livedemo00-opencart.template-help.com/opencart_prod-21807/image/cache/catalog/slider/slide-3-1970x717.jpg">
