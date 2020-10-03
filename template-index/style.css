@@ -70,14 +70,18 @@ fieldset {
 /* Hiệu chỉnh lại nav  */
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
-    color: #d12c4f;
-    background-color: white;
+    color: #d12c4f !important;
+    background-color: white !important;
 }
 
 a.tab {
     background: #f0f0f0;
     color: black;
     font-weight: bold;
+}
+
+a.tab:hover {
+    color: #d12c4f;
 }
 
 /* reposive */
