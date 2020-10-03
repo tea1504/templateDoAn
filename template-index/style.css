@@ -50,10 +50,6 @@ fieldset {
     border: 1px solid red;
 }
 
-.img-background {
-    background: #f0f0f0;
-}
-
 /* button mua hang  */
 #btn-add {
     border-radius: 0 !important;

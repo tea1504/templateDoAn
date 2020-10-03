@@ -19,19 +19,19 @@
                 <div class="row">
                     <div class="col-md-9 text-center" id="anh_dai_dien">
                         <a data-fancybox="gallery" href="/templatedoan/imgs/BoHoaCrystalPearl_d764aec2-22bb-4758-a90f-a5ade95d798c_1024x1024@2x.jpg" data-caption="Hoa hướng dương">
-                            <img src="/templatedoan/imgs/BoHoaCrystalPearl_d764aec2-22bb-4758-a90f-a5ade95d798c_1024x1024@2x.jpg" alt="" class="img-fluid img-background my-1">
+                            <img src="/templatedoan/imgs/BoHoaCrystalPearl_d764aec2-22bb-4758-a90f-a5ade95d798c_1024x1024@2x.jpg" alt="" class="img-fluid my-1">
                         </a>
                     </div>
                     <div class="col-md-3 order-md-first" id="anh_nho">
                         <div class="row row-cols-md-1 row-cols-sm-3">
                             <div class="col anh" data-anhnho="/templatedoan/imgs/BoHoaCrystalPearl_d764aec2-22bb-4758-a90f-a5ade95d798c_1024x1024@2x.jpg" data-anhlon="/templatedoan/imgs/BoHoaCrystalPearl_d764aec2-22bb-4758-a90f-a5ade95d798c_1024x1024@2x.jpg">
-                                <img src="/templatedoan/imgs/BoHoaCrystalPearl_d764aec2-22bb-4758-a90f-a5ade95d798c_compact.jpg" alt="" class="img-fluid img-background my-1">
+                                <img src="/templatedoan/imgs/BoHoaCrystalPearl_d764aec2-22bb-4758-a90f-a5ade95d798c_compact.jpg" alt="" class="img-fluid my-1">
                             </div>
                             <div class="col anh" data-anhnho="/templatedoan/imgs/BoHoaCrystalPearlonweb_360x.jpg" data-anhlon="/templatedoan/imgs/BoHoaCrystalPearlonweb_1024x1024@2x.jpg">
-                                <img src="/templatedoan/imgs/BoHoaCrystalPearlonweb_compact.jpg" alt="" class="img-fluid img-background my-1">
+                                <img src="/templatedoan/imgs/BoHoaCrystalPearlonweb_compact.jpg" alt="" class="img-fluid my-1">
                             </div>
                             <div class="col anh" data-anhnho="/templatedoan/imgs/BoHoaCrystalPearl_1024x1024@2x.jpg" data-anhlon="/templatedoan/imgs/BoHoaCrystalPearl_1024x1024@2x.jpg">
-                                <img src="/templatedoan/imgs/BoHoaCrystalPearl_compact.jpg" alt="" class="img-fluid img-background my-1">
+                                <img src="/templatedoan/imgs/BoHoaCrystalPearl_compact.jpg" alt="" class="img-fluid my-1">
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <h3 class="myfont">Hoa hướng dương</h3>
+                <h3 class="myfont">Bó hoa Crystal Pearl</h3>
                 <p>
                     <small class="text-secondary">Nhãn hiệu : chưa biết</small> <br>
                     <small class="text-secondary">Mã sản phẩm : SP005</small> <br>
