@@ -34,11 +34,7 @@
                   </div>
             </div> 
             <div class="col-md-4" id="My_cart">
-<<<<<<< HEAD
                 <a href="/templateDoAn/template-index/giohang.php"><h5 style="margin-top: 10px; margin-left: 200px;">Giỏ hàng của bạn: (%d) </h5></a>
-=======
-                <a href="#" class><h5 style="margin-top: 10px; margin-left: 200px;">Giỏ hàng của bạn: (%d) </h5></a>
->>>>>>> 930efb7deaadc8f53a77dd4f8bffc23c0cf4c170
             </div>
         </div>
         <div class=" row soid" style="padding-top: 20px;">
