@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <!-- <?php include_once(__DIR__ . '/../layout/header.php'); ?> -->
+    <?php include_once(__DIR__ . '/../layout/header.php'); ?>
     <div class="container my-5">
         <div class="row">
             <div class="col-md-3 order-md-first order-last">
@@ -70,6 +70,22 @@
                 </div>
             </div>
             <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="text-danger myfont">Giới thiệu</h3>
+                        <div class="row">
+                            <div class="col-md-3 text-center">
+                                <img src="https://livedemo00-opencart.template-help.com/opencart_prod-21807/image/cache/catalog/products/Classic-Roses2-232x249.png" alt="" class="img-fluid">
+                            </div>
+                            <div class="col-md-9">
+                                Flowers have two unique peculiarities because they have very unbelievable appearance and unique smell. This combination makes them perfect. And this magical process of fertilization, it is a real wonder. Just imagine how simple and incredible it is when the bees pollinate flowers. Yeah, our nature is unbelievable. If you want to express your feelings without saying a word just present flowers and everything will be understood. Besides that they have other interesting features because their blossom is the main ingredient of all perfumes. They can cast a spell with their charming smell.
+                                <br>
+                                We are proud to present our wonderful goods. Here you can find many wonderful examples because our collection is one of the biggest among flower stores. We know how to satisfy our clients because we have one similar passion – flowers.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1">
