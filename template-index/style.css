@@ -326,6 +326,27 @@ ul {
     border: 2px solid;
 }
 
+@media only screen and (max-width: 768px){
+    .container-1 input#search{
+        width: 480px;
+    }
+}
+@media only screen and (max-width: 425px){
+    .container-1 input#search{
+        width: 400px;
+    }
+}
+@media only screen and (max-width: 375px){
+    .container-1 input#search{
+        width: 350px;
+    }
+}
+@media only screen and (max-width: 320px){
+    .container-1 input#search{
+        width: 295px;
+    }
+}
+
 /*Trang tri input */
 .container-1 input#search::-webkit-input-placeholder {
     color: #65737e;

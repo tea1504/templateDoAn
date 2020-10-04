@@ -29,7 +29,7 @@
                 <div class="box">
                     <div class="container-1">
                         <span class="icon" style="margin-top: 12px;"><i class="fa fa-search"></i></span>
-                        <input type="search" id="search"  placeholder="Search..." style="height: 40px; margin-top: 4px;" />
+                        <input type="search" id="search"  placeholder="Search..." style="height: 40px; margin-top: 4px;"/>
                     </div>
                   </div>
             </div> 
