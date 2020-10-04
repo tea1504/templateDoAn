@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Front-end | Đăng ký</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="/templateDoAn/vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/templateDoAn/vendor/font-awesome/css/font-awesome.min.css">
+    <?php include_once(__DIR__.'/style.php') ?>
     <style>
         h1 {
             background: url('../imgs/dangky1.png');
