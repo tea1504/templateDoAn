@@ -34,7 +34,7 @@
                   </div>
             </div> 
             <div class="col-md-4" id="My_cart">
-                <a href="#"><h5 style="margin-top: 10px; margin-left: 200px;">Giỏ hàng của bạn: (%d) </h5></a>
+                <a href="#" class><h5 style="margin-top: 10px; margin-left: 200px;">Giỏ hàng của bạn: (%d) </h5></a>
             </div>
         </div>
         <div class=" row soid" style="padding-top: 20px;">
@@ -42,132 +42,132 @@
                 <ul>
                     <li class="bg_MENU_mg">
                         <a href="file:///D:/web/test.html#">
-                            <span style="color:#000; font-family: 'Dancing Script', cursive; font-size: 24px;">
+                            <span style="color:#000; font-size: 24px;">
                                 <b>Chủ đề</b></span>
                         </a>
                         <ul class="sub-menu font_family">
                             <li>
                                 <a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Sinh nhật</span>
+                                    <span style="color:#000;">Sinh nhật</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Lảng mạng</span>
+                                    <span style="color:#000;">Lảng mạng</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Hoa cưới</span>
+                                    <span style="color:#000;">Hoa cưới</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Chúc mừng</span>
+                                    <span style="color:#000;">Chúc mừng</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Xin lỗi</span>
+                                    <span style="color:#000;">Xin lỗi</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Chúc sức khỏe</span>
+                                    <span style="color:#000;">Chúc sức khỏe</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Giải trí</span>
+                                    <span style="color:#000;">Giải trí</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Khai trương</span>
+                                    <span style="color:#000;">Khai trương</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Chia buồn</span>
+                                    <span style="color:#000;">Chia buồn</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li class="bg_MENU_mg">
-                        <a href="file:///D:/web/test.html#">
-                            <span style="color:#000; font-family: 'Dancing Script', cursive; font-size: 24px;">
+                        <a href="file:///D:/web/test.html#" style="width: 190px">
+                            <span style="color:#000; font-size:24px;">
                                 <b>Loại sản phẩm</b></span>
                         </a>
-                        <ul class="sub-menu font_family">
-                            <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Bộ sản
+                        <ul class="sub-menu font_famil padding_li" >
+                            <li><a href="file:///D:/web/test.html#" style="width: 150px;">
+                                    <span style="color:#000;">Bộ sản
                                         phẩm</span></a>
                             </li>
-                            <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Hoa thả
+                            <li><a href="file:///D:/web/test.html#" style="width: 150px">
+                                    <span style="color:#000;">Hoa thả
                                         bình</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Bó Hoa</span></a>
+                                    <span style="color:#000;">Bó Hoa</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Giỏ hoa</span></a>
+                                    <span style="color:#000;">Giỏ hoa</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Hộp hoa
+                                    <span style="color:#000;">Hộp hoa
                                         gỗ</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Bó hoa khổng
+                                    <span style="color:#000; ">Bó hoa khổng
                                         lồ</span></a>
                             </li>
-                            <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Bó hoa
+                            <li><a href="file:///D:/web/test.html#" style="width: 150px">
+                                    <span style="color:#000; ">Bó hoa
                                         mini</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Kệ hoa</span></a>
+                                    <span style="color:#000; ">Kệ hoa</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Cây cảnh đề
+                                    <span style="color:#000; ">Cây cảnh đề
                                         bàn</span></a>
                             </li>
                         </ul>
                     </li>
-                    <li class="bg_MENU_mg">
+                    <li class="bg_MENU_mg" style="margin-left:70px">
                         <a href="file:///D:/web/test.html#">
-                            <span style="color:#000; font-family: 'Dancing Script', cursive; font-size: 24px;">
+                            <span style="color:#000;  font-size: 24px;">
                                 <b>Theo giá</b></span>
                         </a>
                         <ul class="sub-menu font_family">
                             <li>
                                 <a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Dưới 200,000</span>
+                                    <span style="color:#000;">Dưới 200,000</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Từ 200,000 đến 300,000</span>
+                                    <span style="color:#000;">Từ 200,000 đến 300,000</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Từ 300,000 đến 400,000</span>
+                                    <span style="color:#000;">Từ 300,000 đến 400,000</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Từ 400,000 đến 500,000</span>
+                                    <span style="color:#000;">Từ 400,000 đến 500,000</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Từ 500,000 đến 600,000</span>
+                                    <span style="color:#000;">Từ 500,000 đến 600,000</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Trên 600,000</span>
+                                    <span style="color:#000; ">Trên 600,000</span>
                                 </a>
                             </li>
                            
@@ -175,127 +175,127 @@
                     </li>
                     <li class="bg_MENU_mg">
                         <a href="file:///D:/web/test.html#">
-                            <span style="color:#000; font-family: 'Dancing Script', cursive; font-size: 24px;">
+                            <span style="color:#000;  font-size: 24px;">
                                 <b>Loại hoa</b></span>
                         </a>
                         <ul class="sub-menu font_family">
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Hoa hồng</span></a>
+                                    <span style="color:#000;">Hoa hồng</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Hoa hướng
+                                    <span style="color:#000;">Hoa hướng
                                         dương</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Hoa cẩm tú
+                                    <span style="color:#000;">Hoa cẩm tú
                                         cầu</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Hoa cảm
+                                    <span style="color:#000;">Hoa cảm
                                         chướng</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Hoa baby</span></a>
+                                    <span style="color:#000;">Hoa baby</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Hoa cúc</span></a>
+                                    <span style="color:#000; ">Hoa cúc</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Hoa cát
+                                    <span style="color:#000; ">Hoa cát
                                         tường</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Hoa đồng
+                                    <span style="color:#000; ">Hoa đồng
                                         tiền</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Hoa lan</span></a>
+                                    <span style="color:#000; ">Hoa lan</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Cây
+                                    <span style="color:#000; ">Cây
                                         cảnh</span></a>
                             </li>
                         </ul>
                     </li>
                     <li class="bg_MENU_mg">
                         <a href="file:///D:/web/test.html#">
-                            <span style="color:#000; font-family: 'Dancing Script', cursive; font-size: 24px;">
+                            <span style="color:#000;  font-size: 24px;">
                                 <b>Màu hoa</b></span>
                         </a>
                         <ul class="sub-menu font_family">
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Màu đỏ</span></a>
+                                    <span style="color:#000;">Màu đỏ</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Màu cam</span></a>
+                                    <span style="color:#000;">Màu cam</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Màu vàng</span></a>
+                                    <span style="color:#000;">Màu vàng</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Màu xanh
+                                    <span style="color:#000;">Màu xanh
                                         dương</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Màu xanh
+                                    <span style="color:#000;">Màu xanh
                                         lá</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Màu
+                                    <span style="color:#000; ">Màu
                                         hồng</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Màu tím</span></a>
+                                    <span style="color:#000; ">Màu tím</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Màu đen</span></a>
+                                    <span style="color:#000; ">Màu đen</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Màu
+                                    <span style="color:#000; ">Màu
                                         trắng</span></a>
                             </li>
                         </ul>
                     </li>
                     <li class="bg_MENU_mg">
-                        <a href="file:///D:/web/test.html#" style="width: 150px;">
-                            <span style="color:#000; font-family: 'Dancing Script', cursive; font-size: 24px;">
+                        <a href="file:///D:/web/test.html#" style="width: 190px;">
+                            <span style="color:#000;  font-size: 24px;">
                                 <b>Sản phảm khác</b></span>
                         </a>
-                        <ul class="sub-menu font_family">
+                        <ul class="sub-menu font_family padding_li">
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Hộp quà</span></a>
+                                    <span style="color:#000;">Hộp quà</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
                                     <span
-                                        style="color:#000;font-family: 'Dancing Script', cursive;">chocolate</span></a>
+                                        style="color:#000;">chocolate</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Bánh kem</span></a>
+                                    <span style="color:#000;">Bánh kem</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Gấu bông</span></a>
+                                    <span style="color:#000;">Gấu bông</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000;font-family: 'Dancing Script', cursive;">Quà tặng
+                                    <span style="color:#000;">Quà tặng
                                         kèm</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Lọ hoa</span></a>
+                                    <span style="color:#000; ">Lọ hoa</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Phiếu quà
+                                    <span style="color:#000; ">Phiếu quà
                                         tặng</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Giải trí tại
+                                    <span style="color:#000; ">Giải trí tại
                                         nhà</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Trang tri nhà
+                                    <span style="color:#000; ">Trang tri nhà
                                         cửa</span></a>
                             </li>
                             <li><a href="file:///D:/web/test.html#">
-                                    <span style="color:#000; font-family: 'Dancing Script', cursive;">Nhu yếu
+                                    <span style="color:#000; ">Nhu yếu
                                         phẩm</span></a>
                             </li>
                         </ul>
