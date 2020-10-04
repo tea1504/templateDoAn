@@ -21,7 +21,7 @@
         </div>
         <div class="row soid ">
             <div class="col-md-2" style="margin-right:125px; border-top-width: 10px; padding-top: 7px;">
-                <a href="https://livedemo00-opencart.template-help.com/opencart_prod-21807/index.php?route=common/home">
+                <a href="/templateDoAn/template-index/">
                     <img src="https://livedemo00-opencart.template-help.com/opencart_prod-21807/image/cache/catalog/logo-228x30.png">
                 </a>    
             </div>
@@ -34,7 +34,7 @@
                   </div>
             </div> 
             <div class="col-md-4" id="My_cart">
-                <a href="#"><h5 style="margin-top: 10px; margin-left: 200px;">Giỏ hàng của bạn: (%d) </h5></a>
+                <a href="/templateDoAn/template-index/giohang.php"><h5 style="margin-top: 10px; margin-left: 200px;">Giỏ hàng của bạn: (%d) </h5></a>
             </div>
         </div>
         <div class=" row soid" style="padding-top: 20px;">
