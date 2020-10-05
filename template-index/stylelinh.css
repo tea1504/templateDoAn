@@ -1,0 +1,706 @@
+
+/*--------------------------------------------------------------------*/
+/*Thể hiện đường kẻ */
+.soid {
+    border-bottom: 0.1px solid rgb(220, 241, 250);
+    height: 408.px;
+    padding-top: 6.5px;
+    padding-bottom: 4px;
+}
+
+.font_family {
+    font-family: 'Dancing Script', cursive;
+}
+
+.body {
+    font-family: sans-serif;
+    color: rgb(8, 8, 8);
+
+
+}
+
+/*==Menu==*/
+#menu ul {
+    list-style-type: none;
+    text-align: right;
+}
+
+#menu li {
+    color: #f1f1f1;
+    display: inline-block;
+    width: 130px;
+    height: 55px;
+    line-height: 40px;
+    margin-left: -3px;
+}
+
+#menu a {
+    text-decoration: none;
+    color: rgb(34, 162, 201);
+    display: block;
+    text-align: center;
+}
+
+#menu a:hover {
+    list-style-type: circle;
+
+    color: rgb(51, 51, 51);
+    font-size: 20px;
+
+}
+
+.sub-menu {
+    display: none;
+    position: absolute;
+}
+
+#menu li {
+    position: relative;
+    z-index: 11;
+
+}
+
+#menu li:hover .sub-menu {
+    display: block;
+}
+
+.sub-menu li {
+    margin-left: 0 !important;
+
+    /*background-color: #ec2859;*/
+}
+
+/*==Menu cấp 3==*/
+/*  .sub-menu ul {
+        display: none;
+    } */
+
+div ul li a {
+    font-family: Andale Mono, monospace;
+    font-size: 21.2px;
+    color: aqua;
+
+}
+
+dl,
+ol,
+ul {
+    margin-top: 0;
+    margin-bottom: 0rem;
+}
+
+/*==Dropdown Menu==*/
+
+
+
+/*==Search css==*/
+/*định nghĩa phong cách CSS - SEARCH*/
+.container-1 {
+    width: 300px;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+    -webkit-transition: background .55s ease;
+    -moz-transition: background .55s ease;
+    -ms-transition: background .55s ease;
+    -o-transition: background .55s ease;
+    transition: background .55s ease;
+}
+
+/*Trang tri class container */
+.container-1 input#search {
+    width: 700px;
+    height: 50px;
+    /*  background: #3b2b3b; */
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: #63717f;
+    padding-left: 45px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 2px solid;
+}
+
+@media only screen and (max-width: 768px){
+    .container-1 input#search{
+        width: 480px;
+    }
+}
+@media only screen and (max-width: 425px){
+    .container-1 input#search{
+        width: 400px;
+    }
+}
+@media only screen and (max-width: 375px){
+    .container-1 input#search{
+        width: 350px;
+    }
+}
+@media only screen and (max-width: 320px){
+    .container-1 input#search{
+        width: 295px;
+    }
+}
+
+/*Trang tri input */
+.container-1 input#search::-webkit-input-placeholder {
+    color: #65737e;
+}
+
+.container-1 input#search:-moz-placeholder {
+    /* Firefox 18- */
+    color: #65737e;
+}
+
+.container-1 input#search::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #65737e;
+}
+
+.container-1 input#search:-ms-input-placeholder {
+    color: #65737e;
+}
+
+.container-1 .icon {
+    position: absolute;
+    top: 50%;
+    margin-left: 17px;
+    margin-top: 17px;
+    z-index: 1;
+    color: #4f5b66;
+}
+
+/*Hieu ung hover */
+.container-1 input#search:hover,
+.container-1 input#search:focus,
+.container-1 input#search:active {
+    outline: none;
+    background: #ffffff;
+
+}
+
+/*==Drop Search css==*/
+
+
+/*    My cart css     */
+#My_cart a {
+    text-decoration: none;
+    color: #eaafc8;
+    display: block;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
+
+}
+
+.h5,
+h5 {
+    font-size: 30px;
+}
+
+#My_cart a:hover {
+    color: aqua;
+}
+
+/*  Drop my cart css  */
+
+
+
+/*  khung phone va khung lam viec - css */
+#footer h6 {
+    font-family: 'Mali', cursive;
+    color: #CB356B;
+
+}
+
+/* Drop Footer - khung phone va khung lam viec - css*/
+
+
+/*  khung đăng ký và đăng nhập - css */
+#footer h6 a {
+    font-family: 'Mali', cursive;
+    color: #CB356B;
+    border: solid;
+}
+
+/* Drop khung đăng ký và đăng nhập - css */
+
+
+/*         Footer - ccs           */
+
+section {
+    width: 100%;
+    display: inline-block;
+    background: #333;
+    height: 50vh;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.footer-distributed {
+    background: #e9e4f0;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+    padding: 55px 50px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left {
+    width: 40%;
+}
+
+/* The company logo */
+
+.footer-distributed h3 {
+    color: #1b0e0e;
+    font: normal 36px 'Open Sans', cursive;
+    margin: 0;
+}
+
+.footer-distributed h3 span {
+    color: lightseagreen;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links {
+    color: #180707;
+    margin: 20px 0 12px;
+    padding: 0;
+}
+
+.footer-distributed .footer-links a {
+    display: inline-block;
+    line-height: 1.8;
+    font-weight: 400;
+    text-decoration: none;
+    color: inherit;
+    font-family: 'Mali', cursive;
+}
+
+.footer-distributed .footer-company-name {
+    color: #222;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+    font-family: 'Mali', cursive;
+
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center {
+    width: 35%;
+}
+
+.footer-distributed .footer-center i {
+    background-color: #33383b;
+    color: #ffffff;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope {
+    font-size: 17px;
+    line-height: 38px;
+
+}
+
+.footer-distributed .footer-center p {
+    display: inline-block;
+    color: #141313;
+    font-weight: 400;
+    vertical-align: middle;
+    margin: 0;
+    font-family: 'Mali', cursive;
+
+}
+
+.footer-distributed .footer-center p span {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.footer-distributed .footer-center p a {
+    color: lightseagreen;
+    text-decoration: none;
+    ;
+}
+
+.footer-distributed .footer-links a:before {
+    content: "|";
+    font-weight: 300;
+    font-size: 20px;
+    left: 0;
+    color: #fff;
+    display: inline-block;
+    padding-right: 5px;
+}
+
+.footer-distributed .footer-links .link-1:before {
+    content: none;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right {
+    width: 20%;
+}
+
+.footer-distributed .footer-company-about {
+    line-height: 20px;
+    color: #141313;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+    font-family: 'Mali', cursive;
+
+}
+
+.footer-distributed .footer-company-about span {
+    display: block;
+    color: #141313;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: 'Mali', cursive;
+}
+
+.footer-distributed .footer-icons {
+    margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #33383b;
+    border-radius: 2px;
+
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 35px;
+
+    margin-right: 3px;
+    margin-bottom: 5px;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 880px) {
+
+    .footer-distributed {
+        font: bold 14px sans-serif;
+    }
+
+    .footer-distributed .footer-left,
+    .footer-distributed .footer-center,
+    .footer-distributed .footer-right {
+        display: block;
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .footer-distributed .footer-center i {
+        margin-left: 0;
+    }
+
+}
+
+/* Droop   Footer - ccs           */
+
+
+.hide {
+    display: none !important;
+}
+
+fieldset {
+    border: 1px solid red;
+}
+
+/*------------------------------------------------------------
+ /* The company logo */
+
+.footer-distributed h3 {
+    color: #1b0e0e;
+    font: normal 36px 'Open Sans', cursive;
+    margin: 0;
+}
+
+.footer-distributed h3 span {
+    color: lightseagreen;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links {
+    color: #180707;
+    margin: 20px 0 12px;
+    padding: 0;
+}
+
+.footer-distributed .footer-links a {
+    display: inline-block;
+    line-height: 1.8;
+    font-weight: 400;
+    text-decoration: none;
+    color: inherit;
+    font-family: 'Mali', cursive;
+}
+
+.footer-distributed .footer-company-name {
+    color: #222;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+    font-family: 'Mali', cursive;
+
+}
+
+/* silder img - css  */
+
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font: 16px/1.3 sans-serif;
+}
+
+
+
+.CSSgal {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+/* SLIDER */
+
+.CSSgal .slider {
+    height: 100%;
+    white-space: nowrap;
+    font-size: 0;
+    transition: 0.8s;
+}
+
+/* SLIDES */
+
+.CSSgal .slider>* {
+    font-size: 1rem;
+    display: inline-block;
+    white-space: normal;
+    vertical-align: top;
+    height: 100%;
+    width: 100%;
+    background: none 50% no-repeat;
+    background-size: cover;
+}
+
+/* PREV/NEXT, CONTAINERS & ANCHORS */
+
+.CSSgal .prevNext {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    width: 100%;
+    height: 0;
+}
+
+.CSSgal .prevNext>div+div {
+    visibility: hidden;
+    /* Hide all but first P/N container */
+}
+
+.CSSgal .prevNext a {
+    background: #fff;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    /* If you want to place numbers */
+    text-align: center;
+    opacity: 0.7;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: 0;
+}
+
+.CSSgal .prevNext a:hover {
+    opacity: 1;
+}
+
+.CSSgal .prevNext a+a {
+    left: auto;
+    right: 0;
+}
+
+/* NAVIGATION */
+
+.CSSgal .bullets {
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+}
+
+.CSSgal .bullets>a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-decoration: none;
+    text-align: center;
+    background: rgba(255, 255, 255, 1);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.CSSgal .bullets>a+a {
+    background: rgba(255, 255, 255, 0.5);
+    /* Dim all but first */
+}
+
+.CSSgal .bullets>a:hover {
+    background: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* NAVIGATION BUTTONS */
+/* ALL: */
+.CSSgal>s:target~.bullets>* {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* ACTIVE */
+#s1:target~.bullets>*:nth-child(1) {
+    background: rgba(255, 255, 255, 1);
+}
+
+#s2:target~.bullets>*:nth-child(2) {
+    background: rgba(255, 255, 255, 1);
+}
+
+#s3:target~.bullets>*:nth-child(3) {
+    background: rgba(255, 255, 255, 1);
+}
+
+#s4:target~.bullets>*:nth-child(4) {
+    background: rgba(255, 255, 255, 1);
+}
+
+/* More slides? Add here more rules */
+
+/* PREV/NEXT CONTAINERS VISIBILITY */
+/* ALL: */
+.CSSgal>s:target~.prevNext>* {
+    visibility: hidden;
+}
+
+/* ACTIVE: */
+#s1:target~.prevNext>*:nth-child(1) {
+    visibility: visible;
+}
+
+#s2:target~.prevNext>*:nth-child(2) {
+    visibility: visible;
+}
+
+#s3:target~.prevNext>*:nth-child(3) {
+    visibility: visible;
+}
+
+#s4:target~.prevNext>*:nth-child(4) {
+    visibility: visible;
+}
+
+/* More slides? Add here more rules */
+
+/* SLIDER ANIMATION POSITIONS */
+
+#s1:target~.slider {
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+}
+
+#s2:target~.slider {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+}
+
+#s3:target~.slider {
+    transform: translateX(-200%);
+    -webkit-transform: translateX(-200%);
+}
+
+#s4:target~.slider {
+    transform: translateX(-300%);
+    -webkit-transform: translateX(-300%);
+}
+
+/* More slides? Add here more rules */
+
+
+/* YOU'RE THE DESIGNER! 
+   ____________________
+   All above was mainly to get it working :)
+   CSSgal CUSTOM STYLES / OVERRIDES HERE: */
+
+.CSSgal {
+    color: #fff;
+    text-align: center;
+}
+
+.CSSgal .slider h2 {
+    margin-top: 40vh;
+    font-weight: 200;
+    letter-spacing: -0.06em;
+    word-spacing: 0.2em;
+    font-size: 3em;
+}
+
+.CSSgal a {
+    border-radius: 50%;
+    margin: 0 3px;
+    color: rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+}
+
+.img_silder {
+    background-image: url("imgs/bk2.png");
+    color: none;
+}
+
+/*----------Drop silder img - css-------------*/
