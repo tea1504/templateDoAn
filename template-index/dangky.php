@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <?php include_once(__DIR__ . '/../layout/header.php'); ?>
+    <?php include_once(__DIR__ . '/../layout/navbar.php'); ?>
     <div class="container">
         <div class="row">
             <div class="col-md-12 shadow-lg my-md-5 my-sm-1 px-0" style="border-radius: 5px;">
@@ -204,8 +204,7 @@
         </div>
     </div>
     <?php include_once(__DIR__ . '/../layout/footer.php'); ?>
-    <script src="/templateDoAn/vendor/jquery/jquery.js"></script>
-    <script src="/templateDoAn/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <?php include_once(__DIR__.'/script.php') ?>
     <script src="/templateDoAn/vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="/templateDoAn/vendor/jquery-validation/localization/messages_vi.min.js"></script>
     <script>
