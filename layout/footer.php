@@ -1,4 +1,4 @@
-<div class="container-fluid" style="padding-right: 0px; padding-left: 0px">
+<div class="container-fluid">
         <div class="row">
             <footer class="footer-distributed">
                 <div class="footer-left">

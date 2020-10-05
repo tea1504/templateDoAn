@@ -25,7 +25,7 @@
         top: 22px;
     }
 </style>
-<div class="container-fluid">
+<div class="container-fluid px-0">
     <ul class="nav border-bottom">
         <li class="nav-item text-danger pt-2">
             <h6 class="nav-link"><i class="fa fa-phone"></i> Phone: (090) 0922299818; (090) 863954</h6>
