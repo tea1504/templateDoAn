@@ -42,3 +42,13 @@
 #avatar img{
     border-radius: 50%;
 }
+
+@media (max-width: 425px){
+    #avatar img{
+        display: none;
+    }
+}
+
+nav ul li a{
+    font-size: 1rem;
+}

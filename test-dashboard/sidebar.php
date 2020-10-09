@@ -2,58 +2,37 @@
     <div class="sidebar-sticky pt-3">
         <div class="my-2 text-center" id="avatar">
             <img src="/templateDoAn/imgs/avatarboy1.jpg" alt="" height="100px">
-            <h6 class="mt-3">Trần Văn Hòa</h6>
+            <h6 class="m-0 mt-md-3">Trần Văn Hòa</h6>
         </div>
-        <ul class="nav flex-column">
+        <ul class="nav flex-column text-md-left text-center">
             <li class="nav-item">
                 <a class="nav-link active" href="#">
-                    <span data-feather="home"></span>
-                    Dashboard <span class="sr-only">(current)</span>
+                    <i class="fa fa-tachometer" aria-hidden="true"></i>
+                    Dashboard
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <span data-feather="file"></span>
-                    Orders
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    Khách hàng
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <span data-feather="shopping-cart"></span>
-                    Products
+                <i class="fa fa-cubes" aria-hidden="true"></i>
+                    Sản phẩm
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <span data-feather="users"></span>
-                    Customers
+                <i class="fa fa-credit-card" aria-hidden="true"></i>
+                    Hình thức thanh toán
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <span data-feather="bar-chart-2"></span>
-                    Reports
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="layers"></span>
-                    Integrations
-                </a>
-            </li>
-        </ul>
-
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>Saved reports</span>
-            <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-                <span data-feather="plus-circle"></span>
-            </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="file-text"></span>
-                    Current month
+                    <i class="fa fa-gift" aria-hidden="true"></i>
+                    Khuyến mãi
                 </a>
             </li>
             <li class="nav-item">
