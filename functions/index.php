@@ -1,5 +1,8 @@
 <?php
+// hàm `session_id()` sẽ trả về giá trị SESSION_ID (tên file session do Web Server tự động tạo)
+// - Nếu trả về Rỗng hoặc NULL => chưa có file Session tồn tại
 if (session_id() === '') {
+  // Yêu cầu Web Server tạo file Session để lưu trữ giá trị tương ứng với CLIENT (Web Browser đang gởi Request)
   session_start();
 }
 ?>
@@ -103,13 +106,14 @@ if (session_id() === '') {
         </div>
     </div>
     <!--     Phần content         -->
+
     <!-- footer -->
 
     <!-- end footer -->
 
     <!-- Nhúng file quản lý phần SCRIPT JAVASCRIPT -->
     <?php
-        include_once(__DIR__ . '/../../template-index/script.php');
+        include_once(__DIR__ . '/../template-index/style.php');
     ?> 
     <!-- Các file Javascript sử dụng riêng cho trang này, liên kết tại đây -->
     <!-- DataTable JS -->
