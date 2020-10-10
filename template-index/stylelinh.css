@@ -1,6 +1,8 @@
-
 /*--------------------------------------------------------------------*/
+
+
 /*Thể hiện đường kẻ */
+
 .soid {
     border-bottom: 0.1px solid rgb(220, 241, 250);
     height: 408.px;
@@ -15,11 +17,11 @@
 .body {
     font-family: sans-serif;
     color: rgb(8, 8, 8);
-
-
 }
 
+
 /*==Menu==*/
+
 #menu ul {
     list-style-type: none;
     text-align: right;
@@ -43,10 +45,8 @@
 
 #menu a:hover {
     list-style-type: circle;
-
     color: rgb(51, 51, 51);
     font-size: 20px;
-
 }
 
 .sub-menu {
@@ -57,7 +57,6 @@
 #menu li {
     position: relative;
     z-index: 11;
-
 }
 
 #menu li:hover .sub-menu {
@@ -66,11 +65,13 @@
 
 .sub-menu li {
     margin-left: 0 !important;
-
     /*background-color: #ec2859;*/
 }
 
+
 /*==Menu cấp 3==*/
+
+
 /*  .sub-menu ul {
         display: none;
     } */
@@ -79,7 +80,6 @@ div ul li a {
     font-family: Andale Mono, monospace;
     font-size: 21.2px;
     color: aqua;
-
 }
 
 dl,
@@ -89,12 +89,15 @@ ul {
     margin-bottom: 0rem;
 }
 
+
 /*==Dropdown Menu==*/
 
 
-
 /*==Search css==*/
+
+
 /*định nghĩa phong cách CSS - SEARCH*/
+
 .container-1 {
     width: 300px;
     vertical-align: middle;
@@ -107,7 +110,9 @@ ul {
     transition: background .55s ease;
 }
 
+
 /*Trang tri class container */
+
 .container-1 input#search {
     width: 700px;
     height: 50px;
@@ -123,28 +128,33 @@ ul {
     border: 2px solid;
 }
 
-@media only screen and (max-width: 768px){
-    .container-1 input#search{
+@media only screen and (max-width: 768px) {
+    .container-1 input#search {
         width: 480px;
     }
 }
-@media only screen and (max-width: 425px){
-    .container-1 input#search{
+
+@media only screen and (max-width: 425px) {
+    .container-1 input#search {
         width: 400px;
     }
 }
-@media only screen and (max-width: 375px){
-    .container-1 input#search{
+
+@media only screen and (max-width: 375px) {
+    .container-1 input#search {
         width: 350px;
     }
 }
-@media only screen and (max-width: 320px){
-    .container-1 input#search{
+
+@media only screen and (max-width: 320px) {
+    .container-1 input#search {
         width: 295px;
     }
 }
 
+
 /*Trang tri input */
+
 .container-1 input#search::-webkit-input-placeholder {
     color: #65737e;
 }
@@ -172,19 +182,22 @@ ul {
     color: #4f5b66;
 }
 
+
 /*Hieu ung hover */
+
 .container-1 input#search:hover,
 .container-1 input#search:focus,
 .container-1 input#search:active {
     outline: none;
     background: #ffffff;
-
 }
+
 
 /*==Drop Search css==*/
 
 
 /*    My cart css     */
+
 #My_cart a {
     text-decoration: none;
     color: #eaafc8;
@@ -192,7 +205,6 @@ ul {
     text-align: center;
     font-family: 'Dancing Script', cursive;
     font-size: 25px;
-
 }
 
 .h5,
@@ -204,26 +216,29 @@ h5 {
     color: aqua;
 }
 
+
 /*  Drop my cart css  */
 
 
-
 /*  khung phone va khung lam viec - css */
+
 #footer h6 {
     font-family: 'Mali', cursive;
     color: #CB356B;
-
 }
+
 
 /* Drop Footer - khung phone va khung lam viec - css*/
 
 
 /*  khung đăng ký và đăng nhập - css */
+
 #footer h6 a {
     font-family: 'Mali', cursive;
     color: #CB356B;
     border: solid;
 }
+
 
 /* Drop khung đăng ký và đăng nhập - css */
 
@@ -258,11 +273,13 @@ section {
     vertical-align: top;
 }
 
+
 /* Footer left */
 
 .footer-distributed .footer-left {
     width: 40%;
 }
+
 
 /* The company logo */
 
@@ -275,6 +292,7 @@ section {
 .footer-distributed h3 span {
     color: lightseagreen;
 }
+
 
 /* Footer links */
 
@@ -299,8 +317,8 @@ section {
     font-weight: normal;
     margin: 0;
     font-family: 'Mali', cursive;
-
 }
+
 
 /* Footer Center */
 
@@ -324,7 +342,6 @@ section {
 .footer-distributed .footer-center i.fa-envelope {
     font-size: 17px;
     line-height: 38px;
-
 }
 
 .footer-distributed .footer-center p {
@@ -334,7 +351,6 @@ section {
     vertical-align: middle;
     margin: 0;
     font-family: 'Mali', cursive;
-
 }
 
 .footer-distributed .footer-center p span {
@@ -364,6 +380,7 @@ section {
     content: none;
 }
 
+
 /* Footer Right */
 
 .footer-distributed .footer-right {
@@ -377,7 +394,6 @@ section {
     font-weight: normal;
     margin: 0;
     font-family: 'Mali', cursive;
-
 }
 
 .footer-distributed .footer-company-about span {
@@ -400,24 +416,21 @@ section {
     cursor: pointer;
     background-color: #33383b;
     border-radius: 2px;
-
     font-size: 20px;
     color: #ffffff;
     text-align: center;
     line-height: 35px;
-
     margin-right: 3px;
     margin-bottom: 5px;
 }
 
+
 /* If you don't want the footer to be responsive, remove these media queries */
 
 @media (max-width: 880px) {
-
     .footer-distributed {
         font: bold 14px sans-serif;
     }
-
     .footer-distributed .footer-left,
     .footer-distributed .footer-center,
     .footer-distributed .footer-right {
@@ -426,15 +439,13 @@ section {
         margin-bottom: 40px;
         text-align: center;
     }
-
     .footer-distributed .footer-center i {
         margin-left: 0;
     }
-
 }
 
-/* Droop   Footer - ccs           */
 
+/* Droop   Footer - ccs           */
 
 .hide {
     display: none !important;
@@ -443,6 +454,7 @@ section {
 fieldset {
     border: 1px solid red;
 }
+
 
 /*------------------------------------------------------------
  /* The company logo */
@@ -456,6 +468,7 @@ fieldset {
 .footer-distributed h3 span {
     color: lightseagreen;
 }
+
 
 /* Footer links */
 
@@ -480,11 +493,10 @@ fieldset {
     font-weight: normal;
     margin: 0;
     font-family: 'Mali', cursive;
-
 }
 
-/* silder img - css  */
 
+/* silder img - css  */
 
 html,
 body {
@@ -496,13 +508,12 @@ body {
     font: 16px/1.3 sans-serif;
 }
 
-
-
 .CSSgal {
     position: relative;
     overflow: hidden;
     height: 100%;
 }
+
 
 /* SLIDER */
 
@@ -512,6 +523,7 @@ body {
     font-size: 0;
     transition: 0.8s;
 }
+
 
 /* SLIDES */
 
@@ -525,6 +537,7 @@ body {
     background: none 50% no-repeat;
     background-size: cover;
 }
+
 
 /* PREV/NEXT, CONTAINERS & ANCHORS */
 
@@ -566,6 +579,7 @@ body {
     right: 0;
 }
 
+
 /* NAVIGATION */
 
 .CSSgal .bullets {
@@ -598,13 +612,19 @@ body {
     background: rgba(255, 255, 255, 0.7) !important;
 }
 
+
 /* NAVIGATION BUTTONS */
+
+
 /* ALL: */
+
 .CSSgal>s:target~.bullets>* {
     background: rgba(255, 255, 255, 0.5);
 }
 
+
 /* ACTIVE */
+
 #s1:target~.bullets>*:nth-child(1) {
     background: rgba(255, 255, 255, 1);
 }
@@ -621,15 +641,22 @@ body {
     background: rgba(255, 255, 255, 1);
 }
 
+
 /* More slides? Add here more rules */
 
+
 /* PREV/NEXT CONTAINERS VISIBILITY */
+
+
 /* ALL: */
+
 .CSSgal>s:target~.prevNext>* {
     visibility: hidden;
 }
 
+
 /* ACTIVE: */
+
 #s1:target~.prevNext>*:nth-child(1) {
     visibility: visible;
 }
@@ -646,7 +673,9 @@ body {
     visibility: visible;
 }
 
+
 /* More slides? Add here more rules */
+
 
 /* SLIDER ANIMATION POSITIONS */
 
@@ -669,6 +698,7 @@ body {
     transform: translateX(-300%);
     -webkit-transform: translateX(-300%);
 }
+
 
 /* More slides? Add here more rules */
 
@@ -702,3 +732,50 @@ body {
     background-image: url("imgs/bk2.png");
     color: none;
 }
+
+
+/*css - contact /
+/*Font-awesome integration*/
+
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+/*Google font integration*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+#contact {
+    background-color: #f1f1f1;
+    font-family: 'Mali', cursive;
+    text-decoration: none;
+}
+
+#contact .well {
+    margin-top: 30px;
+    border-radius: 0;
+}
+
+#contact .form-control {
+    border-radius: 0;
+    border: 2px solid #1e1e1e;
+}
+
+#contact button {
+    border-radius: 0;
+    border: 2px solid #1e1e1e;
+}
+
+#contact .row {
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    #contact iframe {
+        margin-bottom: 15px;
+    }
+}
+
+#contact {
+    height: 450px;
+}
+
+
+/*css - contact /
