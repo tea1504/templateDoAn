@@ -3,7 +3,7 @@
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation" style="font-size: 1rem;">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="input-group col-md-3 col-lg-5 ">
+    <div class="input-group col-md-3 col-lg-5">
         <input type="text" class="form-control bg-light border-0 small " placeholder="Search for...">
         <div class="input-group-append">
         <button class="btn btn-primary" type="button">

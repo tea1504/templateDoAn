@@ -271,6 +271,7 @@
           </main>  
       </div>
   </div>
+  
   <?php include_once(__DIR__ . '/layouts/footer.php');?>
   <?php include_once(__DIR__.'/script.php');?>
   <script src="/templateDoAn/vendor/Chart.js/Chart.min.js"></script>
