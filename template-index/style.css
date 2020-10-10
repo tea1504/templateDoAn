@@ -466,3 +466,14 @@ section {
     left: 0;
     z-index: 1000;
 }
+
+#themsp #a{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 80%;
+    background-color: white;
+    border-radius: 10px;
+}

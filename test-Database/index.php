@@ -302,8 +302,56 @@ EOT;
             <?php endforeach; ?>
         </div>
     </div>
-    <div id="themsp">
-        alo
+    <div id="themsp" style="display: none">
+        <div class="shadow-lg p-3" id="a">
+        <div class="row">
+            <div class="col-md-12">
+                <button type="button" class="close" aria-label="Close" id="btn-themsp">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img src="/templatedoan/imgs/BoHoaCrystalPearl_d764aec2-22bb-4758-a90f-a5ade95d798c_1024x1024@2x.jpg" alt="" class="img-fluid my-1 img-thumbnail">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3 class="myfont">Bó hoa Crystal Pearl</h3>
+                <p>
+                    <small class="text-secondary">Nhãn hiệu : chưa biết</small> <br>
+                    <small class="text-secondary">Mã sản phẩm : SP005</small> <br>
+                    <small class="text-secondary">Trạng thái : Hết hàng</small> <br>
+                </p>
+                <h4><span class="text-secondary"><s>150,000 VNĐ</s></span> <span class="text-danger">130,000 VNĐ</span></h4>
+                <hr>
+            </div>
+            <div class="col-md-12">
+                <h3 class="myfont">Tùy chọn</h3>
+                <form action="" method="post" name="frm_muahang" id="frm_muahang">
+                    <input type="hidden" name="ma" id="ma" value="ma">
+                    <div class="form-group">
+                        <label for="num" class="col-form-label">Số lượng : </label>
+                        <input type="number" name="num" id="num" min=0 class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn myfont text-danger btn-add">Thêm vào giỏ hàng</button>
+                    </div>
+                    <h5 class="text-danger">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </h5>
+                    <div class="form-group">
+                        <b>0 đánh giá</b>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
     </div>
     <!--Drop Phần content         -->
     <!--      Phần footer     -->
@@ -316,6 +364,18 @@ EOT;
     include_once(__DIR__ . '/../template-index/script.php');
     ?>
     <!-- Liên kết js -->
+    <script>
+        $(document).ready(function () {
+            $('.btn-add').click(function (e) { 
+                e.preventDefault();
+                $('#themsp').show(500);
+            });
+            $('#themsp .close').click(function (e) { 
+                e.preventDefault();
+                $('#themsp').hide(500);
+            });
+        });
+    </script>
 </body>
 
 </html>
