@@ -7,14 +7,14 @@
   <?php include_once(__DIR__.'/style.php');?>
   <link rel="stylesheet" href="style.css" type="text/css"/>
 </head>
-
 <body>
- 
-  <div class="container-fluid">
-      <div class="row">
-          <?php include_once(__DIR__ . '/layouts/sidebar.php');?>
+    <?php include_once(__DIR__ . '/layouts/header.php');?> 
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 position-static">
+                <?php include_once(__DIR__ . '/layouts/sidebar.php');?>
+            </div>
           <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-                <?php include_once(__DIR__ . '/layouts/header.php');?>
                 <h2>Section title</h2>
                 <div class="table-responsive">
                   <table class="table table-striped table-sm">
@@ -268,13 +268,11 @@
                       </tbody>
                   </table>
               </div>
-              <?php include_once(__DIR__ . '/layouts/footer.php');?>
-          </main>
+          </main>  
       </div>
   </div>
-  
+  <?php include_once(__DIR__ . '/layouts/footer.php');?>
   <?php include_once(__DIR__.'/script.php');?>
   <script src="/templateDoAn/vendor/Chart.js/Chart.min.js"></script>
- 
 </body>
 </html>

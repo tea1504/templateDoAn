@@ -14,7 +14,7 @@
     <?php include_once(__DIR__ . '/header.php') ?>
     <div class="container-fluid">
         <div class="row">
-            <?php include_once(__DIR__ . '/sidebar.php') ?>
+                <?php include_once(__DIR__ . '/sidebar.php') ?>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <h2>Section title</h2>
                 <div class="table-responsive">
@@ -276,5 +276,4 @@
     <script src="/templateDoAn/vendor/jquery/jquery.js"></script>
     <script src="/templateDoAn/vendor/bootstrap/js/bootstrap.min.js"></script>
 </body>
-
 </html>
