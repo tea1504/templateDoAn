@@ -1,133 +1,163 @@
+<?php
+if (session_id() === '') {
+  session_start();
+}
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>index</title>
-    <?php include_once(__DIR__ . '/../../layouts/style.php'); ?>
-    <link rel="stylesheet" href="/project-web/assets/vendor/DataTables/datatables.min.css" type="text/css">
-    <link href="/project-web/assets/vendor/DataTables/Buttons-1.6.3/css/buttons.bootstrap4.min.css" type="text/css" rel="stylesheet" />
+    <title>Hoaxin.vn</title>
 
+    <!-- Nhúng file Quản lý các Liên kết CSS dùng chung cho toàn bộ trang web -->
+    <?php
+        include_once(__DIR__ . '/../../template-index/style.php');
+    ?>
+    <!-- DataTable CSS -->
+    <link rel="stylesheet" href="../template-dashbroad/style.css">
+    <link rel="stylesheet" href="/templateDoAn/vendor/DataTables/datatables.min.css">
+    <link rel="stylesheet" href="/templateDoAn/vendor/DataTables/Buttons-1.6.3/css/buttons.bootstrap4.min.css">
 </head>
 
-<body>
-    <?php include_once(__DIR__ . '/../../layouts/partials/header.php'); ?>
+<body class="d-flex flex-column h-100">
+    <!-- header -->
+       
+    <!-- end header -->
+
     <div class="container-fluid">
         <div class="row">
-            <?php include_once(__DIR__ . '/../../layouts/partials/sildebar.php'); ?>
-            <div class="col-md-8">
-                <h1>Danh sách sản phẩm</h1>
-                <?php
-                    include_once(__DIR__ . '/../../../dbconnect.php');
-                    // 2. Query
-                    //here doc
-                    $sql = <<<EOT
-                    SELECT sp.*
-                    , lsp.lsp_ten
-                    , nsx.nsx_ten
-                    , km.km_ten, km.kh_noidung, km.kh_tungay, km.km_denngay
-                    FROM `sanpham` sp
-                    JOIN `loaisanpham` lsp ON sp.lsp_ma = lsp.lsp_ma
-                    JOIN `nhasanxuat` nsx ON sp.nsx_ma = nsx.nsx_ma
-                    LEFT JOIN `khuyenmai` km ON sp.km_ma = km.km_ma
-                    ORDER BY sp.sp_ma DESC
-EOT;
-                    //3. Yêu cầu PHP thực thi query 
-                    $result = mysqli_query($conn, $sql);
-                    //4. tạo mảng chứa dữ liệu
-                    $data = [];
-                    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                        $km_tomtat = '';
+            <!-- sidebar -->
+                <?php include_once(__DIR__ . '/../../template-dashbroad/layouts/sidebar.php'); ?>
+            <!-- end sidebar -->
 
-                        if (!empty($row['km_ten'])) {
-                            $km_tomtat = sprintf(
-                                "Khuyến mãi:%s, Nội dung:%s Từ: %s đến %s",
-                                $row['km_ten'],
-                                $row['kh_noidung'],
-                                date('d/m/Y', strtotime($row['kh_tungay'])),
-                                date('d/m/Y', strtotime($row['km_denngay']))
-                            );
-                        }
-                        $data[] = array(
-                            'sp_ma' => $row['sp_ma'],
-                            'sp_ten' => $row['sp_ten'],
-                            'sp_gia' => number_format($row['sp_gia'], 0, ".", ",") . 'VND',
-                            'lsp_ten' => $row['lsp_ten'],
-                            'nsx_ten' => $row['nsx_ten'],
-                            'km_tomtat' => $km_tomtat
-                        );
-                    }
-                ?>
-                <a href="create.php"><button type="button" class="btn btn-primary">Thêm mới</button></a> <br><br>
+            <main role="main" class="col-md-10 ml-sm-auto px-4 mb-2">
+                <div class="text-justify pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="text-justify">Danh sách sản phẩm</h1>
+                </div>
 
-                <table id="id_danhsach" class="table mx-auto table-bordered ">
+                <!-- Block content -->
+                
+
+                <!-- Nút thêm mới, bấm vào sẽ hiển thị form nhập thông tin Thêm mới -->
+                <a href="create.php" class="btn btn-primary ">
+                    Thêm mới sản phẩm
+                </a>
+                <table id="tblDanhSach" class="table table-striped table-hover  table-responsive ">
                     <thead class="thead-dark">
                         <tr>
-                            <th>Mã sản phẩm</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Giá sản phẩm</th>
-                            <th>Loại sản phẩm</th>
+                            <th>Mã hoa</th>
+                            <th>Tên hoa</th>
+                            <th>Loại hoa</th>
+                            <th>Giá hoa</th>
                             <th>Nhà sản xuất</th>
                             <th>Khuyến mãi</th>
-                            <th>Hành động</th>
+                            <th>Ngày cập nhật</th>
+                            <th>Thực thi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($data as $sp) : ?>
-                            <tr>
-                                <td><?= $sp['sp_ma']; ?></td>
-                                <td><?= $sp['sp_ten']; ?></td>
-                                <td><?= $sp['sp_gia']; ?></td>
-                                <td><?= $sp['lsp_ten']; ?></td>
-                                <td><?= $sp['nsx_ten']; ?></td>
-                                <td><?= $sp['km_tomtat']; ?></td>
-                                <td><a href="edit.php?idupdate=<?php echo $sp['sp_ma']; ?>" class=" btn btn-success"> SỬA</a>
-                                    <button class="btn btn-danger btndelete" data-idxoa=<?php echo $sp['sp_ma']; ?>>XÓA</button>
-                                </td>   
-                            </tr>
-                        <?php endforeach; ?>
+                        <tr>
+                            <td>Mã 001</td>
+                            <td>Hoa hồng trắng </td>
+                            <td>Hoa hồng</td>
+                            <td>50.000</td>
+                            <td>Vườn hoa Đà Lạt</td>
+                            <td>1</td>
+                            <td>29-10-2020</td>
+                            <td>
+                                <a href="#" class="btn btn-warning">
+                                     Sửa
+                                </a>
+                                <a href="#" class="btn btn-danger">
+                                    Xóa
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Mã 001</td>
+                            <td>Hoa hồng trắng </td>
+                            <td>Hoa hồng</td>
+                            <td>50.000</td>
+                            <td>Vườn hoa Đà Lạt</td>
+                            <td>1</td>
+                            <td>29-10-2020</td>
+                            <td>
+                                <a href="#" class="btn btn-warning">
+                                     Sửa
+                                </a>
+                                <a href="#" class="btn btn-danger">
+                                    Xóa
+                                </a>
+                            </td>
+                        </tr>
+                       
+                        
+                       
                     </tbody>
                 </table>
-            </div>
+                <!-- End block content -->
+            </main>
         </div>
-
-
     </div>
-    <?php include_once(__DIR__ . '/../../layouts/partials/footer.php'); ?>
-    <?php include_once(__DIR__ . '/../../layouts/scripts.php'); ?>
-    <script src="/project-web/assets/vendor/DataTables/datatables.min.js"></script>
-    <script src="/project-web/assets/vendor/DataTables/Buttons-1.6.3/js/buttons.bootstrap4.min.js"></script>
-    <script src="/project-web/assets/vendor/DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
-    <script src="/project-web/assets/vendor/sweetalert/sweetalert.min.js"></script>
+    <!--     Phần content         -->
+    <!-- footer -->
+
+    <!-- end footer -->
+
+    <!-- Nhúng file quản lý phần SCRIPT JAVASCRIPT -->
+    <?php
+        include_once(__DIR__ . '/../../template-index/script.php');
+    ?> 
+    <!-- Các file Javascript sử dụng riêng cho trang này, liên kết tại đây -->
+    <!-- DataTable JS -->
+    <script src="/templateDoAn/vendor/jquery/jquery.js"></script>
+    <script src="/templateDoAn/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/templateDoAn/vendor/DataTables/datatables.min.js"></script>
+    <script src="/templateDoAn/vendor/DataTables/Buttons-1.6.3/js/buttons.bootstrap4.min.js"></script>
+    <script src="/templateDoAn/vendor/DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
+    <script src="/templateDoAn/vendor/DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
         $(document).ready(function() {
-            $('#id_danhsach').DataTable({
-                dom: 'Blfrtip',
+            // Yêu cầu DataTable quản lý datatable #tblDanhSach
+            $('#tblDanhSach').DataTable({
+                dom: 'Bft',
                 buttons: [
                     'copy', 'excel', 'pdf'
                 ]
             });
-            $('.btndelete').click(function() {
+
+            // Cảnh báo khi xóa
+            // 1. Đăng ký sự kiện click cho các phần tử (element) đang áp dụng class .btnDelete
+            $('.btnDelete').click(function() {
+                // Click hanlder
+                // 2. Sử dụng thư viện SweetAlert để hiện cảnh báo khi bấm nút xóa
                 swal({
-                        title: "Bạn có chắn chắn xóa không?",
-                        text: "Không thể phục hồi dữ liệu khi xóa!",
+                        title: "Bạn có chắc chắn muốn xóa?",
+                        text: "Một khi đã xóa, không thể phục hồi....",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
                     })
                     .then((willDelete) => {
-                        if (willDelete) {
-                            var sp_ma = $(this).data('idxoa');
-                            var url = 'delete.php?idxoa=' + sp_ma;
+                        if (willDelete) { // Nếu đồng ý xóa
+
+                            // 3. Lấy giá trị của thuộc tính (custom attribute HTML) 'dh_ma'
+                            // var dh_ma = $(this).attr('data-dh_ma');
+                            var dh_ma = $(this).data('dh_ma');
+                            var url = "delete.php?dh_ma=" + dh_ma;
+
+                            // Điều hướng qua trang xóa với REQUEST GET, có tham số dh_ma=...
                             location.href = url;
-                        } else {
-                            swal("Hủy xóa thành công!");
+                        } else { // Nếu không đồng ý xóa
+                            swal("Cẩn thận hơn nhé!");
                         }
                     });
-            });
 
+            });
         });
     </script>
 
