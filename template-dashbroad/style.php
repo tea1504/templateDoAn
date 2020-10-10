@@ -1,1 +1,2 @@
-<link rel="stylesheet" href="/TemplateDoAn/vendor/font-awesome/css/font-awesome.min.css" style="text/css">
+<link rel="stylesheet" href="/TemplateDoAn/vendor/font-awesome/css/font-awesome.min.css" type="text/css"/>
+<link rel="stylesheet" href="/templateDoAn/vendor/bootstrap/css/bootstrap.min.css" type="text/css"/>
