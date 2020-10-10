@@ -302,6 +302,9 @@ EOT;
             <?php endforeach; ?>
         </div>
     </div>
+    <div id="themsp">
+        alo
+    </div>
     <!--Drop Phần content         -->
     <!--      Phần footer     -->
     <?php
