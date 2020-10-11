@@ -4,7 +4,6 @@ if (session_id() === '') {
 }
 
 include_once(__DIR__ . '/dbconnect.php');
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,8 +85,26 @@ include_once(__DIR__ . '/dbconnect.php');
     <!-- Sản phẩm -->
     <div class="container">
         <?php
-        $sqlDanhSachSanPham = " SELECT sp.sp_id, sp.sp_ten, sp.sp_gia, sp.sp_giacu, sp.sp_avt_tenfile, hsp.hsp_tenfile AS hsp_tenfile, AVG(bl.bl_sao) AS sao FROM sanpham AS sp LEFT JOIN hinhsanpham AS hsp ON sp.sp_id = hsp.sanpham_sp_id LEFT JOIN binhluan AS bl ON sp.sp_id = bl.sanpham_sp_id GROUP BY sp.sp_id LIMIT 0, 4;";
-        $resultDanhSachSanPham = mysqli_query($conn, $sqlDanhSachSanPham);
+        $type = $_GET['type'];
+        $id = $_GET['id'];
+        if (isset($_GET['page']))
+            $page = $_GET['page'];
+        else
+            $page = 1;
+        if ($type == 'mauhoa') {
+            $sqlCount = "SELECT COUNT(*) as c FROM sanpham_has_mauhoa WHERE mauhoa_mh_id ={$id}";
+            $sql = "SELECT sp.sp_id, sp.sp_ten, sp.sp_gia, sp.sp_giacu, sp.sp_avt_tenfile, hsp.hsp_tenfile AS hsp_tenfile, AVG(bl.bl_sao) AS sao FROM sanpham AS sp LEFT JOIN hinhsanpham AS hsp ON hsp.sanpham_sp_id = sp.sp_id LEFT JOIN binhluan AS bl ON sp.sp_id = bl.sanpham_sp_id JOIN sanpham_has_mauhoa AS spmh ON sp.sp_id = spmh.sanpham_sp_id AND spmh.mauhoa_mh_id = {$id} GROUP BY sp.sp_id LIMIT 0, 8;";
+            $sqlType = "SELECT mh_ten as ten FROM mauhoa WHERE mh_id={$id};";
+        } else if ($type == 'loaihoa') {
+            $sqlCount = "SELECT COUNT(*) as c FROM sanpham_has_loaihoa WHERE loaihoa_lh_id ={$id}";
+            $sql = "SELECT sp.sp_id, sp.sp_ten, sp.sp_gia, sp.sp_giacu, sp.sp_avt_tenfile, hsp.hsp_tenfile AS hsp_tenfile, AVG(bl.bl_sao) AS sao FROM sanpham AS sp LEFT JOIN hinhsanpham AS hsp ON hsp.sanpham_sp_id = sp.sp_id LEFT JOIN binhluan AS bl ON sp.sp_id = bl.sanpham_sp_id JOIN sanpham_has_loaihoa AS splh ON sp.sp_id = splh.sanpham_sp_id AND splh.loaihoa_lh_id = {$id} GROUP BY sp.sp_id LIMIT 0, 8;";
+            $sqlType = "SELECT lh_ten as ten FROM loaihoa WHERE lh_id={$id};";
+        } else {
+            $sqlCount = "SELECT COUNT(*) as c FROM sanpham_has_chude WHERE chude_cd_id ={$id}";
+            $sql = "SELECT sp.sp_id, sp.sp_ten, sp.sp_gia, sp.sp_giacu, sp.sp_avt_tenfile, hsp.hsp_tenfile AS hsp_tenfile, AVG(bl.bl_sao) AS sao FROM sanpham AS sp LEFT JOIN hinhsanpham AS hsp ON hsp.sanpham_sp_id = sp.sp_id LEFT JOIN binhluan AS bl ON sp.sp_id = bl.sanpham_sp_id JOIN sanpham_has_chude AS spcd ON sp.sp_id = spcd.sanpham_sp_id AND spcd.chude_cd_id = {$id} GROUP BY sp.sp_id LIMIT 0, 8;";
+            $sqlType = "SELECT cd_ten as ten FROM chude WHERE cd_id={$id};";
+        }
+        $resultDanhSachSanPham = mysqli_query($conn, $sql);
         $dataDanhSachSanPham = [];
         while ($row = mysqli_fetch_array($resultDanhSachSanPham, MYSQLI_ASSOC)) {
             $dataDanhSachSanPham[] = array(
@@ -100,8 +117,18 @@ include_once(__DIR__ . '/dbconnect.php');
                 'sao' => $row['sao'] > 0 ? $row['sao'] : 0,
             );
         }
+        $resultType = mysqli_query($conn, $sqlType);
+        $dataType = '';
+        while ($row = mysqli_fetch_array($resultType, MYSQLI_ASSOC)) {
+            $dataType = $row['ten'];
+        }
+        $resultCount = mysqli_query($conn, $sqlCount);
+        $dataCount = 0;
+        while ($row = mysqli_fetch_array($resultCount, MYSQLI_ASSOC)) {
+            $dataCount = $row['c'];
+        }
         ?>
-        <h3 class="myfont text-danger mt-3 text-center">Sản phẩm</h3>
+        <h3 class="myfont text-danger mt-3 text-center"><?= $dataType ?></h3>
         <div class="row row-cols-lg-4 row-cols-sm-3 row-cols-1">
             <?php foreach ($dataDanhSachSanPham as $sp) : ?>
                 <div class="col py-3">
@@ -143,22 +170,96 @@ include_once(__DIR__ . '/dbconnect.php');
                                     <?php endif; ?>
                                     </span> <span class="text-danger"><?= $sp['sp_gia'] ?> đ</span>
                             </h5>
-                            <button class="btn myfont text-danger btn-add" data-sp_id="<?= $sp['sp_id'] ?>">Thêm vào giỏ hàng</button>
+                            <button class="btn myfont text-danger btn-add btn-mua" data-sp_id="<?= $sp['sp_id'] ?>">Thêm vào giỏ hàng</button>
                         </div>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
-        <div id="themsp" style="display: none">
-            <div class="shadow-lg p-3" id="a">
-                <div class="row">
-                    <div class="col-md-12">
-                        <button type="button" class="close" aria-label="Close" id="btn-themsp">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="col-md-12" id="content">
-                    </div>
+        <nav aria-label="Page navigation example" class="mx-auto">
+            <ul class="pagination justify-content-center">
+                <?php if ($page <= 1) : ?>
+                    <li class="page-item disabled"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page - 1 ?>">Previous</a></li>
+                <?php else : ?>
+                    <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page - 1 ?>">Previous</a></li>
+                <?php endif; ?>
+                <?php
+                $num_page = ceil($dataCount / 8);
+                if ($num_page <= 4) {
+                    for ($i = 1; $i <= $num_page; $i++) {
+                ?>
+                        <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?></a></li>
+                        <?php
+                    }
+                } else {
+                    if ($page < 3) {
+                        for ($i = 1; $i <= 3; $i++) {
+                            if ($i == $page) {
+                        ?>
+                                <li class="page-item active"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?><span class="sr-only">(current)</span></a></li>
+                            <?php
+                            } else {
+                            ?>
+                                <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?></a></li>
+                        <?php
+                            }
+                        }
+                        ?>
+                        <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page + 3 ?>">...</a></li>
+                    <?php
+                    } else if ($num_page - $page + 1 <= 2) {
+                    ?>
+                        <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $num_page - 3 ?>">...</a></li>
+                        <?php
+                        for ($i = $num_page - 2; $i <= $num_page; $i++) {
+                            if ($i == $page) {
+                        ?>
+                                <li class="page-item active"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?><span class="sr-only">(current)</span></a></li>
+                            <?php
+                            } else {
+                            ?>
+                                <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?></a></li>
+                        <?php
+                            }
+                        }
+                    } else {
+                        ?>
+                        <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page - 2 ?>">...</a></li>
+                        <?php
+                        for ($i = $page - 1; $i <= $page + 1; $i++) {
+                            if ($i == $page) {
+                        ?>
+                                <li class="page-item active"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?><span class="sr-only">(current)</span></a></li>
+                            <?php
+                            } else {
+                            ?>
+                                <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?></a></li>
+                        <?php
+                            }
+                        }
+                        ?>
+                        <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page + 2 ?>">...</a></li>
+                <?php
+                    }
+                }
+                ?>
+                <?php if ($page >= $num_page) : ?>
+                    <li class="page-item disabled"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page + 1 ?>">Next</a></li>
+                <?php else : ?>
+                    <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page + 1 ?>">Next</a></li>
+                <?php endif; ?>
+            </ul>
+        </nav>
+    </div>
+    <div id="themsp" style="display: none">
+        <div class="shadow-lg p-3" id="a">
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="close" aria-label="Close" id="btn-themsp">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="col-md-12" id="content">
                 </div>
             </div>
         </div>
@@ -176,7 +277,7 @@ include_once(__DIR__ . '/dbconnect.php');
     <!-- Liên kết js -->
     <script>
         $(document).ready(function() {
-            $('.btn-add').click(function(e) {
+            $('.btn-mua').click(function(e) {
                 e.preventDefault();
                 $('#themsp').show();
             });
@@ -245,7 +346,7 @@ include_once(__DIR__ . '/dbconnect.php');
                                         <input type="number" name="num" id="num" min=0 class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn myfont text-danger btn-add">Thêm vào giỏ hàng</button>
+                                        <button class="btn myfont text-danger btn-add" id="btn-them">Thêm vào giỏ hàng</button>
                                     </div>
                                     <h5 class="text-danger">
                                         ${sao}
@@ -263,7 +364,7 @@ include_once(__DIR__ . '/dbconnect.php');
                     }
                 });
             }
-            $('.btn-add').click(function(e) {
+            $('.btn-mua').click(function(e) {
                 e.preventDefault();
                 render({
                     sp_id: $(this).data('sp_id')

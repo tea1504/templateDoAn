@@ -48,7 +48,7 @@
                     ?>
                     <div class="dropdown-menu" aria-labelledby="chude1" id="subchude1">
                         <?php foreach ($dataMauHoa as $mh): ?>
-                            <a class="dropdown-item" href="phanloai.php?type=mauhoa&mh_id=<?=$mh['mh_id']?>"><?=$mh['mh_ten']?></a>
+                            <a class="dropdown-item" href="phanloai.php?type=mauhoa&id=<?=$mh['mh_id']?>"><?=$mh['mh_ten']?></a>
                         <?php endforeach; ?>
                     </div>
                 </li>
@@ -69,7 +69,7 @@
                     ?>
                     <div class="dropdown-menu" aria-labelledby="chude2" id="subchude2">
                         <?php foreach ($dataLoaiHoa as $lh): ?>
-                            <a class="dropdown-item" href="phanloai.php?type=loaihoa&lh_id=<?=$lh['lh_id']?>"><?=$lh['lh_ten']?></a>
+                            <a class="dropdown-item" href="phanloai.php?type=loaihoa&id=<?=$lh['lh_id']?>"><?=$lh['lh_ten']?></a>
                         <?php endforeach; ?>
                     </div>
                 </li>
@@ -90,7 +90,7 @@
                     ?>
                     <div class="dropdown-menu" aria-labelledby="chude2" id="subchude2">
                         <?php foreach ($dataChuDe as $cd): ?>
-                            <a class="dropdown-item" href="phanloai.php?type=chude&lh_id=<?=$cd['cd_id']?>"><?=$cd['cd_ten']?></a>
+                            <a class="dropdown-item" href="phanloai.php?type=chude&id=<?=$cd['cd_id']?>"><?=$cd['cd_ten']?></a>
                         <?php endforeach; ?>
                     </div>
                 </li>
