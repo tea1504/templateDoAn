@@ -91,17 +91,18 @@ include_once(__DIR__ . '/dbconnect.php');
             $page = $_GET['page'];
         else
             $page = 1;
+        $offset = ($page - 1) * 8;
         if ($type == 'mauhoa') {
             $sqlCount = "SELECT COUNT(*) as c FROM sanpham_has_mauhoa WHERE mauhoa_mh_id ={$id}";
-            $sql = "SELECT sp.sp_id, sp.sp_ten, sp.sp_gia, sp.sp_giacu, sp.sp_avt_tenfile, hsp.hsp_tenfile AS hsp_tenfile, AVG(bl.bl_sao) AS sao FROM sanpham AS sp LEFT JOIN hinhsanpham AS hsp ON hsp.sanpham_sp_id = sp.sp_id LEFT JOIN binhluan AS bl ON sp.sp_id = bl.sanpham_sp_id JOIN sanpham_has_mauhoa AS spmh ON sp.sp_id = spmh.sanpham_sp_id AND spmh.mauhoa_mh_id = {$id} GROUP BY sp.sp_id LIMIT 0, 8;";
+            $sql = "SELECT sp.sp_id, sp.sp_ten, sp.sp_gia, sp.sp_giacu, sp.sp_avt_tenfile, hsp.hsp_tenfile AS hsp_tenfile, AVG(bl.bl_sao) AS sao FROM sanpham AS sp LEFT JOIN hinhsanpham AS hsp ON hsp.sanpham_sp_id = sp.sp_id LEFT JOIN binhluan AS bl ON sp.sp_id = bl.sanpham_sp_id JOIN sanpham_has_mauhoa AS spmh ON sp.sp_id = spmh.sanpham_sp_id AND spmh.mauhoa_mh_id = {$id} GROUP BY sp.sp_id LIMIT {$offset}, 8;";
             $sqlType = "SELECT mh_ten as ten FROM mauhoa WHERE mh_id={$id};";
         } else if ($type == 'loaihoa') {
             $sqlCount = "SELECT COUNT(*) as c FROM sanpham_has_loaihoa WHERE loaihoa_lh_id ={$id}";
-            $sql = "SELECT sp.sp_id, sp.sp_ten, sp.sp_gia, sp.sp_giacu, sp.sp_avt_tenfile, hsp.hsp_tenfile AS hsp_tenfile, AVG(bl.bl_sao) AS sao FROM sanpham AS sp LEFT JOIN hinhsanpham AS hsp ON hsp.sanpham_sp_id = sp.sp_id LEFT JOIN binhluan AS bl ON sp.sp_id = bl.sanpham_sp_id JOIN sanpham_has_loaihoa AS splh ON sp.sp_id = splh.sanpham_sp_id AND splh.loaihoa_lh_id = {$id} GROUP BY sp.sp_id LIMIT 0, 8;";
+            $sql = "SELECT sp.sp_id, sp.sp_ten, sp.sp_gia, sp.sp_giacu, sp.sp_avt_tenfile, hsp.hsp_tenfile AS hsp_tenfile, AVG(bl.bl_sao) AS sao FROM sanpham AS sp LEFT JOIN hinhsanpham AS hsp ON hsp.sanpham_sp_id = sp.sp_id LEFT JOIN binhluan AS bl ON sp.sp_id = bl.sanpham_sp_id JOIN sanpham_has_loaihoa AS splh ON sp.sp_id = splh.sanpham_sp_id AND splh.loaihoa_lh_id = {$id} GROUP BY sp.sp_id LIMIT {$offset}, 8;";
             $sqlType = "SELECT lh_ten as ten FROM loaihoa WHERE lh_id={$id};";
         } else {
             $sqlCount = "SELECT COUNT(*) as c FROM sanpham_has_chude WHERE chude_cd_id ={$id}";
-            $sql = "SELECT sp.sp_id, sp.sp_ten, sp.sp_gia, sp.sp_giacu, sp.sp_avt_tenfile, hsp.hsp_tenfile AS hsp_tenfile, AVG(bl.bl_sao) AS sao FROM sanpham AS sp LEFT JOIN hinhsanpham AS hsp ON hsp.sanpham_sp_id = sp.sp_id LEFT JOIN binhluan AS bl ON sp.sp_id = bl.sanpham_sp_id JOIN sanpham_has_chude AS spcd ON sp.sp_id = spcd.sanpham_sp_id AND spcd.chude_cd_id = {$id} GROUP BY sp.sp_id LIMIT 0, 8;";
+            $sql = "SELECT sp.sp_id, sp.sp_ten, sp.sp_gia, sp.sp_giacu, sp.sp_avt_tenfile, hsp.hsp_tenfile AS hsp_tenfile, AVG(bl.bl_sao) AS sao FROM sanpham AS sp LEFT JOIN hinhsanpham AS hsp ON hsp.sanpham_sp_id = sp.sp_id LEFT JOIN binhluan AS bl ON sp.sp_id = bl.sanpham_sp_id JOIN sanpham_has_chude AS spcd ON sp.sp_id = spcd.sanpham_sp_id AND spcd.chude_cd_id = {$id} GROUP BY sp.sp_id LIMIT {$offset}, 8;";
             $sqlType = "SELECT cd_ten as ten FROM chude WHERE cd_id={$id};";
         }
         $resultDanhSachSanPham = mysqli_query($conn, $sql);
@@ -176,6 +177,7 @@ include_once(__DIR__ . '/dbconnect.php');
                 </div>
             <?php endforeach; ?>
         </div>
+        <!-- Phân trang  -->
         <nav aria-label="Page navigation example" class="mx-auto">
             <ul class="pagination justify-content-center">
                 <?php if ($page <= 1) : ?>
@@ -187,13 +189,20 @@ include_once(__DIR__ . '/dbconnect.php');
                 $num_page = ceil($dataCount / 8);
                 if ($num_page <= 4) {
                     for ($i = 1; $i <= $num_page; $i++) {
-                ?>
-                        <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?></a></li>
+                        if ($i == $page) {
+                        ?>
+                                <li class="page-item active"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?><span class="sr-only">(current)</span></a></li>
+                            <?php
+                            } else {
+                            ?>
+                                <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?></a></li>
                         <?php
+                            }
                     }
                 } else {
                     if ($page < 3) {
-                        for ($i = 1; $i <= 3; $i++) {
+                        $n = 3 > $num_page ? $num_page : 3;
+                        for ($i = 1; $i <= $n; $i++) {
                             if ($i == $page) {
                         ?>
                                 <li class="page-item active"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?><span class="sr-only">(current)</span></a></li>
@@ -211,7 +220,8 @@ include_once(__DIR__ . '/dbconnect.php');
                     ?>
                         <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $num_page - 3 ?>">...</a></li>
                         <?php
-                        for ($i = $num_page - 2; $i <= $num_page; $i++) {
+                        $start = $num_page - 2 > 0 ? $num_page - 2: 1;
+                        for ($i = $start; $i <= $num_page; $i++) {
                             if ($i == $page) {
                         ?>
                                 <li class="page-item active"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?><span class="sr-only">(current)</span></a></li>
@@ -226,7 +236,8 @@ include_once(__DIR__ . '/dbconnect.php');
                         ?>
                         <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page - 2 ?>">...</a></li>
                         <?php
-                        for ($i = $page - 1; $i <= $page + 1; $i++) {
+                        $n = $page + 1 > $num_page ? $num_page : $page + 1;
+                        for ($i = $page - 1; $i <= $n; $i++) {
                             if ($i == $page) {
                         ?>
                                 <li class="page-item active"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?><span class="sr-only">(current)</span></a></li>
@@ -250,6 +261,7 @@ include_once(__DIR__ . '/dbconnect.php');
                 <?php endif; ?>
             </ul>
         </nav>
+        <!-- End phân trang  -->
     </div>
     <div id="themsp" style="display: none">
         <div class="shadow-lg p-3" id="a">
