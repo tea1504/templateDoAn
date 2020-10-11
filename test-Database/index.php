@@ -142,7 +142,7 @@ include_once(__DIR__ . '/dbconnect.php');
                                     <?php endif; ?>
                                     </span> <span class="text-danger"><?= $sp['sp_gia'] ?> đ</span>
                             </h5>
-                            <button class="btn myfont text-danger btn-add" data-sp_id="<?= $sp['sp_id'] ?>">Thêm vào giỏ hàng</button>
+                            <button class="btn myfont text-danger btn-add btn-mua" data-sp_id="<?= $sp['sp_id'] ?>">Thêm vào giỏ hàng</button>
                         </div>
                     </div>
                 </div>
@@ -206,7 +206,7 @@ include_once(__DIR__ . '/dbconnect.php');
                                     <?php endif; ?>
                                     </span> <span class="text-danger"><?= $sp['sp_gia'] ?> đ</span>
                             </h5>
-                            <button class="btn myfont text-danger btn-add" data-sp_id="<?= $sp['sp_id'] ?>">Thêm vào giỏ hàng</button>
+                            <button class="btn myfont text-danger btn-add btn-mua" data-sp_id="<?= $sp['sp_id'] ?>">Thêm vào giỏ hàng</button>
                         </div>
                     </div>
                 </div>
@@ -270,7 +270,7 @@ include_once(__DIR__ . '/dbconnect.php');
                                     <?php endif; ?>
                                     </span> <span class="text-danger"><?= $sp['sp_gia'] ?> đ</span>
                             </h5>
-                            <button class="btn myfont text-danger btn-add" data-sp_id="<?= $sp['sp_id'] ?>">Thêm vào giỏ hàng</button>
+                            <button class="btn myfont text-danger btn-add btn-mua" data-sp_id="<?= $sp['sp_id'] ?>">Thêm vào giỏ hàng</button>
                         </div>
                     </div>
                 </div>
@@ -303,7 +303,7 @@ include_once(__DIR__ . '/dbconnect.php');
     <!-- Liên kết js -->
     <script>
         $(document).ready(function() {
-            $('.btn-add').click(function(e) {
+            $('.btn-mua').click(function(e) {
                 e.preventDefault();
                 $('#themsp').show();
             });
@@ -372,7 +372,7 @@ include_once(__DIR__ . '/dbconnect.php');
                                         <input type="number" name="num" id="num" min=0 class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn myfont text-danger btn-add">Thêm vào giỏ hàng</button>
+                                        <button class="btn myfont text-danger btn-add" id="btn-them">Thêm vào giỏ hàng</button>
                                     </div>
                                     <h5 class="text-danger">
                                         ${sao}
@@ -390,7 +390,7 @@ include_once(__DIR__ . '/dbconnect.php');
                     }
                 });
             }
-            $('.btn-add').click(function(e) {
+            $('.btn-mua').click(function(e) {
                 e.preventDefault();
                 render({
                     sp_id: $(this).data('sp_id')

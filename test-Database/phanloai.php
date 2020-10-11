@@ -4,6 +4,7 @@ if (session_id() === '') {
 }
 
 include_once(__DIR__ . '/dbconnect.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -148,15 +149,16 @@ include_once(__DIR__ . '/dbconnect.php');
                 </div>
             <?php endforeach; ?>
         </div>
-    <div id="themsp" style="display: none">
-        <div class="shadow-lg p-3" id="a">
-            <div class="row">
-                <div class="col-md-12">
-                    <button type="button" class="close" aria-label="Close" id="btn-themsp">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="col-md-12" id="content">
+        <div id="themsp" style="display: none">
+            <div class="shadow-lg p-3" id="a">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" class="close" aria-label="Close" id="btn-themsp">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="col-md-12" id="content">
+                    </div>
                 </div>
             </div>
         </div>
@@ -192,21 +194,21 @@ include_once(__DIR__ . '/dbconnect.php');
                     success: function(response) {
                         var data = JSON.parse(response);
                         var gia = '';
-                        if(data.sp_giacu != '0'){
+                        if (data.sp_giacu != '0') {
                             gia = `
                             <h4><span class="text-secondary"><s>${data.sp_giacu}</s></span> <span class="text-danger">${data.sp_gia} đ</span></h4>
                             `
-                        } else{
+                        } else {
                             gia = `
                             <h4><span class="text-danger">${data.sp_gia} đ</span></h4>
                             `
                         }
                         var sao = '';
-                        for(var i=1; i<=data.sao; i++)
+                        for (var i = 1; i <= data.sao; i++)
                             sao += '<i class="fa fa-star" aria-hidden="true"></i>';
-                        for(var i=1; i<=Math.ceil(data.sao)-Math.floor(data.sao); i++)
+                        for (var i = 1; i <= Math.ceil(data.sao) - Math.floor(data.sao); i++)
                             sao += '<i class="fa fa-star-half-o" aria-hidden="true"></i>';
-                        for(var i=1; i<=5-Math.ceil(data.sao); i++)
+                        for (var i = 1; i <= 5 - Math.ceil(data.sao); i++)
                             sao += '<i class="fa fa-star-o" aria-hidden="true"></i>';
                         var htmlString = `
                         <div class="row">
