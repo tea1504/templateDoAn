@@ -286,46 +286,6 @@ include_once(__DIR__ . '/dbconnect.php');
                     </button>
                 </div>
                 <div class="col-md-12" id="content">
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-12 text-center">
-                                <img src="/templatedoan/imgs/BoHoaCrystalPearl_d764aec2-22bb-4758-a90f-a5ade95d798c_1024x1024@2x.jpg" alt="" class="img-fluid my-1 img-thumbnail">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h3 class="myfont">Bó hoa Crystal Pearl</h3>
-                        <p>
-                            <small class="text-secondary">Nhãn hiệu : chưa biết</small> <br>
-                            <small class="text-secondary">Mã sản phẩm : SP005</small> <br>
-                            <small class="text-secondary">Trạng thái : Hết hàng</small> <br>
-                        </p>
-                        <h4><span class="text-secondary"><s>150,000 VNĐ</s></span> <span class="text-danger">130,000 VNĐ</span></h4>
-                        <hr>
-                    </div>
-                    <div class="col-md-12">
-                        <h3 class="myfont">Tùy chọn</h3>
-                        <form action="" method="post" name="frm_muahang" id="frm_muahang">
-                            <input type="hidden" name="ma" id="ma" value="ma">
-                            <div class="form-group">
-                                <label for="num" class="col-form-label">Số lượng : </label>
-                                <input type="number" name="num" id="num" min=0 class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <button class="btn myfont text-danger btn-add">Thêm vào giỏ hàng</button>
-                            </div>
-                            <h5 class="text-danger">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </h5>
-                            <div class="form-group">
-                                <b>0 đánh giá</b>
-                            </div>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
@@ -422,9 +382,7 @@ include_once(__DIR__ . '/dbconnect.php');
                                     </div>
                                 </form>
                             </div>
-                        </div>
-                    </div>
-                </div>`
+                        </div>`
                         $('#content').html(htmlString);
                     },
                     error: function() {
