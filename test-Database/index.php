@@ -378,7 +378,7 @@ include_once(__DIR__ . '/dbconnect.php');
                                         ${sao}
                                     </h5>
                                     <div class="form-group">
-                                        <b>${0} đánh giá</b>
+                                        <b>${data.sobl} đánh giá</b>
                                     </div>
                                 </form>
                             </div>
