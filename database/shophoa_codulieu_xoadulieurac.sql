@@ -23,15 +23,20 @@ CREATE TABLE IF NOT EXISTS `binhluan` (
   `kh_bl_ngay` datetime DEFAULT NULL,
   `khachhang_kh_id` int(11) NOT NULL,
   `sanpham_sp_id` int(11) NOT NULL,
+  `bl_sao` int(11) DEFAULT NULL,
   PRIMARY KEY (`bl_id`),
   KEY `fk_binhluan_khachhang1_idx` (`khachhang_kh_id`),
   KEY `fk_binhluan_sanpham1_idx` (`sanpham_sp_id`),
   CONSTRAINT `fk_binhluan_khachhang1` FOREIGN KEY (`khachhang_kh_id`) REFERENCES `khachhang` (`kh_id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_binhluan_sanpham1` FOREIGN KEY (`sanpham_sp_id`) REFERENCES `sanpham` (`sp_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table shophoa.binhluan: ~0 rows (approximately)
+-- Dumping data for table shophoa.binhluan: ~2 rows (approximately)
 /*!40000 ALTER TABLE `binhluan` DISABLE KEYS */;
+INSERT INTO `binhluan` (`bl_id`, `kh_bl_noidung`, `kh_bl_ngay`, `khachhang_kh_id`, `sanpham_sp_id`, `bl_sao`) VALUES
+	(1, NULL, '2020-10-10 21:18:11', 26, 1, 3),
+	(2, NULL, '2020-10-10 21:20:23', 4, 1, 4),
+	(3, NULL, '2020-10-10 21:40:36', 30, 2, 5);
 /*!40000 ALTER TABLE `binhluan` ENABLE KEYS */;
 
 -- Dumping structure for table shophoa.chude
@@ -99,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `hinhsanpham` (
   PRIMARY KEY (`hasp_id`),
   KEY `fk_hinhsanpham_sanpham1_idx` (`sanpham_sp_id`),
   CONSTRAINT `fk_hinhsanpham_sanpham1` FOREIGN KEY (`sanpham_sp_id`) REFERENCES `sanpham` (`sp_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=519 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=520 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table shophoa.hinhsanpham: ~217 rows (approximately)
 /*!40000 ALTER TABLE `hinhsanpham` DISABLE KEYS */;
@@ -320,7 +325,8 @@ INSERT INTO `hinhsanpham` (`hasp_id`, `hsp_tenfile`, `sanpham_sp_id`) VALUES
 	(214, 'BoHoaTh_BinhHoaD_t_1024x1024@2x.jpg', 145),
 	(215, 'bo-hoa-cam-san-hoa-dat-6_1024x1024@2x.jpg', 145),
 	(216, 'Ch_uHoaLanParadeOfMagenta_1024x1024@2x.jpg', 146),
-	(217, 'Ch_uHoaLanMidnight_1024x1024@2x.jpg', 147);
+	(217, 'Ch_uHoaLanMidnight_1024x1024@2x.jpg', 147),
+	(218, 'onlyu_1_1024x1024@2x.jpg', 33);
 /*!40000 ALTER TABLE `hinhsanpham` ENABLE KEYS */;
 
 -- Dumping structure for table shophoa.hinhthucthantoan
@@ -342,9 +348,9 @@ INSERT INTO `hinhthucthantoan` (`httt_id`, `httt_ten`) VALUES
 -- Dumping structure for table shophoa.khachhang
 CREATE TABLE IF NOT EXISTS `khachhang` (
   `kh_id` int(11) NOT NULL AUTO_INCREMENT,
+  `kh_hoten` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `kh_tendangnhap` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `kh_matkhau` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `kh_hoten` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `kh_gioitinh` int(1) DEFAULT NULL,
   `kh_ngaysinh` date DEFAULT NULL,
   `kh_sodienthoai` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -358,42 +364,42 @@ CREATE TABLE IF NOT EXISTS `khachhang` (
 
 -- Dumping data for table shophoa.khachhang: ~35 rows (approximately)
 /*!40000 ALTER TABLE `khachhang` DISABLE KEYS */;
-INSERT INTO `khachhang` (`kh_id`, `kh_tendangnhap`, `kh_matkhau`, `kh_hoten`, `kh_gioitinh`, `kh_ngaysinh`, `kh_sodienthoai`, `kh_diachi`, `kh_email`, `kh_avt_tenfile`, `kh_trangthai`, `kh_quantri`) VALUES
-	(1, 'admin', '12345', 'Trần Văn Hòa', 1, '2000-04-15', '0300471491', 'dhxi1huo2zadl91qps@gmail.com', '"262 Nguyễn Thái Sơn', ' Phường 4', 0, 0),
-	(2, 'admin2', '54321', 'Đỗ Nguyễn Duy Linh', 1, '1994-11-09', '0190932854', 'by53a88gwqtdysc792@gmail.com', '"E-Town Central', ' Số 11', 0, 0),
-	(3, 'admin3', '*****', 'Dương Thị Tường Vy', 0, '1999-12-11', '0767545170', 'jne2emzg9yax@gmail.com', '"43/6A Minh Phụng', ' Phường 05', 0, 0),
-	(4, 'cm7l', '7ypjmn0xb', 'Đặng Tuấn Anh', 1, '1983-02-10', '0615627313', 'cm7l7ypjmn0xbfwlapm@gmail.com', '"262/53A Lê Văn Sỹ', ' Phường 14', 0, 0),
-	(5, 'xszm', 'ld9zcah', 'Hoàng Đức Anh', 1, '1991-03-06', '0622782821', 'xszmld9zcah6i2q@gmail.com', '"Số 19 ngõ 69 Đường Nguyễn Hoàng', ' Phường Mỹ Đình 2', 0, 0),
-	(6, '5qvg', 'bf7xn9wb', 'Lưu Trang Anh', 0, '1980-01-10', '0866614672', '5qvgbf7xn9wbib1fs1cq@gmail.com', '"Số 4', ' liền kề 10', 0, 0),
-	(7, 'ar3s', 'slrgt', 'Phạm Hoàng Anh', 1, '1989-09-07', '0848547001', 'ar3sslrgt145kmqd6l8@gmail.com', '"Số 35 Trung Kính', ' Phường Trung Hoà', 0, 0),
-	(8, 'ye0d', 'gzhdrxo2@g', 'Phạm Thị Hiền Anh', 0, '1991-03-20', '0688314823', 'ye0dgzhdrxo2@gmail.com', '"Số 3', ' Ngách 130/16', 0, 0),
-	(9, 'g86r', 'ol3f9af1', 'Phạm Khắc Việt Anh', 1, '1997-08-09', '0269629636', 'g86rol3f9af12lcc2ztr@gmail.com', '"715 Đường 3/2', ' ', 0, 0),
-	(10, 'xb1d', 'ippeg', 'Đỗ Hoàng Gia Bảo', 1, '1994-09-27', '0735092145', 'xb1dippegj@gmail.com', '"552-554 Đường 30/4', ' ', 0, 0),
-	(11, 'nkf5', 'ruxxsdwb', 'Trần Thị Minh Châu', 0, '1982-09-03', '0421757011', 'nkf5ruxxsdwb1q@gmail.com', '"35B Cách Mạng Tháng 8', ' ', 0, 0),
-	(12, '1gfo', 'v6hi9iu', 'Tăng Phương Chi', 0, '1981-09-30', '0186776528', '1gfov6hi9iu81e@gmail.com', '"Số 474-476 Hữu Nghị', ' Khóm Xuân Hoà Tt. Tịnh Biên ', 0, 0),
-	(13, 'i05y', 'za679ubkf', 'Gan Feng Du', 1, '1996-05-12', '0946965493', 'i05yza679ubkfo@gmail.com', '"349/6 Phạm Cự Lượng', ' Phường: Mỹ Quý', 0, 1),
-	(14, 'n7ev', '875g2q', 'Phạm Tiến Dũng', 1, '1980-11-09', '0191230087', 'n7ev875g2qdo5own1d@gmail.com', '"180A 10 Đường Hàm Nghi', ' Phường: Bình Khánh', 0, 1),
-	(15, 'n4ya', '132cx6', 'Nguyễn Thái Dương', 1, '1992-02-27', '0733938087', 'n4ya132cx6lxv9t@gmail.com', '"180B', ' Trần Hưng Đạo', 0, 0),
-	(16, 'lej7', '2r1fl', 'Trần An Dương', 0, '1997-06-06', '0158787711', 'lej72r1flywxkqsm@gmail.com', '"219 Hoàng Diệu', ' Phường: Châu Phú B', 0, 1),
-	(17, 'rtyp', '30xjmi@g', 'Mạc Trung Đức', 1, '1990-03-21', '0161486573', 'rtyp30xjmi@gmail.com', '"538 Ql 91', ' Thị Trấn: Cái Dầu', 0, 1),
-	(18, 'odfo', 'r99d9', 'Vũ Hương Giang', 0, '1991-01-12', '0825645916', 'odfor99d9pthr@gmail.com', '"Số 244 Trần Hưng Đạo', ' Phường: Bình Khánh', 0, 1),
-	(19, 'khmt', '3lmmx3', 'Nguyễn Thị Ngân Hà', 0, '1982-07-10', '0748289412', 'khmt3lmmx3i60d@gmail.com', '"Số 111 Tổ 2 Khu Phố 10 ', ' Thị Trấn: Sông Đốc', 0, 1),
-	(20, '8esc', 'ef5u7m', 'Nguyễn Lê Hiếu', 1, '1999-06-18', '0407602809', '8escef5u7mst8j3ozi56@gmail.com', '"Khóm 1', ' Thị Trấn: Thới Bình', 0, 1),
-	(21, 'fxvt', 'vvqfh29', 'Phạm Xuân Hòa', 0, '1993-01-11', '0138848610', 'fxvtvvqfh29hed16@gmail.com', '"18 Nguyễn Ngọc Sanh', ' Phường: 5', 0, 1),
-	(22, '0gy5', 's0ao9l@g', 'Khoa Minh Hoàng', 1, '2000-02-13', '0163422604', '0gy5s0ao9l@gmail.com', '"281 Ql 1A', ' Thị Trấn: Cái Nước', 0, 1),
-	(23, 'k4ev', 'lyjprd134', 'Nguyễn Hữu Hiệp Hoàng', 1, '1995-08-05', '0343486027', 'k4evlyjprd13454@gmail.com', '"Số 23 Nguyễn Văn Thoại', ' ', 0, 0),
-	(24, '8t69', '2w6cw', 'Nguyễn Mạnh Hùng', 1, '1994-07-28', '0954498556', '8t692w6cwo@gmail.com', '"203 Đường Điện Biên Phủ', ' ', 0, 0),
-	(25, 'bio8', '3gsfoz8', 'Nguyễn Vũ Gia Hưng', 1, '1980-07-09', '0822206821', 'bio83gsfoz8rjt8i4r7@gmail.com', '"320-322 Lê Duẩn', ' ', 0, 0),
-	(26, 'liy4', 'd79k1o@gma', 'Trần Tuấn Hưng', 1, '1983-03-02', '0562208978', 'liy4d79k1o@gmail.com', '"Tổ Nhân Dân Tân Thịnh', ' Tt. Tân Yên ', 0, 0),
-	(27, 'sx5q', 'lywy2g', 'Phạm Gia Minh', 1, '1980-01-08', '0516915424', 'sx5qlywy2g6gfk@gmail.com', '"115-117 Đường Bình Thuận', ' Tổ 29 ', 0, 0),
-	(28, 'qv4h', 'sebj9yf', 'Đỗ Hoàng Mỹ', 0, '1988-04-11', '0700661233', 'qv4hsebj9yf95j8l@gmail.com', '"Số 542 - 544 Đường 17/8', ' Tổ 15 ', 0, 0),
-	(29, 'adox', 'g51lmo', 'Đỗ Quang Ngọc', 1, '1993-05-19', '0488682534', 'adoxg51lmoyvn2@gmail.com', '"Số 184 Quang Trung', ' Tổ 23 ', 0, 0),
-	(30, '85uq', 'zc3j6kz', 'Đàm Yến Nhi', 0, '1982-10-11', '0487359653', '85uqzc3j6kzkmu@gmail.com', '"Tổ Dân Phố Cơ Quan', ' Tt. Sơn Dương ', 0, 0),
-	(31, 'msc0', 'upw1e4jo', 'Đoàn Hoàng Sơn', 1, '1999-03-13', '0714700757', 'msc0upw1e4joe50@gmail.com', '"Số 46 Tổ Dân Phố Quyết Thắng', ' Tt.Sơn Dương ', 0, 0),
-	(32, 't5xl', 'gjdcju4', 'Nguyễn Công Thành', 1, '1982-01-15', '0563981091', 't5xlgjdcju4@gmail.com', '"Số 209', ' Đường Trần Phú', 0, 0),
-	(33, 'h1or', 'pilrvm', 'Bùi Phương Thảo', 0, '1992-01-27', '0728699023', 'h1orpilrvmv@gmail.com', '"Số 17 Đường 19/5', ' Thị Trấn: Ba Tri', 0, 1),
-	(34, '1y13', 'r84n7ry', 'Nguyễn Hương Thảo', 0, '1988-08-12', '0770703155', '1y13r84n7ry45m8@gmail.com', '"Số 340 Kp3 ', ' Thị Trấn: Giồng Trôm', 0, 1),
-	(35, '5zpw', 'hgf6pl4p78', 'Tô Diệu Thảo', 0, '2000-01-21', '0159523198', '5zpwhgf6pl4p78utw7@gmail.com', '"Số 24 Nguyễn Trung Trực', ' Phường: 1', 0, 1);
+INSERT INTO `khachhang` (`kh_id`, `kh_hoten`, `kh_tendangnhap`, `kh_matkhau`, `kh_gioitinh`, `kh_ngaysinh`, `kh_sodienthoai`, `kh_diachi`, `kh_email`, `kh_avt_tenfile`, `kh_trangthai`, `kh_quantri`) VALUES
+	(1, 'Trần Văn Hòa', 'admin', '12345', 1, '2000-04-15', '0300471491', 'dhxi1huo2zadl91qps@gmail.com', '"262 Nguyễn Thái Sơn', ' Phường 4', 0, 0),
+	(2, 'Đỗ Nguyễn Duy Linh', 'admin2', '54321', 1, '1994-11-09', '0190932854', 'by53a88gwqtdysc792@gmail.com', '"E-Town Central', ' Số 11', 0, 0),
+	(3, 'Dương Thị Tường Vy', 'admin3', '*****', 0, '1999-12-11', '0767545170', 'jne2emzg9yax@gmail.com', '"43/6A Minh Phụng', ' Phường 05', 0, 0),
+	(4, 'Đặng Tuấn Anh', 'cm7l', '7ypjmn0xb', 1, '1983-02-10', '0615627313', 'cm7l7ypjmn0xbfwlapm@gmail.com', '"262/53A Lê Văn Sỹ', ' Phường 14', 0, 0),
+	(5, 'Hoàng Đức Anh', 'xszm', 'ld9zcah', 1, '1991-03-06', '0622782821', 'xszmld9zcah6i2q@gmail.com', '"Số 19 ngõ 69 Đường Nguyễn Hoàng', ' Phường Mỹ Đình 2', 0, 0),
+	(6, 'Lưu Trang Anh', '5qvg', 'bf7xn9wb', 0, '1980-01-10', '0866614672', '5qvgbf7xn9wbib1fs1cq@gmail.com', '"Số 4', ' liền kề 10', 0, 0),
+	(7, 'Phạm Hoàng Anh', 'ar3s', 'slrgt', 1, '1989-09-07', '0848547001', 'ar3sslrgt145kmqd6l8@gmail.com', '"Số 35 Trung Kính', ' Phường Trung Hoà', 0, 0),
+	(8, 'Phạm Thị Hiền Anh', 'ye0d', 'gzhdrxo2@g', 0, '1991-03-20', '0688314823', 'ye0dgzhdrxo2@gmail.com', '"Số 3', ' Ngách 130/16', 0, 0),
+	(9, 'Phạm Khắc Việt Anh', 'g86r', 'ol3f9af1', 1, '1997-08-09', '0269629636', 'g86rol3f9af12lcc2ztr@gmail.com', '"715 Đường 3/2', ' ', 0, 0),
+	(10, 'Đỗ Hoàng Gia Bảo', 'xb1d', 'ippeg', 1, '1994-09-27', '0735092145', 'xb1dippegj@gmail.com', '"552-554 Đường 30/4', ' ', 0, 0),
+	(11, 'Trần Thị Minh Châu', 'nkf5', 'ruxxsdwb', 0, '1982-09-03', '0421757011', 'nkf5ruxxsdwb1q@gmail.com', '"35B Cách Mạng Tháng 8', ' ', 0, 0),
+	(12, 'Tăng Phương Chi', '1gfo', 'v6hi9iu', 0, '1981-09-30', '0186776528', '1gfov6hi9iu81e@gmail.com', '"Số 474-476 Hữu Nghị', ' Khóm Xuân Hoà Tt. Tịnh Biên ', 0, 0),
+	(13, 'Gan Feng Du', 'i05y', 'za679ubkf', 1, '1996-05-12', '0946965493', 'i05yza679ubkfo@gmail.com', '"349/6 Phạm Cự Lượng', ' Phường: Mỹ Quý', 0, 1),
+	(14, 'Phạm Tiến Dũng', 'n7ev', '875g2q', 1, '1980-11-09', '0191230087', 'n7ev875g2qdo5own1d@gmail.com', '"180A 10 Đường Hàm Nghi', ' Phường: Bình Khánh', 0, 1),
+	(15, 'Nguyễn Thái Dương', 'n4ya', '132cx6', 1, '1992-02-27', '0733938087', 'n4ya132cx6lxv9t@gmail.com', '"180B', ' Trần Hưng Đạo', 0, 0),
+	(16, 'Trần An Dương', 'lej7', '2r1fl', 0, '1997-06-06', '0158787711', 'lej72r1flywxkqsm@gmail.com', '"219 Hoàng Diệu', ' Phường: Châu Phú B', 0, 1),
+	(17, 'Mạc Trung Đức', 'rtyp', '30xjmi@g', 1, '1990-03-21', '0161486573', 'rtyp30xjmi@gmail.com', '"538 Ql 91', ' Thị Trấn: Cái Dầu', 0, 1),
+	(18, 'Vũ Hương Giang', 'odfo', 'r99d9', 0, '1991-01-12', '0825645916', 'odfor99d9pthr@gmail.com', '"Số 244 Trần Hưng Đạo', ' Phường: Bình Khánh', 0, 1),
+	(19, 'Nguyễn Thị Ngân Hà', 'khmt', '3lmmx3', 0, '1982-07-10', '0748289412', 'khmt3lmmx3i60d@gmail.com', '"Số 111 Tổ 2 Khu Phố 10 ', ' Thị Trấn: Sông Đốc', 0, 1),
+	(20, 'Nguyễn Lê Hiếu', '8esc', 'ef5u7m', 1, '1999-06-18', '0407602809', '8escef5u7mst8j3ozi56@gmail.com', '"Khóm 1', ' Thị Trấn: Thới Bình', 0, 1),
+	(21, 'Phạm Xuân Hòa', 'fxvt', 'vvqfh29', 0, '1993-01-11', '0138848610', 'fxvtvvqfh29hed16@gmail.com', '"18 Nguyễn Ngọc Sanh', ' Phường: 5', 0, 1),
+	(22, 'Khoa Minh Hoàng', '0gy5', 's0ao9l@g', 1, '2000-02-13', '0163422604', '0gy5s0ao9l@gmail.com', '"281 Ql 1A', ' Thị Trấn: Cái Nước', 0, 1),
+	(23, 'Nguyễn Hữu Hiệp Hoàng', 'k4ev', 'lyjprd134', 1, '1995-08-05', '0343486027', 'k4evlyjprd13454@gmail.com', '"Số 23 Nguyễn Văn Thoại', ' ', 0, 0),
+	(24, 'Nguyễn Mạnh Hùng', '8t69', '2w6cw', 1, '1994-07-28', '0954498556', '8t692w6cwo@gmail.com', '"203 Đường Điện Biên Phủ', ' ', 0, 0),
+	(25, 'Nguyễn Vũ Gia Hưng', 'bio8', '3gsfoz8', 1, '1980-07-09', '0822206821', 'bio83gsfoz8rjt8i4r7@gmail.com', '"320-322 Lê Duẩn', ' ', 0, 0),
+	(26, 'Trần Tuấn Hưng', 'liy4', 'd79k1o@gma', 1, '1983-03-02', '0562208978', 'liy4d79k1o@gmail.com', '"Tổ Nhân Dân Tân Thịnh', ' Tt. Tân Yên ', 0, 0),
+	(27, 'Phạm Gia Minh', 'sx5q', 'lywy2g', 1, '1980-01-08', '0516915424', 'sx5qlywy2g6gfk@gmail.com', '"115-117 Đường Bình Thuận', ' Tổ 29 ', 0, 0),
+	(28, 'Đỗ Hoàng Mỹ', 'qv4h', 'sebj9yf', 0, '1988-04-11', '0700661233', 'qv4hsebj9yf95j8l@gmail.com', '"Số 542 - 544 Đường 17/8', ' Tổ 15 ', 0, 0),
+	(29, 'Đỗ Quang Ngọc', 'adox', 'g51lmo', 1, '1993-05-19', '0488682534', 'adoxg51lmoyvn2@gmail.com', '"Số 184 Quang Trung', ' Tổ 23 ', 0, 0),
+	(30, 'Đàm Yến Nhi', '85uq', 'zc3j6kz', 0, '1982-10-11', '0487359653', '85uqzc3j6kzkmu@gmail.com', '"Tổ Dân Phố Cơ Quan', ' Tt. Sơn Dương ', 0, 0),
+	(31, 'Đoàn Hoàng Sơn', 'msc0', 'upw1e4jo', 1, '1999-03-13', '0714700757', 'msc0upw1e4joe50@gmail.com', '"Số 46 Tổ Dân Phố Quyết Thắng', ' Tt.Sơn Dương ', 0, 0),
+	(32, 'Nguyễn Công Thành', 't5xl', 'gjdcju4', 1, '1982-01-15', '0563981091', 't5xlgjdcju4@gmail.com', '"Số 209', ' Đường Trần Phú', 0, 0),
+	(33, 'Bùi Phương Thảo', 'h1or', 'pilrvm', 0, '1992-01-27', '0728699023', 'h1orpilrvmv@gmail.com', '"Số 17 Đường 19/5', ' Thị Trấn: Ba Tri', 0, 1),
+	(34, 'Nguyễn Hương Thảo', '1y13', 'r84n7ry', 0, '1988-08-12', '0770703155', '1y13r84n7ry45m8@gmail.com', '"Số 340 Kp3 ', ' Thị Trấn: Giồng Trôm', 0, 1),
+	(35, 'Tô Diệu Thảo', '5zpw', 'hgf6pl4p78', 0, '2000-01-21', '0159523198', '5zpwhgf6pl4p78utw7@gmail.com', '"Số 24 Nguyễn Trung Trực', ' Phường: 1', 0, 1);
 /*!40000 ALTER TABLE `khachhang` ENABLE KEYS */;
 
 -- Dumping structure for table shophoa.khuyenmai
@@ -403,11 +409,16 @@ CREATE TABLE IF NOT EXISTS `khuyenmai` (
   `km_noidung` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `km_tungay` datetime DEFAULT NULL,
   `km_denngay` datetime DEFAULT NULL,
+  `km_anh` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`km_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table shophoa.khuyenmai: ~0 rows (approximately)
+-- Dumping data for table shophoa.khuyenmai: ~3 rows (approximately)
 /*!40000 ALTER TABLE `khuyenmai` DISABLE KEYS */;
+INSERT INTO `khuyenmai` (`km_id`, `km_ten`, `km_noidung`, `km_tungay`, `km_denngay`, `km_anh`) VALUES
+	(1, 'Halloween 2020', 'Halloween năm 2020', '2020-10-10 19:30:06', '2020-10-31 19:30:17', 'km1.jpg'),
+	(3, 'Khai trương', 'Khai trương', '2020-10-10 19:49:24', '2020-10-13 23:59:59', 'km2.jpg'),
+	(4, 'Trung thu', 'Trung thu 2020', '2020-09-10 21:06:35', '2020-09-30 00:00:00', NULL);
 /*!40000 ALTER TABLE `khuyenmai` ENABLE KEYS */;
 
 -- Dumping structure for table shophoa.loaihoa
@@ -459,7 +470,7 @@ CREATE TABLE IF NOT EXISTS `sanpham` (
   `sp_ten` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `sp_gia` decimal(13,3) DEFAULT NULL,
   `sp_giacu` decimal(13,3) DEFAULT NULL,
-  `sp_soluong` int(11) DEFAULT NULL,
+  `sp_yeuthich` int(11) DEFAULT NULL,
   `sp_mota_ngan` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `sp_mota_chitiet` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `sp_ngaycapnhat` datetime DEFAULT NULL,
@@ -473,34 +484,34 @@ CREATE TABLE IF NOT EXISTS `sanpham` (
 
 -- Dumping data for table shophoa.sanpham: ~77 rows (approximately)
 /*!40000 ALTER TABLE `sanpham` DISABLE KEYS */;
-INSERT INTO `sanpham` (`sp_id`, `sp_ten`, `sp_gia`, `sp_giacu`, `sp_soluong`, `sp_mota_ngan`, `sp_mota_chitiet`, `sp_ngaycapnhat`, `sp_trangthai`, `sp_avt_tenfile`, `km`) VALUES
-	(1, 'Bó Hoa Hồng Beautiful You', 229000.000, 599000.000, 312, '', '', '2020-10-07 00:00:00', 1, 'Hoa_Hong1d.jpg', NULL),
-	(2, 'Bó Hoa Fabulously Red', 319000.000, 619000.000, 194, '', '', '2020-10-07 00:00:00', 1, 'Hoa_Cam_Chuong1.jpg', NULL),
-	(5, 'Giỏ Hoa Rose Land', 279000.000, 469000.000, 153, '', '', '2020-10-07 00:00:00', 1, 'Hoa_Cam_Chuong5.jpg', NULL),
-	(7, 'Giỏ Hoa Spring Garden', 329000.000, 499000.000, 285, '', '', '2020-10-07 00:00:00', 1, 'SpringGarden_8a7fdabb-0ecd-4f76-82dc-5dd0583f2546_1024x1024@2x.jpg', NULL),
-	(11, 'Bó Hoa Hồng Forever', 419000.000, 0.000, 362, '', '', '2020-10-07 00:00:00', 1, 'Hoa_Hong2.jpg', NULL),
-	(12, 'Hộp Hoa Gỗ City Of Stars', 469000.000, 0.000, 220, '', '', '2020-10-07 00:00:00', 1, 'H_pHoaG_CityOfStars_bd7c9cb4-867e-4ee5-afc8-4ebf80ea6224_1024x1024@2x.jpg', NULL),
-	(14, 'Hộp Hoa Gỗ Come And Kiss Me', 519000.000, 0.000, 483, '', '', '2020-10-07 00:00:00', 1, 'ComeAndKissMe_C_mTron1_1024x1024@2x.jpg', NULL),
-	(16, 'Hộp Hoa Gỗ Have A Sweet Day', 619000.000, 0.000, 301, '', '', '2020-10-07 00:00:00', 1, 'H_pHoaG_HaveASweetDay1_1024x1024@2x.jpg', NULL),
-	(20, 'Bó Hoa Pinky', 319000.000, 0.000, 125, '', '', '2020-10-07 00:00:00', 1, 'Pinky_1024x1024@2x.jpg', NULL),
-	(21, 'Bó Hoa Doors To Heaven', 289000.000, 0.000, 238, '', '', '2020-10-07 00:00:00', 1, 'BoHoaDoorsToHeavenCaoCap-web_1024x1024@2x.jpg', NULL),
-	(28, 'Bình Hoa Thủy Tinh Fire For The Soul', 679000.000, 0.000, 374, '', '', '2020-10-07 00:00:00', 1, 'BinhHoaTh_yTinhFireForTheSoul_1024x1024@2x.jpg', NULL),
-	(33, 'Bó Hoa Hồng Ecuador Only You', 799000.000, 0.000, 500, '', '', '2020-10-07 00:00:00', 1, 'onlyu_1_1024x1024@2x.jpg', NULL),
-	(34, 'Bó Hoa Pink Blush', 299000.000, 0.000, 367, '', '', '2020-10-07 00:00:00', 1, 'pinkblush_1024x1024@2x.jpg', NULL),
-	(38, 'Giỏ hoa Diamond Love', 569000.000, 0.000, 104, '', '', '2020-10-07 00:00:00', 1, 'diamondlove_1024x1024@2x.jpg', NULL),
-	(50, 'Hộp Hoa Gỗ Sunshine Box', 619000.000, 0.000, 404, '', '', '2020-10-07 00:00:00', 1, 'H_pHoaG_SunshineBox_1024x1024@2x.jpg', NULL),
-	(52, 'Bó Hoa Hướng Dương Sunny Smile', 299000.000, 0.000, 444, '', '', '2020-10-07 00:00:00', 1, 'Hoa_Huong_Duong2.jpg', NULL),
-	(53, 'Bó Hoa Hướng Dương Shiny Baby', 419000.000, 0.000, 267, '', '', '2020-10-07 00:00:00', 1, 'BoHoaH_ngD_ngShinyBaby_1024x1024@2x.jpg', NULL),
-	(54, 'Bó Hoa Hướng Dương Sunny Days', 319000.000, 0.000, 130, '', '', '2020-10-07 00:00:00', 1, 'Hoa_Huong_Duong.jpg', NULL),
-	(55, 'Bó Hoa Yellow Garden', 449000.000, 0.000, 262, '', '', '2020-10-07 00:00:00', 1, 'BoHoaYellowGarden_87092941-9d4c-42d3-a3cf-5f0694af9c0a_1024x1024@2x.jpg', NULL),
-	(56, 'Bó Hoa My Only Sunshine', 379000.000, 629000.000, 332, '', '', '2020-10-07 00:00:00', 1, 'hoa-baby-bo-hoa-my-only-sunshine-1_1024x1024@2x.jpg', NULL),
-	(57, 'Giỏ Hoa Be Happy', 279000.000, 469000.000, 222, '', '', '2020-10-07 00:00:00', 1, 'Happy_1d07c191-8a68-414a-973c-fdb949a012fd_1024x1024@2x.jpg', NULL),
-	(58, 'Bó Hoa Mindful Soul', 259000.000, 429000.000, 353, '', '', '2020-10-07 00:00:00', 1, 'mindfulsoul_1024x1024@2x.jpg', NULL),
-	(66, 'Giỏ Hoa Wonderland', 1329000.000, 0.000, 448, '', '', '2020-10-07 00:00:00', 1, 'wonderland_1024x1024@2x.jpg', NULL),
-	(67, 'Hộp Hoa Gỗ Pretty Glory', 589000.000, 1119000.000, 421, '', '', '2020-10-07 00:00:00', 1, 'H_pHoaG_PrettyGlory_1024x1024@2x.jpg', NULL),
-	(71, 'Bó Hoa Purple Desire', 439000.000, 0.000, 419, '', '', '2020-10-07 00:00:00', 1, 'BoHoaPurpleDesire_1024x1024@2x.jpg', NULL),
-	(72, 'Bó Hoa The Ocean Breeze', 499000.000, 0.000, 397, '', '', '2020-10-07 00:00:00', 1, 'BoHoaTheOceanBreezeBridal_1024x1024@2x.jpg', NULL),
-	(74, 'Bó Hoa Twilight', 749000.000, 0.000, 371, '', '', '2020-10-07 00:00:00', 1, 'BoHoaTwilight_1024x1024@2x.jpg', NULL),
+INSERT INTO `sanpham` (`sp_id`, `sp_ten`, `sp_gia`, `sp_giacu`, `sp_yeuthich`, `sp_mota_ngan`, `sp_mota_chitiet`, `sp_ngaycapnhat`, `sp_trangthai`, `sp_avt_tenfile`, `km`) VALUES
+	(1, 'Bó Hoa Hồng Beautiful You', 229000.000, 599000.000, 312, 'Bó hoa hồng đỏ đơn giản được gói rất trẻ trung và thanh lịch là một trong những mẫu Best Seller của chúng tôi. Là lựa chọn hoàn hảo cho ngày Valentine hoặc bất kỳ dịp đặc biệt nào.', '', '2020-10-07 00:00:00', 1, 'Hoa_Hong1d.jpg', NULL),
+	(2, 'Bó Hoa Fabulously Red', 319000.000, 619000.000, 194, 'Bó hoa sang trọng và thanh khiết với hoa Hồng đỏ được gói xinh xắn. Đây sẽ là món quà bất ngờ và hoàn hảo dành tặng người thương, gia đình hoặc bạn bè. ', '', '2020-10-07 00:00:00', 1, 'Hoa_Cam_Chuong1.jpg', NULL),
+	(5, 'Giỏ Hoa Rose Land', 279000.000, 469000.000, 153, 'Giỏ hoa rực rỡ và đầy sức sống với các loại Hoa Hồng nhiều màu sắc. Đây sẽ là món quà bất ngờ và hoàn hảo dành tặng người thương, gia đình hoặc bạn bè.', '', '2020-10-07 00:00:00', 1, 'Hoa_Cam_Chuong5.jpg', NULL),
+	(7, 'Giỏ Hoa Spring Garden', 329000.000, 499000.000, 285, 'Giỏ hoa rực rỡ và đầy sức sống với hoa Hồng, Đồng Tiền & Cẩm Chướng tươi tắn. Đây sẽ là món quà bất ngờ và hoàn hảo dành tặng người thương, gia đình hoặc bạn bè.', '', '2020-10-07 00:00:00', 1, 'SpringGarden_8a7fdabb-0ecd-4f76-82dc-5dd0583f2546_1024x1024@2x.jpg', NULL),
+	(11, 'Bó Hoa Hồng Forever', 419000.000, 0.000, 362, 'Bó hoa sang trọng với sự kết hợp của lá bạc với hoa Hồng trắng và đỏ nồng nàn. Đây sẽ là món quà bất ngờ và hoàn hảo dành tặng người thương, gia đình hoặc bạn bè. ', '', '2020-10-07 00:00:00', 1, 'Hoa_Hong2.jpg', NULL),
+	(12, 'Hộp Hoa Gỗ City Of Stars', 469000.000, 0.000, 220, 'Hộp hoa bằng gỗ kết hợp các loại hoa tươi như hoa Hồng tím, Cẩm Chướng và Cúc tím đầy trang nhã, lãng mạn sẽ là món quà bất ngờ và hoàn hảo dành tặng người thương, gia đình hoặc bạn bè.', '', '2020-10-07 00:00:00', 1, 'H_pHoaG_CityOfStars_bd7c9cb4-867e-4ee5-afc8-4ebf80ea6224_1024x1024@2x.jpg', NULL),
+	(14, 'Hộp Hoa Gỗ Come And Kiss Me', 519000.000, 0.000, 483, 'Hộp hoa bằng gỗ kết hợp các loại hoa tươi như hoa Hồng, Cẩm Chướng và Cẩm Tú Cầu đỏ nồng nàn sẽ là món quà bất ngờ và hoàn hảo dành tặng người thương, gia đình hoặc bạn bè.', '', '2020-10-07 00:00:00', 1, 'ComeAndKissMe_C_mTron1_1024x1024@2x.jpg', NULL),
+	(16, 'Hộp Hoa Gỗ Have A Sweet Day', 619000.000, 0.000, 301, 'Hộp hoa bằng gỗ màu xanh da trời kết hợp các loại hoa tươi như hoa Hồng, Cát Tường và Cúc trắng đầy thanh lịch và ngọt ngào sẽ là món quà bất ngờ và hoàn hảo dành tặng người thương, gia đình hoặc bạn bè.', '', '2020-10-07 00:00:00', 1, 'H_pHoaG_HaveASweetDay1_1024x1024@2x.jpg', NULL),
+	(20, 'Bó Hoa Pinky', 319000.000, 0.000, 125, 'Bó hoa thanh lịch và độc đáo gồm Hoa Hồng, Cẩm Chướng & Đồng Tiền được gói rất trang nhã và đẹp mắt. Là sự lựa chọn hoàn hảo cho ngày Valentine hoặc bất kỳ dịp đặc biệt nào.', '', '2020-10-07 00:00:00', 1, 'Pinky_1024x1024@2x.jpg', NULL),
+	(21, 'Bó Hoa Doors To Heaven', 289000.000, 0.000, 238, 'Bó hoa mang gam màu pastel đầy trang nhã và duyên dáng với sự kết hợp của nhiều loại hoa tươi như hoa Hồng, Cẩm chướng, Cát tường và Cẩm tú cầu. Đây sẽ là món quà bất ngờ và hoàn hảo dành tặng người thương, gia đình hoặc bạn bè.', '', '2020-10-07 00:00:00', 1, 'BoHoaDoorsToHeavenCaoCap-web_1024x1024@2x.jpg', NULL),
+	(28, 'Bình Hoa Thủy Tinh Fire For The Soul', 679000.000, 0.000, 374, 'Bình hoa thủy tinh kết hợp các loại hoa tươi như hoa Hồng, Cẩm Chướng và Cát Tường thanh lịch nhưng không kém phần rực rỡ và vui tươi sẽ là món quà bất ngờ và hoàn hảo dành tặng người thương, gia đình hoặc bạn bè.', '', '2020-10-07 00:00:00', 1, 'BinhHoaTh_yTinhFireForTheSoul_1024x1024@2x.jpg', NULL),
+	(33, 'Bó Hoa Hồng Ecuador Only You', 799000.000, 0.000, 500, 'Bó hoa sang trọng và thanh khiết với hoa Hồng Ecuador được gói xinh xắn. Đây sẽ là món quà bất ngờ và hoàn hảo dành tặng người thương, gia đình hoặc bạn bè.', '', '2020-10-07 00:00:00', 1, 'onlyu_1_1024x1024@2x.jpg', NULL),
+	(34, 'Bó Hoa Pink Blush', 299000.000, 0.000, 367, 'Bó hoa Hồng & Đồng Tiền được gói rất thanh lịch và trang nhã là lựa chọn hoàn hảo cho ngày Valentine hoặc bất kỳ dịp đặc biệt nào.', '', '2020-10-07 00:00:00', 1, 'pinkblush_1024x1024@2x.jpg', NULL),
+	(38, 'Giỏ hoa Diamond Love', 569000.000, 0.000, 104, 'Những bông hoa xinh đẹp được cắm trên chiếc giỏ với màu đen quyền quý mang đến cảm giác mới lạ và tràn đầy sự ấm áp. Diamond Love tượng trưng cho tình yêu trong sáng ngây thơ luôn bền vững theo năm tháng như vẻ đẹp vĩnh cửu của viên kim cương vậy. Diamond Love - Tình yêu bền vững theo thời gian.', '', '2020-10-07 00:00:00', 1, 'diamondlove_1024x1024@2x.jpg', NULL),
+	(50, 'Hộp Hoa Gỗ Sunshine Box', 619000.000, 0.000, 404, 'Hộp hoa bằng gỗ kết hợp các loại hoa tươi như hoa Hướng Dương và Cát Tường tươi tắn sẽ là món quà bất ngờ và hoàn hảo dành tặng người thương, gia đình hoặc bạn bè.', '', '2020-10-07 00:00:00', 1, 'H_pHoaG_SunshineBox_1024x1024@2x.jpg', NULL),
+	(52, 'Bó Hoa Hướng Dương Sunny Smile', 299000.000, 0.000, 444, 'Bó hoa được gói đẹp mắt và hiện đại với sự kết hợp của Hướng Dương và Salem tím xinh xắn là lựa chọn hoàn hảo cho ngày Valentine hoặc bất kỳ dịp đặc biệt nào.', '', '2020-10-07 00:00:00', 1, 'Hoa_Huong_Duong2.jpg', NULL),
+	(53, 'Bó Hoa Hướng Dương Shiny Baby', 419000.000, 0.000, 267, 'Bó hoa màu vàng lộng lẫy và rực rỡ với sự kết hợp của nhiều loại hoa tươi như hoa Hướng Dương và Cúc vàng. Đây sẽ là món quà bất ngờ và hoàn hảo dành tặng người thương, gia đình hoặc bạn bè.', '', '2020-10-07 00:00:00', 1, 'BoHoaH_ngD_ngShinyBaby_1024x1024@2x.jpg', NULL),
+	(54, 'Bó Hoa Hướng Dương Sunny Days', 319000.000, 0.000, 130, 'Bó hoa rực rỡ kết hợp Hướng dương và Salem tím hài hòa đẹp mắt. Lựa chọn hoàn hảo cho ngày Valentine hoặc bất kỳ dịp đặc biệt nào.', '', '2020-10-07 00:00:00', 1, 'Hoa_Huong_Duong.jpg', NULL),
+	(55, 'Bó Hoa Yellow Garden', 449000.000, 0.000, 262, 'Bó hoa màu vàng lộng lẫy và rực rỡ với sự kết hợp của nhiều loại hoa tươi như hoa Hướng Dương và Cúc vàng. Đây sẽ là món quà bất ngờ và hoàn hảo dành tặng người thương, gia đình hoặc bạn bè.', '', '2020-10-10 00:00:00', 1, 'BoHoaYellowGarden_87092941-9d4c-42d3-a3cf-5f0694af9c0a_1024x1024@2x.jpg', NULL),
+	(56, 'Bó Hoa My Only Sunshine', 379000.000, 629000.000, 332, 'Bó hoa xinh xắn và đáng yêu với Hướng Dương và Baby trắng được gói xinh xắn. Đây sẽ là món quà bất ngờ và hoàn hảo dành tặng người thương, gia đình hoặc bạn bè.', '', '2020-10-10 00:00:00', 1, 'hoa-baby-bo-hoa-my-only-sunshine-1_1024x1024@2x.jpg', NULL),
+	(57, 'Giỏ Hoa Be Happy', 279000.000, 469000.000, 222, 'Giỏ hoa rực rỡ và đầy sức sống với hoa Hướng Dương và Cúc vàng tươi tắn. Đây sẽ là món quà bất ngờ và hoàn hảo dành tặng người thương, gia đình hoặc bạn bè. ', '', '2020-10-07 00:00:00', 1, 'Happy_1d07c191-8a68-414a-973c-fdb949a012fd_1024x1024@2x.jpg', NULL),
+	(58, 'Bó Hoa Mindful Soul', 259000.000, 429000.000, 353, 'Bó hoa nhỏ nhắn đáng yêu với hoa Hướng Dương cùng Cẩm Tú Cầu được gói xinh xắn. Đây sẽ là món quà bất ngờ và hoàn hảo dành tặng người thương, gia đình hoặc bạn bè.', '', '2020-10-07 00:00:00', 1, 'mindfulsoul_1024x1024@2x.jpg', NULL),
+	(66, 'Giỏ Hoa Wonderland', 1329000.000, 0.000, 448, 'Giỏ hoa với sự kết hợp của rất nhiều loại hoa lá, vừa sang trọng, lại vừa xinh xắn, hiện đại, phù hợp gửi tặng cho bất kỳ ai, trong bất kỳ dịp nào.', '', '2020-10-07 00:00:00', 1, 'wonderland_1024x1024@2x.jpg', NULL),
+	(67, 'Hộp Hoa Gỗ Pretty Glory', 589000.000, 1119000.000, 421, 'Hộp hoa gỗ hoành tráng với sự góp mặt của đồng tiền và hướng dương - những loài hoa mang ý nghĩa vô cùng tốt lành để bạn gửi tặng trong bất kỳ dịp quan trọng nào. ', '', '2020-10-07 00:00:00', 1, 'H_pHoaG_PrettyGlory_1024x1024@2x.jpg', NULL),
+	(71, 'Bó Hoa Purple Desire', 439000.000, 0.000, 419, 'Bó hoa độc đáo với sự kết hợp của hoa Cẩm chướng và Cát tường. Lựa chọn hoàn hảo cho ngày Valentine hoặc bất kỳ dịp đặc biệt nào.', '', '2020-10-10 00:00:00', 1, 'BoHoaPurpleDesire_1024x1024@2x.jpg', NULL),
+	(72, 'Bó Hoa The Ocean Breeze', 499000.000, 0.000, 397, 'Bó hoa mang gam màu pastel đầy trang nhã và duyên dáng với sự kết hợp của nhiều loại hoa tươi như hoa Hồng, Cẩm chướng, Cát tường và Cẩm tú cầu. Đây sẽ là món quà bất ngờ và hoàn hảo dành tặng người thương, gia đình hoặc bạn bè.', '', '2020-10-07 00:00:00', 1, 'BoHoaTheOceanBreezeBridal_1024x1024@2x.jpg', NULL),
+	(74, 'Bó Hoa Twilight', 749000.000, 0.000, 371, 'Bó hoa độc đáo với sự kết hợp của hoa Cẩm chướng và Cát tường. Lựa chọn hoàn hảo cho ngày Valentine hoặc bất kỳ dịp đặc biệt nào.', '', '2020-10-07 00:00:00', 1, 'BoHoaTwilight_1024x1024@2x.jpg', NULL),
 	(75, 'Bó Hoa Autumn Melody', 439000.000, 0.000, 224, '', '', '2020-10-07 00:00:00', 1, 'BoHoaAutumnMelody_1024x1024@2x.jpg', NULL),
 	(77, 'Ngày Tốt Lành!', 239000.000, 0.000, 350, '', '', '2020-10-07 00:00:00', 1, 'NgayT_tLanh_1024x1024@2x.jpg', NULL),
 	(80, 'Giỏ Hoa Anna"s Garden', 329000.000, 549000.000, 240, '', '', '2020-10-07 00:00:00', 1, 'Anna_sGarden_007c9667-eb30-47d6-b724-b43f2d23c8e5_1024x1024@2x.jpg', NULL),
@@ -508,9 +519,9 @@ INSERT INTO `sanpham` (`sp_id`, `sp_ten`, `sp_gia`, `sp_giacu`, `sp_soluong`, `s
 	(84, 'Bó Hoa Day Dreamer', 369000.000, 0.000, 410, '', '', '2020-10-07 00:00:00', 1, 'daydreamer_1_1024x1024@2x.jpg', NULL),
 	(85, 'Bó Hoa Romantic Escape', 599000.000, 0.000, 339, '', '', '2020-10-07 00:00:00', 1, 'romance-escape_1024x1024@2x.jpg', NULL),
 	(86, 'Bó Hoa Sweet Desire', 429000.000, 0.000, 387, '', '', '2020-10-07 00:00:00', 1, 'SweetDesire_Transparent_01_1024x1024@2x.jpg', NULL),
-	(87, 'Bó Hoa Million Little Things', 819000.000, 0.000, 378, '', '', '2020-10-07 00:00:00', 1, 'bo-hoa-million-little-things-1_1_1024x1024@2x.jpg', NULL),
+	(87, 'Bó Hoa Million Little Things', 819000.000, 0.000, 378, '', '', '2020-10-10 00:00:00', 1, 'bo-hoa-million-little-things-1_1_1024x1024@2x.jpg', NULL),
 	(88, 'Bó Hoa Passionate Love', 639000.000, 0.000, 361, '', '', '2020-10-07 00:00:00', 1, 'PassionateLove_1024x1024@2x.jpg', NULL),
-	(89, 'Bó Hoa My Juliet', 329000.000, 0.000, 121, '', '', '2020-10-07 00:00:00', 1, 'my-juliet-123_67324705-d8c5-4876-8168-139b8bca1a56_1024x1024@2x.jpg', NULL),
+	(89, 'Bó Hoa My Juliet', 329000.000, 0.000, 121, '', '', '2020-10-10 00:00:00', 1, 'my-juliet-123_67324705-d8c5-4876-8168-139b8bca1a56_1024x1024@2x.jpg', NULL),
 	(90, 'Bó Hoa My Princess', 419000.000, 0.000, 196, '', '', '2020-10-07 00:00:00', 1, 'myprincess_1024x1024@2x.jpg', NULL),
 	(91, 'Bó Hoa Enchanted', 1549000.000, 0.000, 369, '', '', '2020-10-07 00:00:00', 1, 'BoHoaEnchanted_1024x1024@2x.jpg', NULL),
 	(92, 'Hộp Hoa Gỗ Sweet Tenderness', 879000.000, 0.000, 358, '', '', '2020-10-07 00:00:00', 1, 'H_pHoaG_SweetTenderness_1024x1024@2x.jpg', NULL),
@@ -521,11 +532,11 @@ INSERT INTO `sanpham` (`sp_id`, `sp_ten`, `sp_gia`, `sp_giacu`, `sp_soluong`, `s
 	(101, 'Bó hoa Shining Ruby', 949000.000, 0.000, 339, '', '', '2020-10-07 00:00:00', 1, 'Shining-Ruby_1024x1024@2x.jpg', NULL),
 	(102, 'Bó Hoa Love At First Sight', 1039000.000, 0.000, 283, '', '', '2020-10-07 00:00:00', 1, 'bo-hoa-love-at-first-sight-1_1_1024x1024@2x.jpg', NULL),
 	(103, 'Bó Hoa Gentle Love', 759000.000, 0.000, 175, '', '', '2020-10-07 00:00:00', 1, 'gentle-love-hcmc-hanoi_1024x1024@2x.jpg', NULL),
-	(104, 'Bó Hoa Roseanne', 449000.000, 749000.000, 294, '', '', '2020-10-07 00:00:00', 1, 'Bo-Hoa-Roseanne_1024x1024@2x.jpg', NULL),
-	(105, 'Hộp Hoa Blooms Of Love', 1029000.000, 0.000, 497, '', '', '2020-10-07 00:00:00', 1, 'Blooms-Of-Love_dc2f1bd1-fc27-4f43-b2bd-2a2529aff895_1024x1024@2x.jpg', NULL),
-	(107, 'Bó Hoa Cherish Bridal', 789000.000, 0.000, 404, '', '', '2020-10-07 00:00:00', 1, 'BoHoaCherishBridal_1024x1024@2x.jpg', NULL),
+	(104, 'Bó Hoa Roseanne', 449000.000, 749000.000, 294, '', '', '2020-10-09 00:00:00', 1, 'Bo-Hoa-Roseanne_1024x1024@2x.jpg', NULL),
+	(105, 'Hộp Hoa Blooms Of Love', 1029000.000, 0.000, 497, '', '', '2020-10-09 00:00:00', 1, 'Blooms-Of-Love_dc2f1bd1-fc27-4f43-b2bd-2a2529aff895_1024x1024@2x.jpg', NULL),
+	(107, 'Bó Hoa Cherish Bridal', 789000.000, 0.000, 404, '', '', '2020-10-09 00:00:00', 1, 'BoHoaCherishBridal_1024x1024@2x.jpg', NULL),
 	(108, 'Bó Hoa Cúc Tana Pure Joy', 299000.000, 529000.000, 495, '', '', '2020-10-07 00:00:00', 1, 'purejoy_1024x1024@2x.jpg', NULL),
-	(111, 'Bình Hoa Thủy Tinh Loving Me Softly', 639000.000, 0.000, 387, '', '', '2020-10-07 00:00:00', 1, 'BinhHoaTh_yTinhLovingMeSoftly_1024x1024@2x.jpg', NULL),
+	(111, 'Bình Hoa Thủy Tinh Loving Me Softly', 639000.000, 0.000, 387, '', '', '2020-10-08 00:00:00', 1, 'BinhHoaTh_yTinhLovingMeSoftly_1024x1024@2x.jpg', NULL),
 	(115, 'Giỏ Hoa Midsummer', 619000.000, 0.000, 100, '', '', '2020-10-07 00:00:00', 1, 'midsum_1024x1024@2x.jpg', NULL),
 	(116, 'Bó Hoa Be Grateful', 529000.000, 0.000, 215, '', '', '2020-10-07 00:00:00', 1, 'bo-hoa-be-grateful-1_1_1024x1024@2x.jpg', NULL),
 	(117, 'Bó Hoa Pinky Promise', 549000.000, 0.000, 398, '', '', '2020-10-07 00:00:00', 1, 'pink-promise-4_6a97191d-5eed-4693-96d7-e1881a8e408f_1024x1024@2x.jpg', NULL),
@@ -788,7 +799,7 @@ CREATE TABLE IF NOT EXISTS `sanpham_has_loaihoa` (
   CONSTRAINT `fk_sanpham_has_loaihoa_sanpham1` FOREIGN KEY (`sanpham_sp_id`) REFERENCES `sanpham` (`sp_id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table shophoa.sanpham_has_loaihoa: ~0 rows (approximately)
+-- Dumping data for table shophoa.sanpham_has_loaihoa: ~115 rows (approximately)
 /*!40000 ALTER TABLE `sanpham_has_loaihoa` DISABLE KEYS */;
 INSERT INTO `sanpham_has_loaihoa` (`sanpham_sp_id`, `loaihoa_lh_id`) VALUES
 	(1, 1),
@@ -919,7 +930,7 @@ CREATE TABLE IF NOT EXISTS `sanpham_has_mauhoa` (
   CONSTRAINT `fk_sanpham_has_mauhoa_sanpham1` FOREIGN KEY (`sanpham_sp_id`) REFERENCES `sanpham` (`sp_id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table shophoa.sanpham_has_mauhoa: ~0 rows (approximately)
+-- Dumping data for table shophoa.sanpham_has_mauhoa: ~95 rows (approximately)
 /*!40000 ALTER TABLE `sanpham_has_mauhoa` DISABLE KEYS */;
 INSERT INTO `sanpham_has_mauhoa` (`sanpham_sp_id`, `mauhoa_mh_id`) VALUES
 	(1, 1),
