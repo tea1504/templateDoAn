@@ -5,13 +5,13 @@
             <h6 class="m-0 mt-md-3">Trần Văn Hòa</h6>
         </div>
         <ul class="nav flex-column text-md-left text-center">
-            <hr style="border: 0.5px solid red; width: 80%;">
             <li class="nav-item">
                 <a class="nav-link active" href="#">
                     <i class="fa fa-tachometer" aria-hidden="true"></i>
                     Dashboard
                 </a>
             </li>
+            <hr style="border: 0.5px solid red; width: 80%;">
             <li class="nav-item">
                 <a class="nav-link" href="#khachhang" data-toggle="collapse" aria-expanded="false" >
                     <i class="fa fa-users" aria-hidden="true"></i>
@@ -19,49 +19,49 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#khachhang" data-toggle="collapse" aria-expanded="false" >
+                <a class="nav-link" href="#dondathang"  >
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     Đơn đặt hàng
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="#sanpham" data-toggle="collapse" aria-expanded="false" >
+                <a class="nav-link " href="/templateDoAn/functions/sanpham/index.php"  >
                 <i class="fa fa-cubes" aria-hidden="true"></i>
                     Sản phẩm
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="#chudesanpham" data-toggle="collapse" aria-expanded="false" >
+                <a class="nav-link " href="#chudesanpham"  >
                 <i class="fa fa-themeisle" aria-hidden="true"></i>
                     Chủ đề sản phẩm
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="#hinhsanpham" data-toggle="collapse" aria-expanded="false" >
+                <a class="nav-link " href="#hinhsanpham"  >
                 <i class="fa fa-picture-o" aria-hidden="true"></i>
                     Hình sản phẩm
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="#mauhoa" data-toggle="collapse" aria-expanded="false" >
+                <a class="nav-link " href="#mauhoa"  >
                 <i class="fa fa-themeisle" aria-hidden="true"></i>
                     Màu hoa sản phẩm
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="#loaihoa" data-toggle="collapse" aria-expanded="false" >
+                <a class="nav-link " href="#loaihoa"  >
                 <i class="fa fa-themeisle" aria-hidden="true"></i>
                     Loại hoa sản phẩm
                 </a>
             </li> 
             <li class="nav-item">
-                <a class="nav-link " href="#hinhthucthanhtoan" data-toggle="collapse" aria-expanded="false" >
+                <a class="nav-link " href="#hinhthucthanhtoan"  >
                 <i class="fa fa-credit-card" aria-hidden="true"></i>
                     Hình thức thanh toán
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="#khuyenmai" data-toggle="collapse" aria-expanded="false" >
+                <a class="nav-link " href="#khuyenmai"  >
                     <i class="fa fa-gift" aria-hidden="true"></i>
                     Khuyến mãi
                 </a>

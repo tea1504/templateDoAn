@@ -17,7 +17,7 @@ if (session_id() === '') {
         include_once(__DIR__ . '/../../template-index/style.php');
     ?>
     <!-- DataTable CSS -->
-    <link rel="stylesheet" href="../template-dashbroad/style.css">
+    <link rel="stylesheet" href="../../template-dashbroad/style.css">
     <link rel="stylesheet" href="/templateDoAn/vendor/DataTables/datatables.min.css">
     <link rel="stylesheet" href="/templateDoAn/vendor/DataTables/Buttons-1.6.3/css/buttons.bootstrap4.min.css">
 </head>
