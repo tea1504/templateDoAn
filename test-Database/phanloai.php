@@ -85,8 +85,27 @@ include_once(__DIR__ . '/dbconnect.php');
     <!-- Sản phẩm -->
     <div class="container">
         <?php
-        $sqlDanhSachSanPham = " SELECT sp.sp_id, sp.sp_ten, sp.sp_gia, sp.sp_giacu, sp.sp_avt_tenfile, hsp.hsp_tenfile AS hsp_tenfile, AVG(bl.bl_sao) AS sao FROM sanpham AS sp LEFT JOIN hinhsanpham AS hsp ON sp.sp_id = hsp.sanpham_sp_id LEFT JOIN binhluan AS bl ON sp.sp_id = bl.sanpham_sp_id GROUP BY sp.sp_id LIMIT 0, 4;";
-        $resultDanhSachSanPham = mysqli_query($conn, $sqlDanhSachSanPham);
+        $type = $_GET['type'];
+        $id = $_GET['id'];
+        if (isset($_GET['page']))
+            $page = $_GET['page'];
+        else
+            $page = 1;
+        $offset = ($page - 1) * 8;
+        if ($type == 'mauhoa') {
+            $sqlCount = "SELECT COUNT(*) as c FROM sanpham_has_mauhoa WHERE mauhoa_mh_id ={$id}";
+            $sql = "SELECT sp.sp_id, sp.sp_ten, sp.sp_gia, sp.sp_giacu, sp.sp_avt_tenfile, hsp.hsp_tenfile AS hsp_tenfile, AVG(bl.bl_sao) AS sao FROM sanpham AS sp LEFT JOIN hinhsanpham AS hsp ON hsp.sanpham_sp_id = sp.sp_id LEFT JOIN binhluan AS bl ON sp.sp_id = bl.sanpham_sp_id JOIN sanpham_has_mauhoa AS spmh ON sp.sp_id = spmh.sanpham_sp_id AND spmh.mauhoa_mh_id = {$id} GROUP BY sp.sp_id LIMIT {$offset}, 8;";
+            $sqlType = "SELECT mh_ten as ten FROM mauhoa WHERE mh_id={$id};";
+        } else if ($type == 'loaihoa') {
+            $sqlCount = "SELECT COUNT(*) as c FROM sanpham_has_loaihoa WHERE loaihoa_lh_id ={$id}";
+            $sql = "SELECT sp.sp_id, sp.sp_ten, sp.sp_gia, sp.sp_giacu, sp.sp_avt_tenfile, hsp.hsp_tenfile AS hsp_tenfile, AVG(bl.bl_sao) AS sao FROM sanpham AS sp LEFT JOIN hinhsanpham AS hsp ON hsp.sanpham_sp_id = sp.sp_id LEFT JOIN binhluan AS bl ON sp.sp_id = bl.sanpham_sp_id JOIN sanpham_has_loaihoa AS splh ON sp.sp_id = splh.sanpham_sp_id AND splh.loaihoa_lh_id = {$id} GROUP BY sp.sp_id LIMIT {$offset}, 8;";
+            $sqlType = "SELECT lh_ten as ten FROM loaihoa WHERE lh_id={$id};";
+        } else {
+            $sqlCount = "SELECT COUNT(*) as c FROM sanpham_has_chude WHERE chude_cd_id ={$id}";
+            $sql = "SELECT sp.sp_id, sp.sp_ten, sp.sp_gia, sp.sp_giacu, sp.sp_avt_tenfile, hsp.hsp_tenfile AS hsp_tenfile, AVG(bl.bl_sao) AS sao FROM sanpham AS sp LEFT JOIN hinhsanpham AS hsp ON hsp.sanpham_sp_id = sp.sp_id LEFT JOIN binhluan AS bl ON sp.sp_id = bl.sanpham_sp_id JOIN sanpham_has_chude AS spcd ON sp.sp_id = spcd.sanpham_sp_id AND spcd.chude_cd_id = {$id} GROUP BY sp.sp_id LIMIT {$offset}, 8;";
+            $sqlType = "SELECT cd_ten as ten FROM chude WHERE cd_id={$id};";
+        }
+        $resultDanhSachSanPham = mysqli_query($conn, $sql);
         $dataDanhSachSanPham = [];
         while ($row = mysqli_fetch_array($resultDanhSachSanPham, MYSQLI_ASSOC)) {
             $dataDanhSachSanPham[] = array(
@@ -99,8 +118,18 @@ include_once(__DIR__ . '/dbconnect.php');
                 'sao' => $row['sao'] > 0 ? $row['sao'] : 0,
             );
         }
+        $resultType = mysqli_query($conn, $sqlType);
+        $dataType = '';
+        while ($row = mysqli_fetch_array($resultType, MYSQLI_ASSOC)) {
+            $dataType = $row['ten'];
+        }
+        $resultCount = mysqli_query($conn, $sqlCount);
+        $dataCount = 0;
+        while ($row = mysqli_fetch_array($resultCount, MYSQLI_ASSOC)) {
+            $dataCount = $row['c'];
+        }
         ?>
-        <h3 class="myfont text-danger mt-3 text-center">Sản phẩm</h3>
+        <h3 class="myfont text-danger mt-3 text-center"><?= $dataType ?></h3>
         <div class="row row-cols-lg-4 row-cols-sm-3 row-cols-1">
             <?php foreach ($dataDanhSachSanPham as $sp) : ?>
                 <div class="col py-3">
@@ -148,134 +177,91 @@ include_once(__DIR__ . '/dbconnect.php');
                 </div>
             <?php endforeach; ?>
         </div>
-        <?php
-        $sqlDanhSachSanPhamMoi = " SELECT sp.sp_id, sp.sp_ten, sp.sp_gia, sp.sp_giacu, sp.sp_avt_tenfile, hsp.hsp_tenfile AS hsp_tenfile,AVG(bl.bl_sao) AS sao FROM sanpham AS sp LEFT JOIN hinhsanpham AS hsp ON sp.sp_id = hsp.sanpham_sp_id LEFT JOIN binhluan AS bl ON sp.sp_id = bl.sanpham_sp_id GROUP BY sp.sp_id ORDER BY sp.sp_ngaycapnhat DESC LIMIT 0, 4;";
-        $resultDanhSachSanPhamMoi = mysqli_query($conn, $sqlDanhSachSanPhamMoi);
-        $dataDanhSachSanPhamMoi = [];
-        while ($row = mysqli_fetch_array($resultDanhSachSanPhamMoi, MYSQLI_ASSOC)) {
-            $dataDanhSachSanPhamMoi[] = array(
-                'sp_id' => $row['sp_id'],
-                'sp_ten' => $row['sp_ten'],
-                'sp_gia' => number_format($row['sp_gia'], 0, ".", ","),
-                'sp_giacu' => number_format($row['sp_giacu'], 0, ".", ","),
-                'sp_avt_tenfile' => $row['sp_avt_tenfile'],
-                'hsp_tenfile' => $row['hsp_tenfile'],
-                'sao' => $row['sao'] > 0 ? $row['sao'] : 0,
-            );
-        }
-        ?>
-        <h3 class="myfont text-danger mt-3 text-center">Sản phẩm mới</h3>
-        <div class="row row-cols-lg-4 row-cols-sm-3 row-cols-1">
-            <?php foreach ($dataDanhSachSanPhamMoi as $sp) : ?>
-                <div class="col py-3">
-                    <div class="card my-card">
-                        <a href="chitiet.php?sp_id=<?= $sp['sp_id'] ?>">
-                            <div class="my-box-card-img">
-                                <!-- Ảnh đại diện -->
-                                <?php if (!file_exists('../anh-do-an/' . $sp['sp_avt_tenfile'])) : ?>
-                                    <img src="/templatedoan/anh-do-an/default.png" alt="<?= $sp['sp_ten'] ?>" class="card-img-top my-card-img img-show">
-                                <?php else : ?>
-                                    <img src="/templatedoan/anh-do-an/<?= $sp['sp_avt_tenfile'] ?>" alt="<?= $sp['sp_ten'] ?>" class="card-img-top my-card-img img-show">
-                                <?php endif; ?>
-                                <!-- Ảnh thứ 2 -->
-                                <?php if (!file_exists('../anh-do-an/' . $sp['hsp_tenfile']) || empty($sp['hsp_tenfile'])) : ?>
-                                    <img src="/templatedoan/anh-do-an/default.png" alt="<?= $sp['sp_ten'] ?>" class="card-img-top my-card-img img-hide">
-                                <?php else : ?>
-                                    <img src="/templatedoan/anh-do-an/<?= $sp['hsp_tenfile'] ?>" alt="<?= $sp['sp_ten'] ?>" class="card-img-top my-card-img img-hide">
-                                <?php endif; ?>
-                                <div class="text-danger danh_gia">
-                                    <?php for ($i = 1; $i <= floor($sp['sao']); $i++) : ?>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                    <?php endfor; ?>
-                                    <?php for ($i = 1; $i <= ceil($sp['sao']) - floor($sp['sao']); $i++) : ?>
-                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                    <?php endfor; ?>
-                                    <?php for ($i = 1; $i <= 5 - ceil($sp['sao']); $i++) : ?>
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                    <?php endfor; ?>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="card-body px-0">
-                            <a href="chitiet.php?sp_id=<?= $sp['sp_id'] ?>" class="card-title my-card-title font-weight-bold">
-                                <?= $sp['sp_ten'] ?>
-                            </a>
-                            <h5 class="my-3">
-                                <?php if ($sp['sp_giacu'] != "0") : ?>
-                                    <span class="text-secondary"><s><?= $sp['sp_giacu'] ?></s>
-                                    <?php endif; ?>
-                                    </span> <span class="text-danger"><?= $sp['sp_gia'] ?> đ</span>
-                            </h5>
-                            <button class="btn myfont text-danger btn-add btn-mua" data-sp_id="<?= $sp['sp_id'] ?>">Thêm vào giỏ hàng</button>
-                        </div>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
-        <?php
-        $sqlDanhSachSanPhamMoi = " SELECT sp.sp_id, sp.sp_ten, sp.sp_gia, sp.sp_giacu, sp.sp_avt_tenfile, hsp.hsp_tenfile AS hsp_tenfile,AVG(bl.bl_sao) AS sao FROM sanpham AS sp LEFT JOIN hinhsanpham AS hsp ON sp.sp_id = hsp.sanpham_sp_id LEFT JOIN binhluan AS bl ON sp.sp_id = bl.sanpham_sp_id GROUP BY sp.sp_id ORDER BY sp.sp_yeuthich DESC LIMIT 0, 4;";
-        $resultDanhSachSanPhamMoi = mysqli_query($conn, $sqlDanhSachSanPhamMoi);
-        $dataDanhSachSanPhamMoi = [];
-        while ($row = mysqli_fetch_array($resultDanhSachSanPhamMoi, MYSQLI_ASSOC)) {
-            $dataDanhSachSanPhamMoi[] = array(
-                'sp_id' => $row['sp_id'],
-                'sp_ten' => $row['sp_ten'],
-                'sp_gia' => number_format($row['sp_gia'], 0, ".", ","),
-                'sp_giacu' => number_format($row['sp_giacu'], 0, ".", ","),
-                'sp_avt_tenfile' => $row['sp_avt_tenfile'],
-                'hsp_tenfile' => $row['hsp_tenfile'],
-                'sao' => $row['sao'] > 0 ? $row['sao'] : 0,
-            );
-        }
-        ?>
-        <h3 class="myfont text-danger mt-3 text-center">Sản phẩm yêu thích</h3>
-        <div class="row row-cols-lg-4 row-cols-sm-3 row-cols-1">
-            <?php foreach ($dataDanhSachSanPhamMoi as $sp) : ?>
-                <div class="col py-3">
-                    <div class="card my-card">
-                        <a href="chitiet.php?sp_id=<?= $sp['sp_id'] ?>">
-                            <div class="my-box-card-img">
-                                <!-- Ảnh đại diện -->
-                                <?php if (!file_exists('../anh-do-an/' . $sp['sp_avt_tenfile'])) : ?>
-                                    <img src="/templatedoan/anh-do-an/default.png" alt="<?= $sp['sp_ten'] ?>" class="card-img-top my-card-img img-show">
-                                <?php else : ?>
-                                    <img src="/templatedoan/anh-do-an/<?= $sp['sp_avt_tenfile'] ?>" alt="<?= $sp['sp_ten'] ?>" class="card-img-top my-card-img img-show">
-                                <?php endif; ?>
-                                <!-- Ảnh thứ 2 -->
-                                <?php if (!file_exists('../anh-do-an/' . $sp['hsp_tenfile']) || empty($sp['hsp_tenfile'])) : ?>
-                                    <img src="/templatedoan/anh-do-an/default.png" alt="<?= $sp['sp_ten'] ?>" class="card-img-top my-card-img img-hide">
-                                <?php else : ?>
-                                    <img src="/templatedoan/anh-do-an/<?= $sp['hsp_tenfile'] ?>" alt="<?= $sp['sp_ten'] ?>" class="card-img-top my-card-img img-hide">
-                                <?php endif; ?>
-                                <div class="text-danger danh_gia">
-                                    <?php for ($i = 1; $i <= floor($sp['sao']); $i++) : ?>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                    <?php endfor; ?>
-                                    <?php for ($i = 1; $i <= ceil($sp['sao']) - floor($sp['sao']); $i++) : ?>
-                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                    <?php endfor; ?>
-                                    <?php for ($i = 1; $i <= 5 - ceil($sp['sao']); $i++) : ?>
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                    <?php endfor; ?>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="card-body px-0">
-                            <a href="chitiet.php?sp_id=<?= $sp['sp_id'] ?>" class="card-title my-card-title font-weight-bold">
-                                <?= $sp['sp_ten'] ?>
-                            </a>
-                            <h5 class="my-3">
-                                <?php if ($sp['sp_giacu'] != "0") : ?>
-                                    <span class="text-secondary"><s><?= $sp['sp_giacu'] ?></s>
-                                    <?php endif; ?>
-                                    </span> <span class="text-danger"><?= $sp['sp_gia'] ?> đ</span>
-                            </h5>
-                            <button class="btn myfont text-danger btn-add btn-mua" data-sp_id="<?= $sp['sp_id'] ?>">Thêm vào giỏ hàng</button>
-                        </div>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
+        <!-- Phân trang  -->
+        <nav aria-label="Page navigation example" class="mx-auto">
+            <ul class="pagination justify-content-center">
+                <?php if ($page <= 1) : ?>
+                    <li class="page-item disabled"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page - 1 ?>">Previous</a></li>
+                <?php else : ?>
+                    <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page - 1 ?>">Previous</a></li>
+                <?php endif; ?>
+                <?php
+                $num_page = ceil($dataCount / 8);
+                if ($num_page <= 4) {
+                    for ($i = 1; $i <= $num_page; $i++) {
+                        if ($i == $page) {
+                        ?>
+                                <li class="page-item active"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?><span class="sr-only">(current)</span></a></li>
+                            <?php
+                            } else {
+                            ?>
+                                <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?></a></li>
+                        <?php
+                            }
+                    }
+                } else {
+                    if ($page < 3) {
+                        $n = 3 > $num_page ? $num_page : 3;
+                        for ($i = 1; $i <= $n; $i++) {
+                            if ($i == $page) {
+                        ?>
+                                <li class="page-item active"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?><span class="sr-only">(current)</span></a></li>
+                            <?php
+                            } else {
+                            ?>
+                                <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?></a></li>
+                        <?php
+                            }
+                        }
+                        ?>
+                        <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page + 3 ?>">...</a></li>
+                    <?php
+                    } else if ($num_page - $page + 1 <= 2) {
+                    ?>
+                        <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $num_page - 3 ?>">...</a></li>
+                        <?php
+                        $start = $num_page - 2 > 0 ? $num_page - 2: 1;
+                        for ($i = $start; $i <= $num_page; $i++) {
+                            if ($i == $page) {
+                        ?>
+                                <li class="page-item active"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?><span class="sr-only">(current)</span></a></li>
+                            <?php
+                            } else {
+                            ?>
+                                <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?></a></li>
+                        <?php
+                            }
+                        }
+                    } else {
+                        ?>
+                        <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page - 2 ?>">...</a></li>
+                        <?php
+                        $n = $page + 1 > $num_page ? $num_page : $page + 1;
+                        for ($i = $page - 1; $i <= $n; $i++) {
+                            if ($i == $page) {
+                        ?>
+                                <li class="page-item active"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?><span class="sr-only">(current)</span></a></li>
+                            <?php
+                            } else {
+                            ?>
+                                <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?></a></li>
+                        <?php
+                            }
+                        }
+                        ?>
+                        <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page + 2 ?>">...</a></li>
+                <?php
+                    }
+                }
+                ?>
+                <?php if ($page >= $num_page) : ?>
+                    <li class="page-item disabled"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page + 1 ?>">Next</a></li>
+                <?php else : ?>
+                    <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page + 1 ?>">Next</a></li>
+                <?php endif; ?>
+            </ul>
+        </nav>
+        <!-- End phân trang  -->
     </div>
     <div id="themsp" style="display: none">
         <div class="shadow-lg p-3" id="a">
@@ -321,21 +307,21 @@ include_once(__DIR__ . '/dbconnect.php');
                     success: function(response) {
                         var data = JSON.parse(response);
                         var gia = '';
-                        if(data.sp_giacu != '0'){
+                        if (data.sp_giacu != '0') {
                             gia = `
                             <h4><span class="text-secondary"><s>${data.sp_giacu}</s></span> <span class="text-danger">${data.sp_gia} đ</span></h4>
                             `
-                        } else{
+                        } else {
                             gia = `
                             <h4><span class="text-danger">${data.sp_gia} đ</span></h4>
                             `
                         }
                         var sao = '';
-                        for(var i=1; i<=data.sao; i++)
+                        for (var i = 1; i <= data.sao; i++)
                             sao += '<i class="fa fa-star" aria-hidden="true"></i>';
-                        for(var i=1; i<=Math.ceil(data.sao)-Math.floor(data.sao); i++)
+                        for (var i = 1; i <= Math.ceil(data.sao) - Math.floor(data.sao); i++)
                             sao += '<i class="fa fa-star-half-o" aria-hidden="true"></i>';
-                        for(var i=1; i<=5-Math.ceil(data.sao); i++)
+                        for (var i = 1; i <= 5 - Math.ceil(data.sao); i++)
                             sao += '<i class="fa fa-star-o" aria-hidden="true"></i>';
                         var htmlString = `
                         <div class="row">
