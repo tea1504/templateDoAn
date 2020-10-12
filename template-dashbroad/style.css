@@ -16,7 +16,7 @@
     .sidebar {
         top: 5rem;
         overflow-y: auto;
-    }  
+    }
 }
 
 .sidebar-sticky {
@@ -40,31 +40,38 @@
     right: 1rem;
 }
 
-#avatar img{
+#avatar img {
     border-radius: 50%;
 }
 
-@media (max-width: 425px){
-    #avatar img{
+@media (max-width: 425px) {
+    #avatar img {
         display: none;
     }
 }
 
-nav ul li a{
+nav ul li a {
     font-size: 1rem;
 }
+
 nav ul {
     list-style-type: none;
 }
+
 a.navbar-brand {
     color: #ffffff !important;
     text-align: center !important;
     font-weight: bolder !important;
     text-transform: uppercase !important;
-    }
+}
+
 .navbar-dark .navbar-brand:hover {
     color: #eb46a6!important;
 }
-#sidebarMenu{
+
+#sidebarMenu {
     padding-top: 3rem!important;
 }
+
+
+/*-css - bootrap - */
