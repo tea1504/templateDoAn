@@ -5,13 +5,13 @@
             <h6 class="m-0 mt-md-3">Trần Văn Hòa</h6>
         </div>
         <ul class="nav flex-column text-md-left text-center">
-            <hr style="border: 0.5px solid red; width: 80%;">
             <li class="nav-item">
                 <a class="nav-link active" href="#">
                     <i class="fa fa-tachometer" aria-hidden="true"></i>
                     Dashboard
                 </a>
             </li>
+            <hr style="border: 0.5px solid red; width: 80%;">
             <li class="nav-item">
                 <a class="nav-link" href="#khachhang" data-toggle="collapse" aria-expanded="false" >
                     <i class="fa fa-users" aria-hidden="true"></i>
