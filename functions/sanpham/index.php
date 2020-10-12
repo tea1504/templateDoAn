@@ -24,7 +24,8 @@ if (session_id() === '') {
 
 <body class="d-flex flex-column h-100">
     <!-- header -->
-       
+    <?php include_once(__DIR__ . '/../../template-dashbroad/layouts/header.php');?> 
+
     <!-- end header -->
 
     <div class="container-fluid">
@@ -63,7 +64,7 @@ if (session_id() === '') {
                             <td>Mã 001</td>
                             <td>Hoa hồng trắng </td>
                             <td>Hoa hồng</td>
-                            <td>50.000</td>
+                            <td>30.000</td>
                             <td>Vườn hoa Đà Lạt</td>
                             <td>1</td>
                             <td>29-10-2020</td>
@@ -93,9 +94,6 @@ if (session_id() === '') {
                                 </a>
                             </td>
                         </tr>
-                       
-                        
-                       
                     </tbody>
                 </table>
                 <!-- End block content -->
@@ -103,8 +101,9 @@ if (session_id() === '') {
         </div>
     </div>
     <!--     Phần content         -->
+    
     <!-- footer -->
-
+    <?php include_once(__DIR__ . '/../../template-dashbroad/layouts/footer.php');?> 
     <!-- end footer -->
 
     <!-- Nhúng file quản lý phần SCRIPT JAVASCRIPT -->

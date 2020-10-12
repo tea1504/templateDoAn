@@ -37,7 +37,7 @@
                 </a>
                 <ul class="collapse" id="sanpham">
                     <li class="nav-item">
-                        <a href="#">Danh sách</a>
+                        <a href="/templateDoAn/functions/sanpham/index.php">Danh sách</a>
                     </li>
                     <li class="nav-item">
                         <a href="#">Thêm mới</a>
