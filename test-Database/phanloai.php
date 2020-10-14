@@ -129,6 +129,7 @@ include_once(__DIR__ . '/dbconnect.php');
             $dataCount = $row['c'];
         }
         ?>
+        <a name="123"></a>
         <h3 class="myfont text-danger mt-3 text-center"><?= $dataType ?></h3>
         <div class="row row-cols-lg-4 row-cols-sm-3 row-cols-1">
             <?php foreach ($dataDanhSachSanPham as $sp) : ?>
@@ -181,9 +182,9 @@ include_once(__DIR__ . '/dbconnect.php');
         <nav aria-label="Page navigation example" class="mx-auto">
             <ul class="pagination justify-content-center">
                 <?php if ($page <= 1) : ?>
-                    <li class="page-item disabled"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page - 1 ?>">Previous</a></li>
+                    <li class="page-item disabled"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page - 1 ?>#123">Previous</a></li>
                 <?php else : ?>
-                    <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page - 1 ?>">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page - 1 ?>#123">Previous</a></li>
                 <?php endif; ?>
                 <?php
                 $num_page = ceil($dataCount / 8);
@@ -191,11 +192,11 @@ include_once(__DIR__ . '/dbconnect.php');
                     for ($i = 1; $i <= $num_page; $i++) {
                         if ($i == $page) {
                         ?>
-                                <li class="page-item active"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?><span class="sr-only">(current)</span></a></li>
+                                <li class="page-item active"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>#123"><?= $i ?><span class="sr-only">(current)</span></a></li>
                             <?php
                             } else {
                             ?>
-                                <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?></a></li>
+                                <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>#123"><?= $i ?></a></li>
                         <?php
                             }
                     }
@@ -205,59 +206,59 @@ include_once(__DIR__ . '/dbconnect.php');
                         for ($i = 1; $i <= $n; $i++) {
                             if ($i == $page) {
                         ?>
-                                <li class="page-item active"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?><span class="sr-only">(current)</span></a></li>
+                                <li class="page-item active"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>#123"><?= $i ?><span class="sr-only">(current)</span></a></li>
                             <?php
                             } else {
                             ?>
-                                <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?></a></li>
+                                <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>#123"><?= $i ?></a></li>
                         <?php
                             }
                         }
                         ?>
-                        <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page + 3 ?>">...</a></li>
+                        <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page + 3 ?>#123">...</a></li>
                     <?php
                     } else if ($num_page - $page + 1 <= 2) {
                     ?>
-                        <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $num_page - 3 ?>">...</a></li>
+                        <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $num_page - 3 ?>#123">...</a></li>
                         <?php
                         $start = $num_page - 2 > 0 ? $num_page - 2: 1;
                         for ($i = $start; $i <= $num_page; $i++) {
                             if ($i == $page) {
                         ?>
-                                <li class="page-item active"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?><span class="sr-only">(current)</span></a></li>
+                                <li class="page-item active"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>#123"><?= $i ?><span class="sr-only">(current)</span></a></li>
                             <?php
                             } else {
                             ?>
-                                <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?></a></li>
+                                <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>#123"><?= $i ?></a></li>
                         <?php
                             }
                         }
                     } else {
                         ?>
-                        <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page - 2 ?>">...</a></li>
+                        <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page - 2 ?>#123">...</a></li>
                         <?php
                         $n = $page + 1 > $num_page ? $num_page : $page + 1;
                         for ($i = $page - 1; $i <= $n; $i++) {
                             if ($i == $page) {
                         ?>
-                                <li class="page-item active"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?><span class="sr-only">(current)</span></a></li>
+                                <li class="page-item active"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>#123"><?= $i ?><span class="sr-only">(current)</span></a></li>
                             <?php
                             } else {
                             ?>
-                                <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>"><?= $i ?></a></li>
+                                <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $i ?>#123"><?= $i ?></a></li>
                         <?php
                             }
                         }
                         ?>
-                        <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page + 2 ?>">...</a></li>
+                        <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page + 2 ?>#123">...</a></li>
                 <?php
                     }
                 }
                 ?>
                 <?php if ($page >= $num_page) : ?>
-                    <li class="page-item disabled"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page + 1 ?>">Next</a></li>
+                    <li class="page-item disabled"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page + 1 ?>#123">Next</a></li>
                 <?php else : ?>
-                    <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page + 1 ?>">Next</a></li>
+                    <li class="page-item"><a class="page-link" href="phanloai.php?type=<?= $type ?>&id=<?= $id ?>&page=<?= $page + 1 ?>#123">Next</a></li>
                 <?php endif; ?>
             </ul>
         </nav>
