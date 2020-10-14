@@ -18,7 +18,6 @@
                             <input class="form-control hoa-form-control" type="search" placeholder="tìm kiếm ..." aria-label="Search">
                             <button class="btn btn-outline-success my-btn-cir" id="btn-search" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                         </div>
-
                     </div>
                 </form>
             </div>
