@@ -6,7 +6,7 @@
         </div>
         <ul class="nav flex-column text-md-left text-center">
             <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <a class="nav-link active" href="/templateDoAn/template-dashbroad/indexcopy.php">
                     <i class="fa fa-tachometer" aria-hidden="true"></i>
                     Dashboard
                 </a>
